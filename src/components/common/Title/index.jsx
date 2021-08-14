@@ -10,7 +10,7 @@ const Title = () => {
 
   return (
     <div className='title'>
-      <h1 className='title__h1'>&#123; {nickName} &#125; </h1>
+      <h1 className='title__h1'>{nickName}</h1>
     </div>
   );
 };

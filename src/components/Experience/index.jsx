@@ -12,7 +12,7 @@ const Experience = () => {
     <>
       {experiences && 
       <>
-        <SubTitle>Experiences</SubTitle>
+        <SubTitle></SubTitle>
         <div className='experience-container'>
           {experiences.map((experience, index) => (
             <Event key={index} event={experience} />

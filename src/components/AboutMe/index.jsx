@@ -76,7 +76,6 @@ const AboutMe = () => {
 
   return (
     <>
-      <SubTitle>About Me</SubTitle>
       <div className='about-me-container'>
         <div className='personal-infos'>
           <div className='profile-image'>
@@ -92,13 +91,13 @@ const AboutMe = () => {
                   <CSSTransition
                     nodeRef={nodeRef}
                     in={isEmailCopied}
-                    timeout={300}
+                    timeout={100}
                     classNames='alert'
                     unmountOnExit
                     appear
                   >
                     <span ref={nodeRef} className='alert'>
-                      copied!
+                      복사됨
                     </span>
                   </CSSTransition>
                 </div>
@@ -123,7 +122,7 @@ const AboutMe = () => {
           </div>
         </div>
         <div className='introduce'>
-          <div className='subtitle'>Let me Introduce myself</div>
+          <div className='subtitle'>소개할게요</div>
           <div className='about' ref={aboutMyselfRef}></div>
         </div>
       </div>

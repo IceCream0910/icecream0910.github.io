@@ -1,134 +1,100 @@
 {
-  "meta": {
-    "title": "DP for your portfolio",
-    "defaultLanguage": "English"
-  },
-  "aboutMe": {
-    "name": "Min Kyung Kang",
-    "nickName": "nickName!",
-    "profileImg": "../assets/images/me.gif",
-    "email": "mnk918p@gmail.com",
-    "githubUrl": "https://github.com/ddongule",
-    "blogUrl": "https://mingule.tistory.com/",
-    "linkedInUrl": "https://www.linkedin.com/"
-  },
-
-  "skillSets": [
-    {
-      "category": "Front End Skills",
-      "skills": [
-        { "skill": "Javascript", "level": "5" },
-        { "skill": "HTML/CSS(SASS)", "level": "5" },
-        { "skill": "React", "level": "5" },
-        { "skill": "Typescript", "level": "4" }
-      ]
+    "meta": {
+        "title": "Ice Cream",
+        "defaultLanguage": "Korean"
     },
-    {
-      "category": "Back End Skills",
-      "skills": [
-        { "skill": "Python", "level": "3" },
-        { "skill": "Django", "level": "2" },
-        { "skill": "Django-Rest-Framework", "level": "1" },
-        { "skill": "Java", "level": "5" },
-        { "skill": "Spring", "level": "5" },
-        { "skill": "Ruby", "level": "4" },
-        { "skill": "Ruby-on-Rails", "level": "5" }
-      ]
-    },
-    {
-      "category": "Collaboration Skills",
-      "skills": [
-        { "skill": "Git/Github" },
-        { "skill": "Notion" },
-        { "skill": "Slack" },
-        { "skill": "Swit" }
-      ]
-    },
-    {
-      "category": "Etc...",
-      "skills": [
-        { "skill": "Netlify" },
-        { "skill": "Heroku" },
-        { "skill": "Pythonanywhere" },
-        { "skill": "AWS EC2" },
-        { "skill": "AWS Beanstalk" },
-        { "skill": "Docker" }
-      ]
-    }
-  ],
-
-  "projects": [
-    {
-      "imgUrl": "",
-      "githubUrl": "https://github.com/ddongule",
-      "projectUrl": "",
-      "title": "[Team] Project Title",
-      "term": "21.02.02 v1.3.0",
-      "description": "About the project ... Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia ..",
-      "attribution": "How you made it.. Technology that you used.. Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia ..",
-      "tags": ["React", "Javascript", "Java", "Spring"]
-    },
-    {
-      "imgUrl": "/assets/images/example-image-light.png",
-      "githubUrl": "https://github.com/ddongule",
-      "projectUrl": "",
-      "title": "[Personal] Project Title",
-      "term": "21.01.01 v1.0.0",
-      "description": "About the project ... Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia ..",
-      "attribution": "How you made it.. Technology that you used.. Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia ..",
-      "tags": ["React", "Javascript", "Java", "Spring"]
-    }
-  ],
-
-  "timestamp": [
-    {
-      "title": "Woowa Sisters",
-      "when": "21.12 ~ ",
-      "organizer": "Woowa Sisters",
-      "tags": ["company"]
+    "aboutMe": {
+        "name": "윤태인",
+        "nickName": "Ice Cream",
+        "profileImg": "../assets/images/emoji-unscreen.gif",
+        "email": "icecream2370@kakao.com",
+        "githubUrl": "https://github.com/icecream0910",
+        "blogUrl": "https://taein0910.github.io/blog",
+        "linkedInUrl": ""
     },
 
-    {
-      "title": "2021 Woowa Tech Course 3th",
-      "when": "21.02.01 - 21.11.31",
-      "organizer": "Woowa Bros",
-      "tags": ["techcourse"]
-    },
-    {
-      "title": "우아한 대학교 (Woowa University)",
-      "when": "20.08.25",
-      "organizer": "University of Woowa",
-      "tags": ["graduation"]
-    }
-  ],
+    "skillSets": [{
+            "category": "Front End Skills",
+            "skills": [
+                { "skill": "Javascript", "level": "5" },
+                { "skill": "HTML/CSS", "level": "5" },
+                { "skill": "Android", "level": "4" }
+            ]
+        },
+        {
+            "category": "Back End Skills",
+            "skills": [
+                { "skill": "Node.js", "level": "4" },
+                { "skill": "Java", "level": "4" },
+                { "skill": "Spring", "level": "3" },
+                { "skill": "Python", "level": "2" }
 
-  "experiences": [
-    {
-      "imgUrl": "/assets/images/example-image-dark.png",
-      "title": "[Software Engineer] Woowa Corp.",
-      "term": "21.02 - 현재 진행 중",
-      "description": "The Experiences that I have in Woowa Corp. Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia ..",
-      "experienceUrl": "https://woowacourse.github.io/"
-    },
-    {
-      "imgUrl": "/assets/images/example-image-light.png",
-      "title": "[Intern] Woowa Corp.",
-      "term": "19.11 - 21.03",
-      "description": "The Experiences that I have in Woowa Corp. Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia .. ",
-      "experienceUrl": "https://woowacourse.github.io/"
-    }
-  ],
+            ]
+        },
+        {
+            "category": "Collaboration Skills",
+            "skills": [
+                { "skill": "Git/Github" },
+                { "skill": "Notion" },
+                { "skill": "채널톡" },
+                { "skill": "Swit" }
+            ]
+        },
+        {
+            "category": "Etc...",
+            "skills": [
+                { "skill": "Heroku" },
+                { "skill": "AWS EC2" },
+                { "skill": "AWS Beanstalk" }
+            ]
+        }
+    ],
 
-  "educations": [
-    {
-      "title": "우아한 대학교 (Woowa University)",
-      "term": "2013.03 - 2017.03",
-      "description": "척척박사 졸업"
-    },
-    {
-      "title": "잠실 고등학교 (Jamsil High School)",
-      "term": "2010.03 - 2013.02",
-      "description": "인문계 졸업"
-    }
-  ]
+    "projects": [{
+            "imgUrl": "",
+            "githubUrl": "https://github.com/ddongule",
+            "projectUrl": "",
+            "title": "[Team] Project Title",
+            "term": "21.02.02 v1.3.0",
+            "description": "About the project ... Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia ..",
+            "attribution": "How you made it.. Technology that you used.. Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia ..",
+            "tags": ["React", "Javascript", "Java", "Spring"]
+        },
+        {
+            "imgUrl": "/assets/images/example-image-light.png",
+            "githubUrl": "https://github.com/ddongule",
+            "projectUrl": "",
+            "title": "[Personal] Project Title",
+            "term": "21.01.01 v1.0.0",
+            "description": "About the project ... Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia ..",
+            "attribution": "How you made it.. Technology that you used.. Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia ..",
+            "tags": ["React", "Javascript", "Java", "Spring"]
+        }
+    ],
+
+    "timestamp": [{
+        "title": "고등학교 재학중",
+        "when": "2021 ~ ",
+        "organizer": "경기 성일고등학교",
+        "tags": ["school"]
+    }],
+
+    "experiences": [],
+
+    "educations": [{
+            "title": "정보처리기능사",
+            "term": "2017.12",
+            "description": "한국산업인력공단"
+        },
+        {
+            "title": "컴퓨터활용능력 2급",
+            "term": "2016.12",
+            "description": "대한상공회의소"
+        },
+        {
+            "title": "GTQ(그래픽기술자격) 1급",
+            "term": "2017.03",
+            "description": "한국생산성본부"
+        }
+    ]
 }
