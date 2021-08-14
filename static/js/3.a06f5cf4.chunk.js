@@ -1,2 +1,0 @@
-(this.webpackJsonpportfolio=this.webpackJsonpportfolio||[]).push([[3],{58:function(t,o,i){"use strict";i.r(o),o.default=i.p+"static/media/aboutMySelf.english.6f92f93a.md"}}]);
-//# sourceMappingURL=3.a06f5cf4.chunk.js.map
