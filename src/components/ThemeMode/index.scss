@@ -1,25 +1,65 @@
 .container {
-  display: flex;
-  justify-content: space-between;
-
-  .language {
-    select {
-      -webkit-appearance: none;
-      cursor: pointer;
-    }
-  }
-
-  .theme-container {
     display: flex;
-    justify-content: flex-end;
-
-    button {
-      width: 1.625rem;
-      height: 1.625rem;
-
-      background-image: url('../../assets/static/images/half-moon.png');
-      background-repeat: no-repeat;
-      background-size: 100%;
+    justify-content: space-between;
+    .language {
+        select {
+            -webkit-appearance: none;
+            cursor: pointer;
+        }
     }
-  }
+    .theme-container {
+        padding: 0.6em 0.5em 0.5em 0.8em;
+        display: flex;
+        justify-content: flex-end;
+        button {
+            width: 1.625rem;
+            height: 1.625rem;
+            background-image: url('../../assets/static/images/half-moon.png');
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+    }
+}
+
+.blog_nav {
+    margin-top: 3px;
+    margin-right: 20px;
+}
+
+.blog_nav:hover {
+    color: #966fd6;
+}
+
+select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+select {
+    /* 생략 */
+    font-family: "Noto Sansf KR", sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #444;
+    background-color: #fff;
+    margin: 0;
+    padding: 0.6em 1.4em 0.5em 0.8em;
+    border-radius: 0.5em;
+}
+
+select:hover {
+    border-color: #888;
+}
+
+select:focus {
+    border-color: #aaa;
+    box-shadow: 0 0 0 3px -moz-mac-focusring;
+    color: #222;
+    outline: none;
+}
+
+select:disabled {
+    opacity: 0.5;
 }

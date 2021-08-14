@@ -51,24 +51,44 @@
     ],
 
     "projects": [{
-            "imgUrl": "",
-            "githubUrl": "https://github.com/ddongule",
-            "projectUrl": "",
-            "title": "[Team] Project Title",
-            "term": "21.02.02 v1.3.0",
-            "description": "About the project ... Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia ..",
-            "attribution": "How you made it.. Technology that you used.. Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia ..",
-            "tags": ["React", "Javascript", "Java", "Spring"]
+            "imgUrl": "https://icecream0910.github.io/coronacoc/assets/img/icons/icon-512.png",
+            "githubUrl": "",
+            "projectUrl": "https://icecream0910.github.io/projects/coronacoc",
+            "title": "코로나콕",
+            "term": "2020.03 ~",
+            "description": "코로나19 현황과 정보를 한눈에 확인해보세요.",
+            "attribution": "코로나19라는 새로운 바이러스의 등장은 우리의 평범했던 일상을 앗아갔습니다. 코로나콕은 다양한 통계들과 정보를 한눈에 보기 쉽게 시각화하여 보여주는 서비스입니다.",
+            "tags": ["HTML", "CSS", "Javascript", "Node.js", "Android"]
         },
         {
-            "imgUrl": "/assets/images/example-image-light.png",
-            "githubUrl": "https://github.com/ddongule",
-            "projectUrl": "",
-            "title": "[Personal] Project Title",
-            "term": "21.01.01 v1.0.0",
-            "description": "About the project ... Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia ..",
-            "attribution": "How you made it.. Technology that you used.. Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia ..",
-            "tags": ["React", "Javascript", "Java", "Spring"]
+            "imgUrl": "https://play-lh.googleusercontent.com/cx7cp9T47vJJR4Le3UqjeY7OKxw6H15Zn_5pdOHYSFqZ5byBT5sK9CScqCZ-_LGuDHu1=s180-rw",
+            "githubUrl": "",
+            "projectUrl": "https://icecream0910.github.io/projects/pokelive",
+            "title": "포켓라이브",
+            "term": "2020.01 ~",
+            "description": "다른 플레이어들과 이벤트 등 정보를 공유하거나 레이드, 교환 등에 대해 자유롭게 소통해보세요!",
+            "attribution": "포고인들을 위한 커뮤니티 레이드, 친구요청, 교환 등 오직 포고인들을 위해 구성된 커뮤니티는 포켓몬고의 플레이를 더 재밌게 만듭니다. 게임에서 진행되는 다양한 이벤트 소식을 세번째 탭에서 한번에 모아볼 수 있습니다. 게임 플레이 중 질문이 생긴다면 포켓라이브에서 질문해보세요.",
+            "tags": ["PHP", "Javascript", "Android", "SQL"]
+        },
+        {
+            "imgUrl": "https://img.onestore.co.kr/thumbnails/img_sac/192_192_A20_40/data6/android/201909/19/SE201907221631509800045734/0000741773/img/original/0000741773_DP000101_20190919164800.png",
+            "githubUrl": "",
+            "projectUrl": "https://icecream0910.github.io/projects/ansayo",
+            "title": "안사요",
+            "term": "2019.07 ~ 2019.12(서비스 종료)",
+            "description": "일본 제품 불매운동을 보다 쉽고 올바르게 할 수 있도록 도와줍니다.",
+            "attribution": "지난 2019년 일본이 수출규제를 시행하며 국내에서 일본 제품 불매운동이 확산되었습니다. 저는 일본 제품을 리스트화해 보여주고 일본 제품이 맞는지 쉽게 확인할 수 있는 서비스가 필요하다고 생각했고, ‘안사요’를 개발하게 되었습니다.",
+            "tags": ["Android"]
+        },
+        {
+            "imgUrl": "https://download.beer/wp-content/uploads/2021/01/naver-whale-logo-0x0.png",
+            "githubUrl": "",
+            "projectUrl": "https://icecream0910.github.io/projects/extensions",
+            "title": "웨일 브라우저 확장앱",
+            "term": "개발기",
+            "description": "네이버 웨일 브라우저의 기능을 이용한 확장앱들을 개발하였습니다.",
+            "attribution": "",
+            "tags": ["Extension", "HTML", "CSS", "Javascript"]
         }
     ],
 
