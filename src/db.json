@@ -18,7 +18,9 @@
             "skills": [
                 { "skill": "Javascript", "level": "5" },
                 { "skill": "HTML/CSS", "level": "5" },
-                { "skill": "Android", "level": "4" }
+                { "skill": "Android", "level": "4" },
+                { "skill": "React", "level": "1" },
+                { "skill": "Vue.js", "level": "1" }
             ]
         },
         {
