@@ -1,12 +1,6 @@
 {
-  "short_name": "ddongule",
-  "name": "ddongule's portfolio",
-  "icons": [
-    {
-      "src": "favicon.ico",
-      "type": "image/x-icon"
-    }
-  ],
-  "start_url": ".",
-  "display": "standalone"
+    "short_name": "Ice Cream",
+    "name": "Ice Cream",
+    "start_url": ".",
+    "display": "standalone"
 }
