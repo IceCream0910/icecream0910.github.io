@@ -6,7 +6,7 @@
     "aboutMe": {
         "name": "윤태인",
         "nickName": "Ice Cream",
-        "profileImg": "/assets/images/emoji-unscreen.gif",
+        "profileImg": "assets/images/emoji-unscreen.gif",
         "email": "icecream2370@kakao.com",
         "githubUrl": "https://github.com/icecream0910",
         "blogUrl": "https://taein0910.github.io/blog",
