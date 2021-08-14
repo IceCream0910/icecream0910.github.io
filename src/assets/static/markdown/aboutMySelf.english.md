@@ -11,10 +11,9 @@
 <br />
 <br />
 
+<img alt="githubstat" src="https://github-readme-stats.vercel.app/api?username=icecream0910&hide=contribs,stars,prs,issues&theme=dracula" href="https://github.com/icecream0910" target="_blank">
 
-[![githubstat](https://github-readme-stats.vercel.app/api?username=icecream0910&hide=contribs,stars,prs,issues&theme=dracula)](https://github.com/icecream0910)
-
-
+<br />
 <br />
 
 ## Understanding the value of being +B+together+B+,
