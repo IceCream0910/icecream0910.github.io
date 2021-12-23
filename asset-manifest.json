@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/static/css/main.99732f5d.chunk.css",
-    "main.js": "/static/js/main.7d09e31e.chunk.js",
-    "main.js.map": "/static/js/main.7d09e31e.chunk.js.map",
+    "main.css": "/static/css/main.67c10702.chunk.css",
+    "main.js": "/static/js/main.1cd06e3f.chunk.js",
+    "main.js.map": "/static/js/main.1cd06e3f.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.12c0d6d8.js",
     "runtime-main.js.map": "/static/js/runtime-main.12c0d6d8.js.map",
     "static/js/2.8a07bb92.chunk.js": "/static/js/2.8a07bb92.chunk.js",
@@ -12,7 +12,7 @@
     "static/js/4.9eea5693.chunk.js": "/static/js/4.9eea5693.chunk.js",
     "static/js/4.9eea5693.chunk.js.map": "/static/js/4.9eea5693.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.99732f5d.chunk.css.map": "/static/css/main.99732f5d.chunk.css.map",
+    "static/css/main.67c10702.chunk.css.map": "/static/css/main.67c10702.chunk.css.map",
     "static/js/2.8a07bb92.chunk.js.LICENSE.txt": "/static/js/2.8a07bb92.chunk.js.LICENSE.txt",
     "static/media/aboutMySelf.english.md": "/static/media/aboutMySelf.english.ef39a20a.md",
     "static/media/aboutMySelf.korean.md": "/static/media/aboutMySelf.korean.cbafae60.md",
@@ -22,7 +22,7 @@
   "entrypoints": [
     "static/js/runtime-main.12c0d6d8.js",
     "static/js/2.8a07bb92.chunk.js",
-    "static/css/main.99732f5d.chunk.css",
-    "static/js/main.7d09e31e.chunk.js"
+    "static/css/main.67c10702.chunk.css",
+    "static/js/main.1cd06e3f.chunk.js"
   ]
 }
