@@ -17,7 +17,7 @@ const ThemeMode = () => {
         </select>
       </div>
       <div className='theme-container'>
-        <a className='blog_nav' href="https://taein0910.github.io/blog" target="_blank"><li>Blog</li></a>
+        <a className='blog_nav' href="https://icecream0910.github.io/blog" target="_blank"><li>Blog</li></a>
         <button onClick={toggleDarkTheme}></button>
       </div>
     </div>
