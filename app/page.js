@@ -142,6 +142,7 @@ export default function Home() {
         <h3 id="projects" >&nbsp;&nbsp;&nbsp;지금까지 이런 프로젝트들을 해왔어요 🛠️</h3><Spacer y={15} />
 
         <div className="card-container">
+
           <div className="card card-2x1">
             <h1>쏙</h1>
             <Spacer y={10} />
@@ -169,6 +170,7 @@ export default function Home() {
           <div id="only-pc" className="card card-1x1" style={{ backgroundImage: `url('/uniterview_sc.JPG')`, backgroundSize: 'cover' }}>
           </div>
 
+
           <div className="card card-2x1">
             <h1>유니터뷰</h1>
             <Spacer y={10} />
@@ -179,10 +181,12 @@ export default function Home() {
               GPT기반 채팅 모의면접 '챗터뷰' 기능 개발. 학생 정보 관리할 수 있는 관리자 페이지 개발.
             </span>
 
-            <span style={{ opacity: 0.6, fontSize: '13px', position: 'absolute', bottom: '40px', left: '20px' }}>
+            {/*<span style={{ opacity: 0.6, fontSize: '13px', position: 'absolute', bottom: '40px', left: '20px' }}>
               <a href="https://uniterview.sungil.me" target="_blank">웹사이트</a>&nbsp;&nbsp;
             </span>
-            <span style={{ opacity: 0.5, fontSize: '13px', position: 'absolute', bottom: '20px', left: '20px' }}>23.09 ~ 진행 중</span>
+*/}
+
+            <span style={{ opacity: 0.5, fontSize: '13px', position: 'absolute', bottom: '20px', left: '20px' }}>23.09 ~ 23.12</span>
             <Spacer y={90} />
             <Image className="image" src="/uniterview.png" width={100} height={100} />
           </div>
@@ -210,6 +214,27 @@ export default function Home() {
           </div>
 
           <div id="only-pc" className="card card-1x1" style={{ backgroundImage: `url('/coronacoc_thumb.png')`, backgroundSize: 'cover' }}>
+          </div>
+
+
+          <div className="card card-2x1">
+            <h1>라디오</h1>
+            <Spacer y={10} />
+            <span style={{ opacity: 0.7, fontSize: '15px' }}>
+              파편화된 국내 라디오를 한번에 모아 스트리밍할 수 있는 인터넷 라디오 스트리밍 서비스.<br />
+              Next.js 사용. hls 형식 스트리밍 구현.<br />
+              user-agent에 따라 네이버 웨일 사이드바앱, 웹앱, 안드로이드 하이브리드 앱 동작 각각 구현.<br />
+              안드로이드 앱에서 종료 타이머, 백그라운드 재생 등 기능 구현. 웹뷰와 Bridge를 이용한 통신 구현.
+            </span>
+
+            <span style={{ opacity: 0.6, fontSize: '13px', position: 'absolute', bottom: '40px', left: '20px' }}>
+              <a href="https://radio.yuntae.in" target="_blank">웹 버전</a>&nbsp;&nbsp;
+              <a href="https://play.google.com/store/apps/details?id=com.icecream.simplemediaplayer" target="_blank">플레이스토어</a>&nbsp;&nbsp;
+              <a href="https://store.whale.naver.com/detail/mebmjdmdebnhodookpfemachpamkjlkl" target="_blank">웨일 확장앱</a>
+            </span>
+            <span style={{ opacity: 0.5, fontSize: '13px', position: 'absolute', bottom: '20px', left: '20px' }}>23.12 ~ 진행 중</span>
+            <Spacer y={90} />
+            <img className="image" src="https://radio.yuntae.in/icon.png" width={80} height={80} style={{ bottom: '20px' }} />
           </div>
 
           <div className="card card-1x1">
