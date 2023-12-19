@@ -1,13 +1,22 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import Spacer from "../components/spacer";
 import { useState, useRef } from "react";
+import { prominent } from 'color.js'
 
-const Music = ({ src, image }) => {
+const Music = ({ title, artist, src, image }) => {
 
     const audioPlayer = useRef(null);
     const [isPlaying, setIsPlaying] = useState(false);
     const [audioProgress, setAudioProgress] = useState(0);
+    const [color, setColor] = useState('rgb(255, 205, 41)')
+
+    useEffect(() => {
+        prominent(image, { amount: 1 }).then(color => {
+            const cssColor = `rgb(${color.join(', ')})`;
+            setColor(cssColor);
+        })
+    }, [])
 
     const handlePlayPause = () => {
         const audio = audioPlayer.current;
@@ -34,7 +43,10 @@ const Music = ({ src, image }) => {
     };
 
     return (
-        <div className="card card-1x1">
+        <div className="card card-1x1"
+            style={{
+                backgroundColor: `${color.replace("rgb", "rgba").replace(")", ", 0.5)")}`
+            }}>
             <b>요즘 듣고 있는 음악</b>
             <Spacer y={20} />
             <img src={image} style={{ width: '50%', objectFit: 'cover', borderRadius: '20px' }} />
@@ -43,8 +55,8 @@ const Music = ({ src, image }) => {
                 <source src={src} />
             </audio>
             <span >
-                <b>꿈과 책과 힘과 벽</b><br></br>
-                <span style={{ opacity: 0.7, fontSize: '15px' }}>잔나비</span>
+                <b>{title}</b><br></br>
+                <span style={{ opacity: 0.7, fontSize: '15px' }}>{artist}</span>
             </span>
             <div className='play-pause-button' onClick={handlePlayPause}>
                 {isPlaying ? "II" : "▶️"}
@@ -56,7 +68,7 @@ const Music = ({ src, image }) => {
                     width: `${audioProgress}%`,
                     maxWidth: 'calc(100% - 40px)',
                     height: '2px',
-                    backgroundColor: 'rgb(255, 205, 41)',
+                    backgroundColor: `${color}`,
                 }}
             />
         </div>

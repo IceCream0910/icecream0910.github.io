@@ -98,8 +98,11 @@ export default function Home() {
 
           </div>
 
-          <Music src={'https://p.scdn.co/mp3-preview/ba00e93c4d1db36997f606a6073c9f2747f1243b'}
-            image={'https://i.scdn.co/image/ab67616d00001e02f694adfa02990eaca79fec1b'} />
+          <Music
+            title={'스노우볼'}
+            artist={'볼빨간사춘기'}
+            src={'https://p.scdn.co/mp3-preview/6a44be690d772db57224206637c639c95ec90e89'}
+            image={'https://i.scdn.co/image/ab67616d00001e02c1382d839b6035b94ed89457'} />
         </div>
         <Spacer y={20} />
 
