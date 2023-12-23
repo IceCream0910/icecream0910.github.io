@@ -286,3 +286,55 @@ h5 {
   transform: scale(0.9);
   -o-transform: scale(0.9);
 }
+
+.tooltip {
+  position: relative;
+  display: block;
+  transform: scale(0.7);
+  transition: transform .5s ease;
+}
+
+.tooltip:hover {
+  transform: scale(0.8);
+  -o-transform: scale(0.8);
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #494949;
+  color: #fff;
+  text-align: center;
+  border-radius: 10px;
+  padding: 5px 0;
+  font-size: 15px;
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.tooltip .tooltiptext::after {
+  content: " ";
+  position: absolute;
+  border-style: solid;
+  border-width: 5px;
+}
+
+.tooltip .tooltip-top {
+  top: -20px;
+  right: -15px;
+}
+
+.tooltip .tooltip-top::after {
+  bottom: -10px;
+  /* 사각형 영역이 중앙에 오도록 위치 */
+  left: 45%;
+  /* 왼쪽에서 100% 위치에 오도록 위치 */
+  margin-top: -5px;
+  /* 사각형의 테두리에서 왼쪽만 노출 */
+  border-color: #494949 transparent transparent transparent;
+
+}

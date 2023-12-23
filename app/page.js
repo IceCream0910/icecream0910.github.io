@@ -6,9 +6,11 @@ import Contribution from "./components/contribution";
 import { useState, useRef, useEffect } from "react";
 import Mbti from "./components/mbti";
 import Age from "./components/age";
+import SolvedAc from "./components/solvedAc";
+import SkillSet from "./components/skillset";
 
 export default function Home() {
-  const [showMore, setShowMore] = useState(false);
+  const [showMore, setShowMore] = useState(true);
   const cardContainerRef = useRef(null);
 
   useEffect(() => {
@@ -47,63 +49,44 @@ export default function Home() {
         <div id="only-pc" className="nav">
           <Spacer y={80} />
           <a href="#about">소개</a><Spacer y={20} />
-          <a href="#github" id="only-pc">깃허브 통계</a><Spacer y={20} />
+          <a href="#github" id="only-pc">통계</a><Spacer y={20} />
           <a href="#projects">프로젝트</a>
         </div>
       </section>
 
       <section className="right" id="main-section">
-        <h3 id="about">&nbsp;&nbsp;&nbsp;저는 이런 사람이에요 ✨</h3><Spacer y={15} />
+        <h3 id="about">&nbsp;&nbsp;&nbsp;저는 이런 사람이에요 😎</h3><Spacer y={15} />
         <div className="card-container">
 
+          <div className="card card-2x1">
+            <h4>새로움에 끊임없이 <b>도전</b>하는<b><br />개발자</b>입니다.</h4><Spacer y={10} />
+            <p style={{ fontSize: '13px', lineHeight: '1.5', wordBreak: 'keep-all' }}>사소한 아이디어일지라도 무언가를 기획하고 개발해 다른 사람이 편리하게 사용할 수 있는 <span className="underlined">서비스를 만드는 일에 설렘</span>을 느낍니다.
+              <br /><br />새로운 기술이나 지식에 끊임없이 도전하고 배우며 팀원들과 <span className="underlined">함께 성장하는 개발자</span>가 되고 싶습니다.
+              <br /><br />✨일단 도전합니다. 실패를 두려워하면 변화는 없기에, 생각을 행동으로 뚝딱뚝딱 만들어봅니다.
+              <br />✨나와 다른 의견을 가진 사람을 이해하려고 노력합니다. 문제 상황을 대화를 통해 함께 해결해나가고자 합니다.
+            </p>
+          </div>
+
           <div className="card card-1x1">
-            새로움에 끊임없이 <span className="underlined"><b>도전</b></span>하는 <b>개발자</b>입니다.
-          </div>
-
-          <div className="card card-2x1">
             이런 것들을 <Image src="/heart.png" width={17} height={15} style={{ position: 'relative', top: '2px' }} />해요.
-            <Spacer y={5} />
+            <Spacer y={20} />
             <div style={{ display: 'flex' }}>
-              <h1>#개발 <span className="tag blue">{`#코딩/>`}</span> #웹🌐 <span className="tag green">#UI/UX</span><br></br>
-                #집🏠 <span className="tag pink">#뚝딱뚝딱🔨</span> #음악🎹</h1>
+              <h1 style={{ wordBreak: 'keep-all' }}><span className="tag blue">{`#코딩/>`}</span> #개발<br />#웹🌐 <span className="tag green">#UI/UX</span><br></br>
+                #음악🎧 #집🏠
+                <br /><span className="tag pink">#뚝딱뚝딱🔨</span></h1>
             </div>
-          </div>
-
-          <div className="card card-2x1">
-            <b>이런 걸 다룰 수 있어요 💻</b><Spacer y={10} />
-            <span style={{ fontSize: '17px' }}>언어</span><Spacer y={10} />
-            <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
-              <img className="lang-tag" src="https://img.shields.io/badge/Javascript-efd81b?style=flat-square&logo=javascript&logoColor=black" />
-              <img className="lang-tag" src="https://img.shields.io/badge/Java-db1d20?style=flat-square&logo=oracle&logoColor=white" />
-              <img className="lang-tag" src="https://img.shields.io/badge/Kotlin-d258ff?style=flat-square&logo=kotlin&logoColor=white" />
-              <img style={{ opacity: 0.8 }} className="lang-tag" src="https://img.shields.io/badge/Python-316897?style=flat-square&logo=python&logoColor=white" />
-              <img style={{ opacity: 0.5 }} className="lang-tag" src="https://img.shields.io/badge/C-005697?style=flat-square&logo=C&logoColor=white" />
-            </div><Spacer y={15} />
-            <span style={{ fontSize: '17px' }}>Front-end</span><Spacer y={10} />
-            <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
-              <img className="lang-tag" src="https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=Next.js&logoColor=white" />
-              <img className="lang-tag" src="https://img.shields.io/badge/React-00c6f7?style=flat-square&logo=React&logoColor=white" />
-              <img className="lang-tag" src="https://img.shields.io/badge/jQuery-279efb?style=flat-square&logo=jQuery&logoColor=white" />
-            </div>
-            <Spacer y={15} />
-            <span style={{ fontSize: '17px' }}>Back-end</span><Spacer y={10} />
-            <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
-              <img className="lang-tag" src="https://img.shields.io/badge/node.js-488d3b?style=flat-square&logo=Node.js&logoColor=white" />
-              <img className="lang-tag" src="https://img.shields.io/badge/Firebase-FFCA28?style=flat-square&logo=firebase&logoColor=black" />
-              <img style={{ opacity: 0.5 }} className="lang-tag" src="https://img.shields.io/badge/Spring-9cff5c?style=flat-square&logo=spring&logoColor=black" />
-              <img style={{ opacity: 0.5 }} className="lang-tag" src="https://img.shields.io/badge/mongoDB-5eec69?style=flat-square&logo=mongoDB&logoColor=black" />
-            </div>
-
-
-
           </div>
 
           <Music
-            title={'스노우볼'}
-            artist={'볼빨간사춘기'}
-            src={'https://p.scdn.co/mp3-preview/6a44be690d772db57224206637c639c95ec90e89'}
-            image={'https://i.scdn.co/image/ab67616d00001e02c1382d839b6035b94ed89457'} />
-        </div>
+            title={'소원을 빌어'}
+            artist={'안유진, Disney'}
+            src={'https://res.cloudinary.com/dpwxyn6ar/video/upload/v1703346657/%EC%95%88%EC%9C%A0%EC%A7%84_-_%EC%86%8C%EC%9B%90%EC%9D%84_%EB%B9%8C%EC%96%B4_From__%EC%9C%84%EC%8B%9C_.mp3'}
+            image={'https://i.scdn.co/image/ab67616d0000b273a40e82a624fd71db16151256'} />
+
+          <SkillSet />
+
+
+        </div >
         <Spacer y={20} />
 
         <div className="card-container" ref={cardContainerRef} style={{ display: 'none' }}>
@@ -121,28 +104,27 @@ export default function Home() {
         </div>
         <Spacer y={20} />
 
-        <div style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '10px', width: 'fit-content' }}
+        {/* <div style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '10px', width: 'fit-content' }}
           onClick={() => setShowMore(!showMore)}>
           <span className="tag" style={{
             background: 'var(--foreground)', color: 'var(--background)', width: '30px', height: '30px', borderRadius: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '25px'
           }}><span style={{ marginTop: '-5px' }}>{showMore ? '-' : '+'}</span></span>{showMore ? 'TMI 그만보기' : 'TMI 더보기'}
         </div>
+        */}
+
 
         <Spacer y={80} />
-        <h3 id="github">&nbsp;&nbsp;&nbsp;Github 통계 📂</h3><Spacer y={15} />
+        <h3 id="github">&nbsp;&nbsp;&nbsp;통계 📂</h3><Spacer y={15} />
         <div className="card-container">
 
           <Contribution />
-
-          <div className="card card-2x1" id="only-pc" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <img src="http://github-readme-streak-stats.herokuapp.com?user=icecream0910&theme=transparent&hide_border=true&locale=ko&date_format=%5BY.%5Dn.j&ring=46AAFF&currStreakNum=46AAFF&sideNums=46AAFF&fire=FF0000&excludeDaysLabel=46AAFF&sideLabels=46AAFF&dates=347DBC" alt="GitHub Streak" width={'100%'} />
-          </div>
+          <SolvedAc />
 
         </div>
 
 
         <Spacer y={80} />
-        <h3 id="projects" >&nbsp;&nbsp;&nbsp;지금까지 이런 프로젝트들을 해왔어요 🛠️</h3><Spacer y={15} />
+        <h3 id="projects" >&nbsp;&nbsp;&nbsp;프로젝트 ⚗️</h3><Spacer y={15} />
 
         <div className="card-container">
 
@@ -267,7 +249,7 @@ export default function Home() {
             </span>
 
             <span style={{ opacity: 0.6, fontSize: '13px', position: 'absolute', bottom: '20px', left: '20px' }}>
-              <a href="https://icecream0910.github.io/projects/extensions" target="_blank">개발기 보러가기</a>
+              <a href="https://blog.yuntae.in/browser-extensions" target="_blank">개발기 보러가기</a>
             </span>
             <Spacer y={60} />
           </div>
