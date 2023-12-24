@@ -10,7 +10,7 @@ const SolvedAc = () => {
     const [rank, setRank] = useState('');
 
     useEffect(() => {
-        fetch('/api/solvedac')
+        fetch('/api/solvedac', { cache: "no-store" })
             .then(res => res.json())
             .then(data => {
                 setTier(data.tier);
