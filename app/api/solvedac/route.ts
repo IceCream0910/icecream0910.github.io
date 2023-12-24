@@ -11,3 +11,5 @@ export async function GET(req) {
         return NextResponse.json({ error: 'An error occurred' });
     }
 }
+
+export const dynamic = "force-dynamic";
