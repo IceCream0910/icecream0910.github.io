@@ -90,7 +90,7 @@ export default function Home() {
         <Spacer y={20} />
 
         <div className="card-container" ref={cardContainerRef} style={{ display: 'none' }}>
-          <Age birth={2005} />
+          <Age birth={20050910} />
 
           <Mbti />
 
