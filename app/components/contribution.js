@@ -9,14 +9,17 @@ const Contribution = ({ src, image }) => {
         const currentMonth = new Date().getMonth();
         const shownMonths = 4;
 
+        const startYear = currentMonth < shownMonths ? currentYear - 1 : currentYear;
+        const startMonth = currentMonth < shownMonths ? (currentMonth + 12 - shownMonths) % 12 : currentMonth - shownMonths;
+
         return contributions.filter(activity => {
             const date = new Date(activity.date);
-            const monthOfDay = date.getMonth();
+            const year = date.getFullYear();
+            const month = date.getMonth();
 
             return (
-                date.getFullYear() === currentYear &&
-                monthOfDay > currentMonth - shownMonths &&
-                monthOfDay <= currentMonth
+                (year === startYear && month >= startMonth) ||
+                (year === currentYear && month <= currentMonth)
             );
         });
     };
@@ -29,7 +32,7 @@ const Contribution = ({ src, image }) => {
                 <Spacer y={20} />
                 <GitHubCalendar username="icecream0910"
                     labels={{
-                        totalCount: "올해 {{count}}개의 기여",
+                        totalCount: "지난 1년 동안 {{count}}개의 기여",
                     }} />
             </div>
 
@@ -38,7 +41,7 @@ const Contribution = ({ src, image }) => {
                 <Spacer y={20} />
                 <GitHubCalendar username="icecream0910" transformData={selectLastHalfYear} hideColorLegend
                     labels={{
-                        totalCount: "최근 3개월 간 {{count}}개의 기여",
+                        totalCount: "지난 4개월 간 {{count}}개의 기여",
                     }} />
             </div>
         </>

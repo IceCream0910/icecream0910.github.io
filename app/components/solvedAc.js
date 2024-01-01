@@ -73,7 +73,7 @@ const SolvedAc = () => {
                     <h4><b>{solvedCount}<span style={{ opacity: 0.7, fontSize: '13px' }}>개</span></b></h4>
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column' }}>
-                    <span style={{ opacity: 0.7, fontSize: '13px' }}>연속 문제 해결</span>
+                    <span style={{ opacity: 0.7, fontSize: '13px' }}>최대 연속 해결</span>
                     <h4><b>{maxStreak}<span style={{ opacity: 0.7, fontSize: '13px' }}>일</span></b></h4>
                 </div>
             </div>
