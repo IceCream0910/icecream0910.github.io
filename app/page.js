@@ -138,7 +138,7 @@ export default function Home() {
             </span>
 
             <span style={{ opacity: 0.6, fontSize: '13px', position: 'absolute', bottom: '40px', left: '20px' }}>
-              <a href="https://github.com/icecream0910/sungil-meal-app" target="_blank">소스코드</a>&nbsp;&nbsp;
+              <a href="https://github.com/icecream0910/ssoak" target="_blank">소스코드</a>&nbsp;&nbsp;
               <a href="https://sungil.me" target="_blank">웹 버전</a>&nbsp;&nbsp;
               <a href="https://play.google.com/store/apps/details?id=com.icecream.sungilmeal" target="_blank">플레이스토어</a>
             </span>
@@ -304,7 +304,7 @@ export default function Home() {
           <div className="card card-1x1">
             <b>학력 🏫</b><Spacer y={15} />
             <h3>성일고등학교&nbsp;<span style={{ fontSize: '13px', fontWeight: '100' }}>일반 인문계</span></h3>
-            <span className="tag green">→대학 입시중</span>
+            <h3><span className="tag green">→광운대학교</span>&nbsp;<span style={{ fontSize: '13px', fontWeight: '100' }}>소프트웨어학부</span></h3>
           </div>
 
           <div className="card card-2x1">
