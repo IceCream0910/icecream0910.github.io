@@ -78,10 +78,10 @@ export default function Home() {
           </div>
 
           <Music
-            title={'소원을 빌어'}
-            artist={'안유진, Disney'}
-            src={'https://res.cloudinary.com/dpwxyn6ar/video/upload/v1703346657/%EC%95%88%EC%9C%A0%EC%A7%84_-_%EC%86%8C%EC%9B%90%EC%9D%84_%EB%B9%8C%EC%96%B4_From__%EC%9C%84%EC%8B%9C_.mp3'}
-            image={'https://i.scdn.co/image/ab67616d0000b273a40e82a624fd71db16151256'} />
+            title={'첫 만남은 계획대로 되지 않아'}
+            artist={'TWS'}
+            src={'https://p.scdn.co/mp3-preview/31b92d41ad059005f977be0811098d569b87efbc'}
+            image={'https://i.scdn.co/image/ab67616d00001e029aaa57e6ba6ea9060e087ce7'} />
 
           <SkillSet />
 
@@ -290,7 +290,7 @@ export default function Home() {
 
 
           <div className="card card-2x1" style={{ background: 'none' }}>
-            더 많은 <span className="tag green">프로젝트→</span>
+            더 많은 <span className="tag green">프로젝트+</span>
             <Spacer y={5} />
             <span className="tag yellow">뚝딱뚝딱</span> 예정
           </div>
