@@ -104,8 +104,8 @@ const Music = () => {
             </span>
             <div className='play-pause-button'
                 style={{
-                    backgroundColor: `${color2}`,
-                    color: `${color}`,
+                    backgroundColor: `${color}`,
+                    color: `${color2}`,
                 }}
                 onClick={() => window.open(url, '_blank')}>
                 →
