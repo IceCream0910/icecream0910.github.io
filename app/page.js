@@ -77,11 +77,7 @@ export default function Home() {
             </div>
           </div>
 
-          <Music
-            title={'첫 만남은 계획대로 되지 않아'}
-            artist={'TWS'}
-            src={'https://p.scdn.co/mp3-preview/31b92d41ad059005f977be0811098d569b87efbc'}
-            image={'https://i.scdn.co/image/ab67616d00001e029aaa57e6ba6ea9060e087ce7'} />
+          <Music />
 
           <SkillSet />
 
@@ -166,10 +162,9 @@ export default function Home() {
               GPT기반 채팅 모의면접 '챗터뷰' 기능 개발. 학생 정보 관리할 수 있는 관리자 페이지 개발.
             </span>
 
-            {/*<span style={{ opacity: 0.6, fontSize: '13px', position: 'absolute', bottom: '40px', left: '20px' }}>
+            {<span style={{ opacity: 0.6, fontSize: '13px', position: 'absolute', bottom: '40px', left: '20px' }}>
               <a href="https://uniterview.sungil.me" target="_blank">웹사이트</a>&nbsp;&nbsp;
-            </span>
-*/}
+            </span>}
 
             <span style={{ opacity: 0.5, fontSize: '13px', position: 'absolute', bottom: '20px', left: '20px' }}>23.09 ~ 23.12</span>
             <Spacer y={90} />
