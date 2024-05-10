@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import Spacer from "../components/spacer";
 import { useState, useRef } from "react";
 import { prominent } from 'color.js'
+import IonIcon from '@reacticons/ionicons';
 
 const Music = () => {
 
@@ -89,57 +90,50 @@ const Music = () => {
                 backgroundImage: `url(${image})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
-                opacity: '0.5',
+                opacity: '0.3',
                 borderRadius: '20px',
                 zIndex: '0'
             }} />
             <b style={{ position: 'absolute', zIndex: '1' }}>지금 듣고 있는 노래</b>
             <Spacer y={150} />
 
+            <div
+                className="progress-bar"
+                style={{
+                    width: `${audioProgress}%`,
+                    maxWidth: 'calc(100% - 90px)',
+                    height: '5px',
+                    backgroundColor: `${color2}`,
+                    borderRadius: '20px',
+                    position: 'absolute',
+                    bottom: '35px',
+                    left: '70px',
+                    filter: 'brightness(1.4)',
+                }}
+            />
+
             <span style={{
                 position: 'absolute',
-                bottom: '30px',
+                bottom: '70px',
                 left: '20px', zIndex: '1'
             }}>
                 <b>{title}</b><br></br>
                 <span style={{ opacity: 0.8, fontSize: '15px' }}>{artist}</span>
             </span>
 
-            <div
-                className="progress-bar"
+            <div className='incard-button'
                 style={{
-                    width: `${audioProgress}%`,
-                    maxWidth: 'calc(100% - 40px)',
-                    height: '3px',
-                    backgroundColor: `${color2}`,
-                    borderRadius: '10px',
                     position: 'absolute',
-                    bottom: '20px',
-                    left: '20px',
-                    filter: 'brightness(1.4)',
-                }}
-            />
-
-            <div className='play-pause-button'
-                style={{
                     backgroundColor: `${color}`,
                     color: `${color2}`,
                     fontSize: '18px',
-                    bottom: '30px'
+                    bottom: '20px',
+                    left: '20px'
                 }}
                 onClick={handlePlayPause}>
-                {isPlaying ? "II" : "▶️"}
+                {isPlaying ? <IonIcon name="pause" /> : <IonIcon name="play" />}
             </div>
-            <style jsx>{`
-                @media (max-width: 768px) {
-                    .card-1x1 {
-                        width: 100%;
-                        padding-bottom: 120px;
-                    }
-                }
-            `}
-            </style>
-        </div>
+        </div >
     );
 };
 

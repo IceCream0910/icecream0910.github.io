@@ -22,14 +22,12 @@ const Age = ({ birth }) => {
     }, [birth]);
 
     return (
-        <div className="card card-1x1">
-            저는 <b>{birth.toString().slice(0, 4)}년생,</b>
-
-            <div style={{ display: 'flex', gap: '5px', flexWrap: 'wrap', alignItems: 'end' }}>
-                <h1 className="mbti" style={{ fontWeight: 100 }}>{age}</h1>
-                <span style={{ marginBottom: '5px' }}>살이죠.</span>
-            </div>
+        <div className="card card-1x1 blue">
+            <b>{birth.toString().slice(0, 4)}년에 태어났고,<br /></b>제 나이는<br />
             <span style={{ fontSize: '12px', opacity: 0.5 }}>(만 나이 기준)</span>
+            <div className='content' style={{ right: '25px', bottom: "15px" }}>
+                <h1 className="mbti" style={{ fontWeight: 100, fontSize: '3em' }}>{age}세</h1>
+            </div>
         </div>
     );
 };

@@ -62,22 +62,25 @@ const SolvedAc = () => {
                     <span style={{ opacity: 0.7 }}>{rating}</span>
                 </div>
             </div>
-            <Spacer y={20} />
-            <div style={{ display: 'flex', flexDirection: 'row', gap: '20px', alignItems: 'center' }}>
-                <div style={{ display: 'flex', flexDirection: 'column' }}>
-                    <span style={{ opacity: 0.7, fontSize: '13px' }}>전체 랭킹</span>
-                    <h4><b>{rank}<span style={{ opacity: 0.7, fontSize: '13px' }}>위</span></b></h4>
-                </div>
-                <div style={{ display: 'flex', flexDirection: 'column' }}>
-                    <span style={{ opacity: 0.7, fontSize: '13px' }}>푼 문제 수</span>
-                    <h4><b>{solvedCount}<span style={{ opacity: 0.7, fontSize: '13px' }}>개</span></b></h4>
-                </div>
-                <div style={{ display: 'flex', flexDirection: 'column' }}>
-                    <span style={{ opacity: 0.7, fontSize: '13px' }}>최대 연속 해결</span>
-                    <h4><b>{maxStreak}<span style={{ opacity: 0.7, fontSize: '13px' }}>일</span></b></h4>
-                </div>
-            </div>
+            <div className='content-l'>
 
+                <Spacer y={20} />
+                <div style={{ display: 'flex', flexDirection: 'row', gap: '20px', alignItems: 'center' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                        <span style={{ opacity: 0.7, fontSize: '13px' }}>전체 랭킹</span>
+                        <h4><b>{rank}<span style={{ opacity: 0.7, fontSize: '13px' }}>위</span></b></h4>
+                    </div>
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                        <span style={{ opacity: 0.7, fontSize: '13px' }}>푼 문제 수</span>
+                        <h4><b>{solvedCount}<span style={{ opacity: 0.7, fontSize: '13px' }}>개</span></b></h4>
+                    </div>
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                        <span style={{ opacity: 0.7, fontSize: '13px' }}>최대 연속 해결</span>
+                        <h4><b>{maxStreak}<span style={{ opacity: 0.7, fontSize: '13px' }}>일</span></b></h4>
+                    </div>
+                </div>
+                <Spacer y={10} />
+            </div>
         </div >
     );
 };

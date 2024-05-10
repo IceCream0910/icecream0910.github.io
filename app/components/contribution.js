@@ -27,7 +27,9 @@ const Contribution = ({ src, image }) => {
 
     return (
         <>
-            <div className="card card-2x1" id='only-pc'>
+            <div className="card card-2x1 green" id='only-pc' style={{
+                aspectRatio: 'unset'
+            }}>
                 <b>Github에 심은 잔디</b>
                 <Spacer y={20} />
                 <GitHubCalendar username="icecream0910"
@@ -36,7 +38,9 @@ const Contribution = ({ src, image }) => {
                     }} />
             </div>
 
-            <div className="card card-2x1" id='only-mobile'>
+            <div className="card card-1x1 green" id='only-mobile' style={{
+                aspectRatio: 'unset'
+            }}>
                 <b>Github에 심은 잔디</b>
                 <Spacer y={20} />
                 <GitHubCalendar username="icecream0910" transformData={selectLastHalfYear} hideColorLegend
