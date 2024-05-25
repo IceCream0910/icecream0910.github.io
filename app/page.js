@@ -101,13 +101,35 @@ export default function Home() {
         <div className="card-container">
           <Project title={"쏙"}
             summary={"성일고등학교의 급식, 시간표, 학사일정 등 정보를 한 눈에 볼 수 있는 서비스."}
-            desc={"성일고등학교의 급식, 학사일정 등 정보 제공. PWA 웹앱 적용. Firebase 데이터베이스 연동해 반 별 TODO 리스트와 커뮤니티, 실시간 급식 리액션 기능 구현. 안드로이드 하이브리드 앱 개발해 위젯, 매일 아침 급식 푸시 알림 기능 구현."}
+            desc={`당시 재학 중이던 고등학교의 학생들을 위해 다양한 정보를 제공하는 서비스입니다. 급식과 시간표, 학사일정을 나이스 오픈 API를 통해 받아와 표시해주고, 학교 홈페이지 크롤링을 통해 공지사항 및 가정통신문 정보를 제공하였습니다.<br/><br/>당일의 급식 메뉴에 좋아요와 싫어요로 리액션을 표시할 수 있도록 구현하였습니다.<br/>또, 등록해둔 알레르기 정보에 따라 급식 메뉴를 빨간색으로 표시해주거나 맛있는 메뉴에는 형광펜 효과를 적용하는 등 재미있는 시각화 경험을 제공하기 위해 노력했습니다.<br/><br/>
+            학교 커뮤니티 기능을 개발했습니다. OAuth를 통해 교내 구글 계정으로 로그인할 수 있도록 했고, 게시물은 물론 투표를 만들고 참여할 수 있도록 했습니다.
+            커뮤니티 규칙에 위반되는 게시물이나 댓글을 신고할 수 있는 시스템을 구현했습니다.<br/><br/>
+            <a class="link" href="https://blog.yuntae.in/slack-report" target="_blank">
+            Slack으로 신고 기능 빠르게 구현하기
+            </a>
+            <br/><br/><br/>안드로이드 하이브리드 앱을 개발하여 위젯 기능과 매일 아침 급식 푸시 알림 기능을 구현하였습니다.<br/>추가로, PWA 웹앱을 지원하여 iOS와 데스크톱에서도 앱 형태로 설치해 서비스에 접근할 수 있도록 하였습니다.
+            <br/><br/>
+            <a class="link" href="https://blog.yuntae.in/pwa-web" target="_blank">
+            웹인 듯 웹 아닌 앱 같은 너 - PWA
+            </a>
+            <br/><br/><br/>급식 피드백, 반 별 TODO리스트, 커뮤니티 등 실시간성이 필요한 기능을 구현하는 데에는 Firebase Cloud Firestore를 사용하였습니다.
+            <br/><br/>
+            <a class="link" href="https://blog.yuntae.in/firebase-security" target="_blank">
+            Firebase 데이터베이스 보안 설정하기
+            </a>
+            <br/><br/><br/>
+            2023년 나이스 개편 당시, 장기간 나이스 서비스에 장애가 발생하여 이에 대응하기 위해 Redis의 캐시 기능을 이용해 정보를 정상적으로 제공하였습니다.
+            <br/><br/>
+            <a class="link" href="https://blog.yuntae.in/neis-error" target="_blank">
+            학교 앱에서 4달 동안 급식 API가 멈춘다면
+            </a>
+            `}
             links={[
-              { name: "소스코드", url: "https://github.com/icecream0910/ssoak" },
-              { name: "웹 버전", url: "https://sungil.me" },
+              { name: "Github", url: "https://github.com/icecream0910/ssoak" },
+              { name: "웹 버전", url: "https://sungil.vercel.app" },
               { name: "플레이스토어", url: "https://play.google.com/store/apps/details?id=com.icecream.sungilmeal" }
             ]}
-            date={"22.01 ~ 24.03 | 서비스 중"}
+            date={"22.01 ~ 24.01 | 서비스 중"}
             icon={"/ssoak.webp"}
             image={"https://camo.githubusercontent.com/9f4e9135d1684ceea7d1ad2ecdd8d4b3790d4da72502fd2ec4931817f5d7e906/68747470733a2f2f79756e7461652e696e2f73736f616b5f7468756d622e706e67"}
           />
@@ -115,24 +137,27 @@ export default function Home() {
 
           <Project title={"유니터뷰"}
             summary={"대학 생기부 기반 면접 준비를 도와주는 AI 서비스."}
-            desc={`대학 생기부 기반 면접 대비를 위한 AI 서비스.
-            생기부 파일 분석해 텍스트 추출 및 GPT API 활용해 예상 질문 및 요약 생성 기능.
-            Next.js로 개발. Auth.js 이용한 소셜로그인 기능 구현.
-            GPT기반 채팅 모의면접 '챗터뷰' 기능 개발. 학생 정보 관리할 수 있는 관리자 페이지 개발.`}
+            desc={`생활기록부 파일을 업로드하면, 이를 자동으로 분석하여 텍스트를 추출하고, 대입 면접 예상 질문과 생기부 내용 요약을 생성합니다.
+            Next.js로 개발되었으며, Auth.js를 이용한 네이버, 카카오 소셜 로그인 기능을 구현했습니다.<br/><br/>
+            AI 기능에는 OpenAI의 GPT 모델을 사용하였습니다. 채팅으로 모의 면접을 진행할 수 있는 '챗터뷰'를 개발하였습니다.
+            AI가 생기부 기반으로 생성한 질문 중 랜덤으로 사용자에게 질의하고, 이에 대한 사용자의 답변을 분석하여 피드백 제공 및 꼬리 질문을 생성합니다.<br/><br/>
+            학생 정보를 관리할 수 있는 관리자 페이지를 개발되었습니다. 교사가 학생들의 면접 준비 진행 상황을 확인하고, 학생들이 작성해둔 답변을 읽고 피드백할 수 있습니다.<br/><br/>`}
             links={[
-              { name: "웹사이트", url: "https://uniterview.sungil.me" },
+              { name: "Github", url: "https://github.com/IceCream0910/uniterview" },
             ]}
-            date={"23.09 ~ 23.12 | 서비스 중"}
+            date={"23.09 ~ 23.12 | 서비스 종료"}
             icon={"/uniterview.png"}
             image={"/uniterview_sc.JPG"}
           />
 
           <Project title={"코로나콕"}
             summary={"코로나19 현황과 정보를 시각화하여 보여주는 대시보드 서비스."}
-            desc={`코로나19 현황과 정보를 시각화하여 보여주는 대시보드 서비스.<br></br>
-            웹사이트로 개발, Socket 통신을 활용한 실시간 확진자 집계 기능 제공.<br></br>
-            확진자 동선, 현황 등 JSON 데이터를 API로 불러와 Chart와 지도로 시각화 처리.<br></br>
-            안드로이드 앱을 통한 위젯 및 푸시 알림 기능 제공.`}
+            desc={`
+            코로나19 바이러스의 국내 확산 현황과 동선 등을 질병관리청 API 및 홈페이지 크롤링를 통해 수집하고, 이를 차트와 지도 등으로 시각화하여 사용자에게 직관적으로 표시하도록 했습니다.<br/><br/>
+            Socket 통신을 활용하여 당일 실시간 확진자 집계 기능을 구현하였습니다.<br/>
+            또한, 안드로이드 앱을 통해 위젯 및 푸시 알림 브리핑 기능을 제공하여 사용자들이 최신 정보를 빠르게 받아볼 수 있도록 하였습니다.<br/><br/>
+            <img src="https://i.imgur.com/i3SeZ5t.png" width="100%" style="border-radius: 15px"><br/><br/>
+            누적 페이지 뷰 약 17000회를 기록하였으며, 사용자의 피드백을 받아 기능을 추가하거나 수정하는 등 처음으로 많은 사람들이 이용하는 서비스를 운영해보는 경험을 할 수 있었습니다.`}
             links={[
               { name: "소스코드", url: "https://github.com/icecream0910/coronacoc" },
               { name: "웹 버전", url: "https://coronacoc.vercel.app/app/" },
@@ -145,9 +170,27 @@ export default function Home() {
 
           <Project title={"라디오"}
             summary={"파편화된 국내 라디오를 한번에 모아 스트리밍할 수 있는 인터넷 라디오 스트리밍 서비스."}
-            desc={`Next.js 사용. hls 형식 스트리밍 구현.<br />
-            user-agent에 따라 네이버 웨일 사이드바앱, 웹앱, 안드로이드 하이브리드 앱 동작 각각 구현.<br />
-            안드로이드 앱에서 종료 타이머, 백그라운드 재생 등 기능 구현. 웹뷰와 Bridge를 이용한 통신 구현.`}
+            desc={`
+            국내 라디오는 인터넷에서 청취하기 위해서는 각 방송사의 앱을 각각 설치해주어야 스트리밍할 수 있는 경우가 많습니다. 물론 자체 앱에서만 제공하는 실시간 댓글이나 보이는 라디오 등과 같은 기능 때문이기도 하겠지만, 단순히 라디오를 듣고자 하는 사용자 입장에서는 불편함이 있는 것이 사실입니다.
+            <br/>따라서 국내 라디오 방송국의 스트리밍 프로토콜을 모아 재생할 수 있는 서비스를 만들고자 하였습니다.<br/><br/>
+            - 세상의 모든 스테이션, 여기에서 한번에<br/>
+파편화된 라디오 앱을 방송사별로 설치하지 않아도 앱 하나로 주요 라디오를 모두 청취할 수 있습니다.<br/><br/>
+- 필요한 기능만 담은 깔끔한 플레이어<br/>
+라디오 감상에 집중할 수 있도록, 필요한 기능만 담아 감성적이고 깔끔한 디자인의 플레이어를 완성했습니다. 현재 방송 중인 프로그램명과 선곡 정보도 확인해보세요.
+<br/><br/>
+- 정해진 시간에 알아서 꺼지는 종료 타이머<br/>
+라디오를 틀어놓고 잠들어도 걱정 없도록, 플레이어에서🌙 아이콘을 눌러 종료 타이머를 설정할 수 있습니다. 정해진 시간에 재생중인 라디오가 알아서 종료됩니다.
+<br/><br/>
+- 자주 듣는 라디오는 모아뒀다가 바로<br/>
+자주 듣는 스테이션은 하트 버튼을 눌러 자주 듣는 리스트에 추가해보세요. 자주 듣는 스테이션만 바로 모아볼 수 있습니다.
+<br/><br/>
+Next.js를 기반으로 개발했습니다. Supabase DB를 이용해 각 스테이션 별 누적 청취자 수를 집계하여 표시하는 기능을 구현하였습니다.<br/>
+지역/방송사별로 정보를 정리한 JSON 파일을 만들고, 각 방송사별로 스트리밍 프로토콜을 가져오기 위해 API Routes를 만들어 사용했습니다.<br/><br/>
+안드로이드 앱은 WebView를 기반으로 동작하는 하이브리드 앱으로 개발하였습니다. 웹뷰와 통신하기 위해 Bridge를 사용하여 웹페이지와 안드로이드 앱의 함수를 서로 호출할 수 있도록 구현하였습니다.<br/>
+미디어 백그라운드 재생을 위해 안드로이드의 Media3 (ExoPlayer) API를 사용하였고, 종료 타이머를 구현하기 위해 CountDownTimer API를 사용했습니다.
+<br/><br/>
+네이버 웨일 브라우저의 사이드바에서 서비스를 이용할 수 있도록 웨일 확장앱을 개발하였습니다.
+`}
             links={[
               { name: "웹 버전", url: "https://radio.yuntae.in" },
               { name: "플레이스토어", url: "https://play.google.com/store/apps/details?id=com.icecream.simplemediaplayer" },
@@ -158,25 +201,22 @@ export default function Home() {
             image={"https://i.imgur.com/XPXVeSg.png"}
           />
 
-          <Project title={"포켓라이브"}
-            summary={"포켓몬고 게임 유저들을 위한 정보 공유 커뮤니티"}
-            desc={`CMS 플랫폼인 그누보드 이용해 게임 '포켓몬고' 사용자를 위한 정보를 제공해주는 커뮤니티 앱 개발.
-            Bridge 이용해 안드로이드 앱과 WebVIew 간 통신 구현.`}
-            date={"20.05 ~ 21.05 | 서비스 종료"}
-            icon={"https://lh3.googleusercontent.com/cx7cp9T47vJJR4Le3UqjeY7OKxw6H15Zn_5pdOHYSFqZ5byBT5sK9CScqCZ-_LGuDHu1"}
-          />
-
-          <Project title={"웨일 확장앱"}
-            summary={"누적 다운로드 수 합산 약 50만 회"}
-            desc={`Google Keep in Sidebar<br></br>
-            T-REX RUNNER in Sidebar<br></br>
-            Breaklock<br></br>
-            Blockit<br></br>
-            브라우저 이용 중 불편한 점이나 있었으면 좋겠다고 생각했었던 서비스들을 확장앱으로 만들어 볼 수 있어서 재미있었습니다. 이후 실제 서비스를 배포하여 많은 사용자들이 다운로드해 사용하는 것을 보고 신기하기도 했고, 직접 다양한 피드백들을 받아보고, 이를 반영해 서비스를 개선하는 값진 경험을 할 수 있었습니다.`}
+          <Project title={"브라우저 확장앱"}
+            summary={"네이버 웨일 브라우저 확장앱. 누적 다운로드 수 합산 약 50만 회"}
+            desc={`
+            <a class="link" href="https://blog.yuntae.in/browser-extensions" target="_blank">
+            브라우저 확장앱 개발하기(aka. 회고록)
+            </a>`}
             date={"20.05 ~ 21.05 | 서비스 종료"}
             links={[
-              { name: "개발기 보러가기", url: "https://blog.yuntae.in/browser-extensions" }
+              { name: "Google Keep", url: "https://store.whale.naver.com/detail/mpigbcflpddfcbidjdnaadbccaffdene" },
+              { name: "T-REX Runner", url: "https://store.whale.naver.com/detail/oopeaffdcbgoeicbcibbmialglioebkj" },
+              { name: "Breaklock", url: "https://store.whale.naver.com/detail/jindgfnppjdpmgdfiakaonemdkkjgcdj" },
+              { name: "Blockit", url: "https://store.whale.naver.com/detail/gfdaidimgcibdjiidpmbobhhaojnjbfd" },
+
             ]}
+            icon={"/whale.png"}
+            image={"https://whale-store.pstatic.net/20190222_297/1550821710781qBrwX_PNG/%BD%BD%B6%F3%C0%CC%B5%E50001.png"}
           />
 
           <Project title={"0yak"}
@@ -188,6 +228,7 @@ export default function Home() {
             ]}
             date={"22.02 ~ 22.03 | 서비스 종료"}
             icon={"/0yak.png"}
+
           />
 
           <div className="card card-2x1" style={{ background: 'none' }}>
@@ -198,8 +239,6 @@ export default function Home() {
 
         </div>
 
-
-        <Spacer y={80} />
 
         <div className="card-container">
           <div className="card card-1x1"
