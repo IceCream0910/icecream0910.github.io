@@ -1,0 +1,28 @@
+.not-found-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
+
+.message-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.message {
+    background-color: var(--foreground);
+    color: var(--background);
+    border-radius: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 3rem;
+    padding: 5px 20px;
+}

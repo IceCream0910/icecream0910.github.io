@@ -231,7 +231,7 @@ Next.js를 기반으로 개발했습니다. Supabase DB를 이용해 각 스테�
 
           />
 
-          <div className="card card-2x1" style={{ background: 'none' }}>
+          <div className="card card-2x1" style={{ background: 'none', aspectRatio: 'unset' }}>
             더 많은 <span className="tag green">프로젝트+</span>
             <Spacer y={5} />
             <span className="tag yellow">뚝딱뚝딱</span> 예정
@@ -239,6 +239,9 @@ Next.js를 기반으로 개발했습니다. Supabase DB를 이용해 각 스테�
 
         </div>
 
+
+
+        <Spacer y={80} />
 
         <div className="card-container">
           <div className="card card-1x1"
@@ -259,6 +262,9 @@ Next.js를 기반으로 개발했습니다. Supabase DB를 이용해 각 스테�
             <h3><span className="tag yellow">#GTQ_그래픽기술자격_1급</span>&nbsp;<span style={{ fontSize: '13px', fontWeight: '100' }}>2017</span></h3>
           </div>
 
+        </div>
+        <div id="only-pc">
+          <Spacer y={400} />
         </div>
       </section >
 
