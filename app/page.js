@@ -10,6 +10,7 @@ import Age from "./components/age";
 import SolvedAc from "./components/solvedAc";
 import SkillSet from "./components/skillset";
 import Project from "./components/project";
+import LightSensor from "./components/lightSensor";
 
 import Time from "./components/time";
 
@@ -82,6 +83,8 @@ export default function Home() {
 
 
           <Time />
+
+          <LightSensor />
 
         </div >
 

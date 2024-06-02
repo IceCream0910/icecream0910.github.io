@@ -4,6 +4,8 @@
   --background: #fff;
   --card: #f3f3f3;
   --green: #286448;
+  --blue: #455c71;
+  --pink: #a66baa;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -12,6 +14,8 @@
     --background: #1a1a1a;
     --card: #434343;
     --green: #59ffb1;
+    --blue: #9fb1dc;
+    --pink: #d8abdb
   }
 }
 
