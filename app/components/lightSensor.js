@@ -65,7 +65,7 @@ const LightSensor = ({ birth }) => {
             }
 
             setLux(randomLux);
-        }, 10000);
+        }, 60000);
     }, [brightness]);
 
     return (
