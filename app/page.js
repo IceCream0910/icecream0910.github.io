@@ -11,8 +11,8 @@ import SolvedAc from "./components/solvedAc";
 import SkillSet from "./components/skillset";
 import Project from "./components/project";
 import LightSensor from "./components/lightSensor";
-
 import Time from "./components/time";
+import Media from "./components/media";
 
 export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
@@ -85,6 +85,8 @@ export default function Home() {
           <Time />
 
           <LightSensor />
+
+          <Media />
 
         </div >
 

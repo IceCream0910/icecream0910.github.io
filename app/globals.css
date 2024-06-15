@@ -518,3 +518,8 @@ h5 {
     max-width: 100%;
   }
 }
+
+canvas {
+  border-radius: 20px !important;
+  background: none !important;
+}
