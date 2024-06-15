@@ -1,11 +1,12 @@
 import { useState, useEffect, useRef } from "react";
+import IonIcon from '@reacticons/ionicons';
 import Matter from "matter-js";
 
 const Media = () => {
     const sceneRef = useRef(null);
     const [currentTitle, setCurrentTitle] = useState('');
 
-    useEffect(() => {
+    function renderScene() {
         var Engine = Matter.Engine,
             Render = Matter.Render,
             Runner = Matter.Runner,
@@ -171,12 +172,26 @@ const Media = () => {
             Render.stop(render);
             Runner.stop(runner);
         };
+    }
+
+    useEffect(() => {
+        renderScene()
     }, []);
 
+    const initCanvas = () => {
+        const scene = sceneRef.current;
+        while (scene.firstChild) {
+            scene.removeChild(scene.lastChild);
+        }
+        renderScene();
+    }
+
     return (
-        <div className="card card-1x1">
-            <div style={{ position: 'absolute', top: '0', left: '0', zIndex: '99', width: '100%', padding: '20px', borderRadius: '20px 20px 0 0', background: 'linear-gradient(to top, transparent, #17191c)' }}>
-                <h4>최근 감상한 것.<br /><b>{currentTitle}</b></h4>
+        <div className="card card-1x1" style={{ color: "var(--blue)" }}>
+            <div style={{ position: 'absolute', top: '0', left: '0', zIndex: '99', width: '100%', padding: '20px', borderRadius: '20px 20px 0 0', background: `linear-gradient(to top, transparent, var(--gradient))` }}>
+                <h4><b>{currentTitle || '최근 감상한 것.'}</b></h4>
+
+                <a onClick={() => initCanvas()} style={{ position: 'absolute', right: '20px', top: '20px' }}><IonIcon name="refresh" /></a>
             </div>
             <div style={{ width: '100%', height: '100%', position: 'absolute', top: 0, left: 0 }} ref={sceneRef}></div>
         </div>

@@ -76,7 +76,8 @@ const Music = () => {
     };
 
     const searchYouTube = async (query) => {
-        const response = await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${encodeURIComponent(query)}&key=AIzaSyDvRGoK-YRlAW5UGjgQ7J-5LqkzIKpNIlc`);
+        const KEYS = ['AIzaSyBM-j14MHRgeS7Sviove7laYV4pfY2zvO8', 'AIzaSyDvRGoK-YRlAW5UGjgQ7J-5LqkzIKpNIlc']
+        const response = await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${encodeURIComponent(query)}&key=${KEYS[Math.floor(Math.random() * KEYS.length)]}`);
         const data = await response.json();
         const videoId = data.items[0].id.videoId;
         const videoTitle = data.items[0].snippet.title.replaceAll('&#39;', '\'');

@@ -2,6 +2,7 @@
 :root {
   --foreground: #000;
   --background: #fff;
+  --gradient: #c7e4ff;
   --card: #f3f3f3;
   --green: #286448;
   --blue: #455c71;
@@ -12,6 +13,7 @@
   :root {
     --foreground: #eee;
     --background: #1a1a1a;
+    --gradient: #213141;
     --card: #434343;
     --green: #59ffb1;
     --blue: #9fb1dc;

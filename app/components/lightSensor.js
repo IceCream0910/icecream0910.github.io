@@ -69,7 +69,7 @@ const LightSensor = ({ birth }) => {
     }, [brightness]);
 
     return (
-        <div className="card card-1x1" style={{ color: "var(--blue)" }}>
+        <div className="card card-1x1" style={{ color: "var(--green)" }}>
 
             <IonIcon name="sunny" style={{ fontSize: '30px' }} />
             <Spacer y={5} />
