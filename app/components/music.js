@@ -210,7 +210,8 @@ const Music = () => {
             {!isPlaying && <span style={{
                 position: 'absolute',
                 bottom: '70px',
-                left: '20px', zIndex: '1'
+                left: '20px', zIndex: '1',
+                maxWidth: 'calc(100% - 40px)',
             }}>
                 <b>{title}</b><br></br>
                 <span style={{ opacity: 0.8, fontSize: '15px' }}>{artist}</span>
@@ -230,7 +231,12 @@ const Music = () => {
             </div>
 
             {isPlaying && (
-                <div style={{ position: 'absolute', top: '50%', left: '20px', maxWidth: '80%', zIndex: '1', fontWeight: 'bolder', transform: 'translateY(50%)' }}>
+                <div style={{
+                    position: 'absolute',
+                    bottom: '70px',
+                    left: '20px', zIndex: '1', fontWeight: 'bolder',
+                    maxWidth: 'calc(100% - 40px)',
+                }}>
                     {currentLyric}
                     <div style={{ opacity: 0.5 }}>{nextLyric}</div>
                 </div>
