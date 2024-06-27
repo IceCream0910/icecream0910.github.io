@@ -61,8 +61,8 @@ const Media = () => {
                 render: {
                     sprite: {
                         texture: 'https://i.namu.wiki/i/Z5LFy706523dOfooJhy2B_CtzKzZe6hGjoHwiyTfqi9-b_eBrRTDH6C8hnk8AGgDI8TTj2aBJ5E9OvMWHb3zCg.webp',
-                        xScale: 0.22,
-                        yScale: 0.22
+                        xScale: 0.26,
+                        yScale: 0.26
                     }
                 }
             }),
@@ -92,9 +92,9 @@ const Media = () => {
                 title: "천 개의 파랑",
                 render: {
                     sprite: {
-                        texture: 'https://i.namu.wiki/i/ISHhIhDdbzqyW-9iYp-vMoyM5iv0gPyfoYdVbtAdKuvmj-tGhWWPNbZ9v7bZLWtIewajdpF4QC260-_32vGQgQ.webp',
-                        xScale: 0.25,
-                        yScale: 0.25
+                        texture: 'https://contents.kyobobook.co.kr/sih/fit-in/400x0/pdt/9791190090544.jpg',
+                        xScale: 0.5,
+                        yScale: 0.5
                     }
                 }
             }),
