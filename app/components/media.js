@@ -57,10 +57,10 @@ const Media = () => {
                 }
             }),
             Bodies.rectangle(80, 12, 240, 300, {
-                title: "선재업고 튀어",
+                title: "프로젝트 헤일메리",
                 render: {
                     sprite: {
-                        texture: 'https://i.namu.wiki/i/NtEhEynidpr_LUMQ8hXBF6wYAIQY4AObQHKufu_IZq6g13qNwmAdH92k0m5WdLpbqthQFR00I8dIjFsnEgZP0A.webp',
+                        texture: 'https://i.namu.wiki/i/Z5LFy706523dOfooJhy2B_CtzKzZe6hGjoHwiyTfqi9-b_eBrRTDH6C8hnk8AGgDI8TTj2aBJ5E9OvMWHb3zCg.webp',
                         xScale: 0.22,
                         yScale: 0.22
                     }
@@ -89,10 +89,10 @@ const Media = () => {
 
 
             Bodies.rectangle(50, 150, 240, 300, {
-                title: "세상의 마지막 기차역",
+                title: "천 개의 파랑",
                 render: {
                     sprite: {
-                        texture: 'https://i.namu.wiki/i/1cX0itMej0ZDq0m78LGi81goajHjHNFqJNplhXV1y4cAJILWH7XY-_wm477HP5bu4R7304zY1PndAl10DI6nBA.webp',
+                        texture: 'https://i.namu.wiki/i/ISHhIhDdbzqyW-9iYp-vMoyM5iv0gPyfoYdVbtAdKuvmj-tGhWWPNbZ9v7bZLWtIewajdpF4QC260-_32vGQgQ.webp',
                         xScale: 0.25,
                         yScale: 0.25
                     }
