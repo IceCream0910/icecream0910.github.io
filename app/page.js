@@ -60,7 +60,7 @@ export default function Home() {
             <Spacer y={20} />
             <h1 style={{ wordBreak: 'keep-all' }}><span className="tag blue">{`#코딩/>`}</span> #개발<br />
               #웹🌐 <span className="tag green">#UI/UX</span><br />
-              #노래🎧 #집🏠<br /><span className="tag pink">#뚝딱뚝딱🔨</span></h1>
+              #노래🎧 #집🏠<br /><span className="tag pink">#계획🔨</span></h1>
           </div>
 
           <Music />
@@ -287,13 +287,13 @@ Next.js를 기반으로 개발했습니다. Supabase DB를 이용해 각 스테�
             <Spacer y={20} />
             <div className="card-container inmodal">
 
-              <div className="card card-1x1 blue">
+              <div className="card card-1x1 blue" style={{ animation: 'unset' }}>
                 <h4>일단 <b>도전</b>합니다.</h4>
                 <p style={{ fontSize: '15px' }}>실패를 두려워하면 변화는 없기에, 생각을 행동으로 뚝딱뚝딱 만들어봅니다.</p>
                 <svg style={{ position: 'absolute', bottom: '30px', right: '30px' }} width="30%" height="30%" viewBox="0 0 200 200" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M99.9647 96.4182C152.547 96.4182 195.676 57.5059 199.904 7.9969C200.279 3.59465 196.662 -7.42775e-07 192.244 0L7.68592 3.10268e-05C3.26764 3.17695e-05 -0.350008 3.59468 0.0259045 7.99694C4.25352 57.5059 47.383 96.4182 99.9647 96.4182ZM100.035 103.582C47.4535 103.582 4.32412 142.494 0.0965162 192.003C-0.279395 196.405 3.33825 200 7.75653 200L192.314 200C196.732 200 200.35 196.405 199.974 192.003C195.747 142.494 152.617 103.582 100.035 103.582Z"></path></svg>
               </div>
 
-              <div className="card card-1x1 red">
+              <div className="card card-1x1 red" style={{ animation: 'unset' }}>
                 <h4><b>같이</b>의 가치를 이해합니다.</h4>
                 <p style={{ fontSize: '15px' }}>나와 다른 의견을 가진 사람을 이해하려고 노력합니다. <br />문제 상황을 대화를 통해 함께 해결해나가고자 합니다.</p>
                 <svg style={{ position: 'absolute', bottom: '30px', right: '30px' }} width="30%" height="30%" viewBox="0 0 200 200" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M102.699 1.06732C101.166 -0.352109 98.7983 -0.352111 97.2649 1.06732L13.1058 78.9701C11.3954 80.5534 11.3954 83.2578 13.1058 84.841L25.4799 96.2952C27.1903 97.8785 27.1903 100.583 25.4799 102.166L12.2747 114.39C10.5643 115.973 10.5643 118.677 12.2747 120.261L97.2649 198.933C98.7983 200.352 101.166 200.352 102.699 198.933L187.69 120.261C189.4 118.677 189.4 115.973 187.69 114.39L174.484 102.166C172.774 100.583 172.774 97.8785 174.484 96.2952L186.858 84.841C188.569 83.2578 188.569 80.5534 186.858 78.9701L102.699 1.06732Z"></path></svg>

@@ -7,18 +7,17 @@ const Project = ({ title, summary, desc, links, date, icon, image }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (<>
-        <div className="card card-1x1" onClick={() => setIsOpen(true)}>
-            <h1>{title}</h1>
+        <div className="card card-1x1" style={{
+            aspectRatio: 'unset',
+            cursor: 'pointer'
+        }} onClick={() => setIsOpen(true)}>
+            <h3>{title}</h3>
             <Spacer y={10} />
             <span style={{ opacity: 0.7, fontSize: '15px' }}>
                 {summary}
             </span>
-            {image && <img className="image" src={icon} width={100} height={100} />}
-
-            <div className="content" style={{ left: '20px', right: 'unset' }}>
-                <div className='incard-button' style={{ opacity: .5 }}>
-                    <IonIcon name="add" />
-                </div>
+            <div className="content" style={{ right: '20px', top: '25px' }}>
+                <IonIcon name="add" />
             </div>
         </div>
 

@@ -11,6 +11,7 @@ const Music = () => {
     const [isPlaying, setIsPlaying] = useState(false);
     const [audioProgress, setAudioProgress] = useState(0);
     const [data, setData] = useState([]);
+    const [lyrics, setLyrics] = useState('');
     const [color, setColor] = useState('rgb(255, 205, 41)');
     const [color2, setColor2] = useState('rgb(255, 205, 41)');
     const [image, setImage] = useState('')
@@ -24,6 +25,9 @@ const Music = () => {
             const response = await fetch('/api/music/recent');
             const data = await response.json();
             setData(data.data[0].attributes);
+            const response_lyrics = await fetch('/api/music/lyrics/' + data.data[0].id);
+            const data_lyrics = await response_lyrics.json();
+            getRandomLyric(data_lyrics);
         };
 
         fetchData();
@@ -34,6 +38,7 @@ const Music = () => {
             clearInterval(interval);
         };
     }, []);
+
 
     useEffect(() => {
         if (data.length === 0) return;
@@ -50,7 +55,19 @@ const Music = () => {
             setColor2(cssColor2)
 
         })
-    }, [data])
+    }, [data]);
+
+    function getRandomLyric(jsonResponse) {
+        const data = typeof jsonResponse === 'string' ? JSON.parse(jsonResponse) : jsonResponse;
+        const ttml = data.data[0].attributes.ttml;
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(ttml, "text/xml");
+        const lyrics = xmlDoc.getElementsByTagName("p");
+        const randomIndex = Math.floor(Math.random() * lyrics.length);
+        const randomLyric = lyrics[randomIndex].textContent;
+
+        setLyrics(randomLyric);
+    }
 
     const handlePlayPause = () => {
         const audio = audioPlayer.current;
@@ -95,18 +112,17 @@ const Music = () => {
                 zIndex: '0'
             }} />
             <b style={{ position: 'absolute', zIndex: '1' }}>지금 듣고 있는 노래</b>
-            <Spacer y={150} />
+            <Spacer y={30} />
 
             <div
                 className="progress-bar"
                 style={{
-                    width: `${audioProgress}%`,
-                    maxWidth: 'calc(100% - 90px)',
+                    width: `calc(${audioProgress}% - 90px)`,
                     height: '5px',
                     backgroundColor: `${color2}`,
                     borderRadius: '20px',
                     position: 'absolute',
-                    bottom: '35px',
+                    bottom: '37px',
                     left: '70px',
                     filter: 'brightness(1.4)',
                 }}
@@ -118,7 +134,8 @@ const Music = () => {
                 left: '20px', zIndex: '1'
             }}>
                 <b>{title}</b><br></br>
-                <span style={{ opacity: 0.8, fontSize: '15px' }}>{artist}</span>
+                <span style={{ opacity: 0.8, fontSize: '15px' }}>{artist}</span><br />
+                {lyrics && <b style={{ fontSize: '15px', opacity: '.5' }}>"{lyrics}"</b>}
             </span>
 
             <div className='incard-button'
