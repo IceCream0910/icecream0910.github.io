@@ -46,7 +46,7 @@ const Media = () => {
 
 
         Composite.add(world, [
-            Bodies.rectangle(50, 50, 240, 300, {
+            Bodies.rectangle(50, 50, 210, 310, {
                 title: "반짝이는 워터멜론",
                 render: {
                     sprite: {
@@ -56,7 +56,7 @@ const Media = () => {
                     }
                 }
             }),
-            Bodies.rectangle(80, 12, 240, 300, {
+            Bodies.rectangle(400, 50, 210, 310, {
                 title: "프로젝트 헤일메리",
                 render: {
                     sprite: {
@@ -66,7 +66,7 @@ const Media = () => {
                     }
                 }
             }),
-            Bodies.rectangle(50, 50, 240, 300, {
+            Bodies.rectangle(630, 50, 210, 310, {
                 title: "삼체",
                 render: {
                     sprite: {
@@ -76,7 +76,7 @@ const Media = () => {
                     }
                 }
             }),
-            Bodies.rectangle(80, 12, 240, 300, {
+            Bodies.rectangle(50, 350, 210, 310, {
                 title: "우리가 빛의 속도로 갈 수 없다면",
                 render: {
                     sprite: {
@@ -86,9 +86,7 @@ const Media = () => {
                     }
                 }
             }),
-
-
-            Bodies.rectangle(50, 150, 240, 300, {
+            Bodies.rectangle(400, 350, 210, 310, {
                 title: "천 개의 파랑",
                 render: {
                     sprite: {
@@ -98,6 +96,17 @@ const Media = () => {
                     }
                 }
             }),
+            Bodies.rectangle(630, 350, 210, 310, {
+                title: "미스터리 수사단",
+                render: {
+                    sprite: {
+                        texture: 'https://occ-0-4960-988.1.nflxso.net/dnm/api/v6/WNk1mr9x_Cd_2itp6pUM7-lXMJg/AAAABepCcFbIdtKLvXVmHyHfuIZ9_0Nu7Rci70ZQiRsFXSr-xCtYMuHi9tD-NNRM3s1nPgfj0ikLD1WOOFg99kN0ksGRCdBRq6YL1gtumekJl4p6bIqmYgbPPlcki9SbLtLDVt-zACUbf5qDGMaVQqBu22Tq-bT_-V_gjjXwmKgtRviqT38A6_jd0SvD00bzJ6okrZLKrP2TQ6T1t0heMwW8otxkwxzXTGB6_w44vmPoEqA_kLUIJ3Wjtpewx17rfAPuG7sscLbAYGoxKcxiVC0L7O5cChyn-PYvXbC-bv3_9ooPMHRnMXxekBIx.jpg?r=ae7',
+                        xScale: 0.75,
+                        yScale: 0.75
+                    }
+                }
+            }),
+
 
         ]);
 
