@@ -2,6 +2,7 @@
 :root {
   --foreground: #000;
   --background: #fff;
+  --blur: rgba(255, 255, 255, 0.7);
   --gradient: #c7e4ff;
   --card: #f3f3f3;
   --green: #286448;
@@ -13,6 +14,7 @@
   :root {
     --foreground: #eee;
     --background: #1a1a1a;
+    --blur: rgba(26, 26, 26, 0.7);
     --gradient: #213141;
     --card: #434343;
     --green: #59ffb1;
@@ -494,10 +496,10 @@ h5 {
 }
 
 .modal-close {
-  position: relative;
+  position: absolute;
   float: right;
-  top: 20px;
-  right: 0;
+  top: 30px;
+  right: 20px;
   font-size: 20px;
   cursor: pointer;
 }

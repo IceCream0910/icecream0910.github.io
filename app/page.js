@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Spacer from "./components/spacer";
 import IonIcon from '@reacticons/ionicons';
@@ -13,9 +13,34 @@ import Project from "./components/project";
 import LightSensor from "./components/lightSensor";
 import Time from "./components/time";
 import Media from "./components/media";
+import projectData from "./project/data";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    window.history.scrollRestoration = 'manual';
+
+    // 페이지 이동 후 저장되어 있던 위치로 스크롤 복원
+    const _scroll = sessionStorage.getItem(`__next_scroll_${window.history.state.idx}`);
+    if (_scroll) {
+      // 스크롤 복원 후 저장된 위치 제거
+      const { x, y } = JSON.parse(_scroll);
+      window.scrollTo(x, y);
+      sessionStorage.removeItem(`__next_scroll_${window.history.state.idx}`);
+    }
+    if (router && router.events) {
+      router.events.on('routeChangeComplete', routeChangeCompleteHandler);
+      return () => {
+        router.events.off('routeChangeComplete', routeChangeCompleteHandler);
+      };
+    } else {
+      console.error('Router or router.events is undefined');
+      return;
+    }
+  }, []);
 
   return (
     <>
@@ -104,137 +129,15 @@ export default function Home() {
         <h3 id="projects" >&nbsp;&nbsp;&nbsp;프로젝트 ⚗️</h3><Spacer y={15} />
 
         <div className="card-container">
-          <Project title={"쏙"}
-            summary={"성일고등학교의 급식, 시간표, 학사일정 등 정보를 한 눈에 볼 수 있는 서비스."}
-            desc={`당시 재학 중이던 고등학교의 학생들을 위해 다양한 정보를 제공하는 서비스입니다. 급식과 시간표, 학사일정을 나이스 오픈 API를 통해 받아와 표시해주고, 학교 홈페이지 크롤링을 통해 공지사항 및 가정통신문 정보를 제공하였습니다.<br/><br/>당일의 급식 메뉴에 좋아요와 싫어요로 리액션을 표시할 수 있도록 구현하였습니다.<br/>또, 등록해둔 알레르기 정보에 따라 급식 메뉴를 빨간색으로 표시해주거나 맛있는 메뉴에는 형광펜 효과를 적용하는 등 재미있는 시각화 경험을 제공하기 위해 노력했습니다.<br/><br/>
-            학교 커뮤니티 기능을 개발했습니다. OAuth를 통해 교내 구글 계정으로 로그인할 수 있도록 했고, 게시물은 물론 투표를 만들고 참여할 수 있도록 했습니다.
-            커뮤니티 규칙에 위반되는 게시물이나 댓글을 신고할 수 있는 시스템을 구현했습니다.<br/><br/>
-            <a class="link" href="https://blog.yuntae.in/slack-report" target="_blank">
-            Slack으로 신고 기능 빠르게 구현하기
-            </a>
-            <br/><br/><br/>안드로이드 하이브리드 앱을 개발하여 위젯 기능과 매일 아침 급식 푸시 알림 기능을 구현하였습니다.<br/>추가로, PWA 웹앱을 지원하여 iOS와 데스크톱에서도 앱 형태로 설치해 서비스에 접근할 수 있도록 하였습니다.
-            <br/><br/>
-            <a class="link" href="https://blog.yuntae.in/pwa-web" target="_blank">
-            웹인 듯 웹 아닌 앱 같은 너 - PWA
-            </a>
-            <br/><br/><br/>급식 피드백, 반 별 TODO리스트, 커뮤니티 등 실시간성이 필요한 기능을 구현하는 데에는 Firebase Cloud Firestore를 사용하였습니다.
-            <br/><br/>
-            <a class="link" href="https://blog.yuntae.in/firebase-security" target="_blank">
-            Firebase 데이터베이스 보안 설정하기
-            </a>
-            <br/><br/><br/>
-            2023년 나이스 개편 당시, 장기간 나이스 서비스에 장애가 발생하여 이에 대응하기 위해 Redis의 캐시 기능을 이용해 정보를 정상적으로 제공하였습니다.
-            <br/><br/>
-            <a class="link" href="https://blog.yuntae.in/neis-error" target="_blank">
-            학교 앱에서 4달 동안 급식 API가 멈춘다면
-            </a>
-            `}
-            links={[
-              { name: "Github", url: "https://github.com/icecream0910/ssoak" },
-              { name: "웹 버전", url: "https://sungil.vercel.app" },
-              { name: "플레이스토어", url: "https://play.google.com/store/apps/details?id=com.icecream.sungilmeal" }
-            ]}
-            date={"22.01 ~ 24.01 | 서비스 중"}
-            icon={"/ssoak.webp"}
-            image={"https://camo.githubusercontent.com/9f4e9135d1684ceea7d1ad2ecdd8d4b3790d4da72502fd2ec4931817f5d7e906/68747470733a2f2f79756e7461652e696e2f73736f616b5f7468756d622e706e67"}
-          />
-
-
-          <Project title={"유니터뷰"}
-            summary={"대학 생기부 기반 면접 준비를 도와주는 AI 서비스."}
-            desc={`생활기록부 파일을 업로드하면, 이를 자동으로 분석하여 텍스트를 추출하고, 대입 면접 예상 질문과 생기부 내용 요약을 생성합니다.
-            Next.js로 개발되었으며, Auth.js를 이용한 네이버, 카카오 소셜 로그인 기능을 구현했습니다.<br/><br/>
-            AI 기능에는 OpenAI의 GPT 모델을 사용하였습니다. 채팅으로 모의 면접을 진행할 수 있는 '챗터뷰'를 개발하였습니다.
-            AI가 생기부 기반으로 생성한 질문 중 랜덤으로 사용자에게 질의하고, 이에 대한 사용자의 답변을 분석하여 피드백 제공 및 꼬리 질문을 생성합니다.<br/><br/>
-            학생 정보를 관리할 수 있는 관리자 페이지를 개발되었습니다. 교사가 학생들의 면접 준비 진행 상황을 확인하고, 학생들이 작성해둔 답변을 읽고 피드백할 수 있습니다.<br/><br/>`}
-            links={[
-              { name: "Github", url: "https://github.com/IceCream0910/uniterview" },
-            ]}
-            date={"23.09 ~ 23.12 | 서비스 종료"}
-            icon={"/uniterview.png"}
-            image={"/uniterview_sc.JPG"}
-          />
-
-          <Project title={"코로나콕"}
-            summary={"코로나19 현황과 정보를 시각화하여 보여주는 대시보드 서비스."}
-            desc={`
-            코로나19 바이러스의 국내 확산 현황과 동선 등을 질병관리청 API 및 홈페이지 크롤링를 통해 수집하고, 이를 차트와 지도 등으로 시각화하여 사용자에게 직관적으로 표시하도록 했습니다.<br/><br/>
-            Socket 통신을 활용하여 당일 실시간 확진자 집계 기능을 구현하였습니다.<br/>
-            또한, 안드로이드 앱을 통해 위젯 및 푸시 알림 브리핑 기능을 제공하여 사용자들이 최신 정보를 빠르게 받아볼 수 있도록 하였습니다.<br/><br/>
-            <img src="https://i.imgur.com/i3SeZ5t.png" width="100%" style="border-radius: 15px"><br/><br/>
-            누적 페이지 뷰 약 17000회를 기록하였으며, 사용자의 피드백을 받아 기능을 추가하거나 수정하는 등 처음으로 많은 사람들이 이용하는 서비스를 운영해보는 경험을 할 수 있었습니다.`}
-            links={[
-              { name: "소스코드", url: "https://github.com/icecream0910/coronacoc" },
-              { name: "웹 버전", url: "https://coronacoc.vercel.app/app/" },
-              { name: "원스토어", url: "https://m.onestore.co.kr/mobilepoc/apps/appsDetail.omp?prodId=0000756996" }
-            ]}
-            date={"20.03 ~ 22.05 | 서비스 종료"}
-            icon={"/coronacoc.png"}
-            image={"/coronacoc_thumb.png"}
-          />
-
-          <Project title={"라디오"}
-            summary={"파편화된 국내 라디오를 한번에 모아 스트리밍할 수 있는 인터넷 라디오 스트리밍 서비스."}
-            desc={`
-            국내 라디오는 인터넷에서 청취하기 위해서는 각 방송사의 앱을 각각 설치해주어야 스트리밍할 수 있는 경우가 많습니다. 물론 자체 앱에서만 제공하는 실시간 댓글이나 보이는 라디오 등과 같은 기능 때문이기도 하겠지만, 단순히 라디오를 듣고자 하는 사용자 입장에서는 불편함이 있는 것이 사실입니다.
-            <br/>따라서 국내 라디오 방송국의 스트리밍 프로토콜을 모아 재생할 수 있는 서비스를 만들고자 하였습니다.<br/><br/>
-            - 세상의 모든 스테이션, 여기에서 한번에<br/>
-파편화된 라디오 앱을 방송사별로 설치하지 않아도 앱 하나로 주요 라디오를 모두 청취할 수 있습니다.<br/><br/>
-- 필요한 기능만 담은 깔끔한 플레이어<br/>
-라디오 감상에 집중할 수 있도록, 필요한 기능만 담아 감성적이고 깔끔한 디자인의 플레이어를 완성했습니다. 현재 방송 중인 프로그램명과 선곡 정보도 확인해보세요.
-<br/><br/>
-- 정해진 시간에 알아서 꺼지는 종료 타이머<br/>
-라디오를 틀어놓고 잠들어도 걱정 없도록, 플레이어에서🌙 아이콘을 눌러 종료 타이머를 설정할 수 있습니다. 정해진 시간에 재생중인 라디오가 알아서 종료됩니다.
-<br/><br/>
-- 자주 듣는 라디오는 모아뒀다가 바로<br/>
-자주 듣는 스테이션은 하트 버튼을 눌러 자주 듣는 리스트에 추가해보세요. 자주 듣는 스테이션만 바로 모아볼 수 있습니다.
-<br/><br/>
-Next.js를 기반으로 개발했습니다. Supabase DB를 이용해 각 스테이션 별 누적 청취자 수를 집계하여 표시하는 기능을 구현하였습니다.<br/>
-지역/방송사별로 정보를 정리한 JSON 파일을 만들고, 각 방송사별로 스트리밍 프로토콜을 가져오기 위해 API Routes를 만들어 사용했습니다.<br/><br/>
-안드로이드 앱은 WebView를 기반으로 동작하는 하이브리드 앱으로 개발하였습니다. 웹뷰와 통신하기 위해 Bridge를 사용하여 웹페이지와 안드로이드 앱의 함수를 서로 호출할 수 있도록 구현하였습니다.<br/>
-미디어 백그라운드 재생을 위해 안드로이드의 Media3 (ExoPlayer) API를 사용하였고, 종료 타이머를 구현하기 위해 CountDownTimer API를 사용했습니다.
-<br/><br/>
-네이버 웨일 브라우저의 사이드바에서 서비스를 이용할 수 있도록 웨일 확장앱을 개발하였습니다.
-`}
-            links={[
-              { name: "웹 버전", url: "https://radio.yuntae.in" },
-              { name: "플레이스토어", url: "https://play.google.com/store/apps/details?id=com.icecream.simplemediaplayer" },
-              { name: "웨일 확장앱", url: "https://store.whale.naver.com/detail/mebmjdmdebnhodookpfemachpamkjlkl" }
-            ]}
-            date={"23.12 ~ 진행 중 | 서비스 중"}
-            icon={"https://radio.yuntae.in/icon.png"}
-            image={"https://i.imgur.com/XPXVeSg.png"}
-          />
-
-          <Project title={"브라우저 확장앱"}
-            summary={"네이버 웨일 브라우저 확장앱. 누적 다운로드 수 합산 약 50만 회"}
-            desc={`
-            <a class="link" href="https://blog.yuntae.in/browser-extensions" target="_blank">
-            브라우저 확장앱 개발하기(aka. 회고록)
-            </a>`}
-            date={"20.05 ~ 21.05 | 서비스 종료"}
-            links={[
-              { name: "Google Keep", url: "https://store.whale.naver.com/detail/mpigbcflpddfcbidjdnaadbccaffdene" },
-              { name: "T-REX Runner", url: "https://store.whale.naver.com/detail/oopeaffdcbgoeicbcibbmialglioebkj" },
-              { name: "Breaklock", url: "https://store.whale.naver.com/detail/jindgfnppjdpmgdfiakaonemdkkjgcdj" },
-              { name: "Blockit", url: "https://store.whale.naver.com/detail/gfdaidimgcibdjiidpmbobhhaojnjbfd" },
-
-            ]}
-            icon={"/whale.png"}
-            image={"https://whale-store.pstatic.net/20190222_297/1550821710781qBrwX_PNG/%BD%BD%B6%F3%C0%CC%B5%E50001.png"}
-          />
-
-          <Project title={"0yak"}
-            summary={"2022 대한민국 대통령 선거 후보 공약 정리 서비스"}
-            desc={`제 21대 대통령 선거 후보 별 공약, 공약 비교, 주요 이슈에 대한 후보들의 입장 등을 정리, HTML, CSS, JS 사용.`}
-            links={[
-              { name: "소스코드", url: "https://github.com/IceCream0910/0yak" },
-              { name: "웹사이트", url: "https://0yak.vercel.app/" }
-            ]}
-            date={"22.02 ~ 22.03 | 서비스 종료"}
-            icon={"/0yak.png"}
-
-          />
+          {projectData.map((project, index) => (
+            <Project onClick={() => sessionStorage.setItem(
+              `__next_scroll_${window.history.state.idx}`,
+              JSON.stringify({
+                x: window.pageXOffset,
+                y: window.pageYOffset,
+              })
+            )} key={index} {...project} />
+          ))}
 
           <div className="card card-2x1" style={{ background: 'none', aspectRatio: 'unset' }}>
             더 많은 <span className="tag green">프로젝트+</span>
