@@ -10,7 +10,7 @@ const Project = ({ title, summary, desc, links, date, icon, image }) => {
     return (<>
         <div className="card card-1x1"
             onClick={() => {
-                router.push('/project/' + encodeURIComponent(title));
+                window.open('/project/' + encodeURIComponent(title));
             }}
             style={{
                 aspectRatio: 'unset',

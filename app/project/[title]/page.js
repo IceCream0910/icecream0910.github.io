@@ -53,7 +53,7 @@ export default function ProjectPage(props) {
           </div>}
         </div>
 
-        <div className='incard-button modal-close' onClick={() => router.replace('/#projects')}><IonIcon name='close' /></div>
+        <div className='incard-button modal-close' onClick={() => window.close()}><IonIcon name='close' /></div>
       </div>
 
       <section className='content' style={{ padding: '20px' }}>
