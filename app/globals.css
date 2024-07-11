@@ -1,4 +1,5 @@
-/* globals.css */
+@import url('https://cdn.jsdelivr.net/gh/toss/tossface/dist/tossface.css');
+
 :root {
   --foreground: #000;
   --background: #fff;
@@ -42,6 +43,10 @@
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Shiningstar.woff') format('woff');
   font-weight: normal;
   font-style: normal;
+}
+
+.emoji {
+  font-family: Tossface;
 }
 
 html,

@@ -10,7 +10,7 @@ const SkillSet = () => {
                 style={{
                     aspectRatio: 'unset'
                 }}>
-                <b>이런 걸 다룰 수 있어요 💻</b><Spacer y={20} />
+                <b>이런 걸 다룰 수 있어요 <span className="emoji">🛠️</span></b><Spacer y={20} />
 
                 <div className="image-grid" style={{ display: 'grid' }}>
                     <div className='tooltip'>

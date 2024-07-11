@@ -84,8 +84,8 @@ export default function Home() {
             이런 것들을 <Image src="/heart.png" width={17} height={15} style={{ position: 'relative', top: '2px' }} />해요.
             <Spacer y={20} />
             <h1 style={{ wordBreak: 'keep-all' }}><span className="tag blue">{`#코딩/>`}</span> #개발<br />
-              #웹🌐 <span className="tag green">#UI/UX</span><br />
-              #노래🎧 #집🏠<br /><span className="tag pink">#계획🔨</span></h1>
+              #웹<span className="emoji">🌐</span> <span className="tag green">#UI/UX</span><br />
+              <span className="tag yellow">#음악<span className="emoji">💿</span></span> #집<span className="emoji">🏠</span><br />#계획<span className="emoji">🗒️</span></h1>
           </div>
 
           <Music />
@@ -116,7 +116,7 @@ export default function Home() {
         </div >
 
         <Spacer y={50} />
-        <h3 id="github">&nbsp;&nbsp;&nbsp;통계 📂</h3><Spacer y={15} />
+        <h3 id="github">&nbsp;&nbsp;&nbsp;통계 <span className="emoji">📂</span></h3><Spacer y={15} />
         <div className="card-container">
 
           <Contribution />
@@ -126,7 +126,7 @@ export default function Home() {
 
 
         <Spacer y={80} />
-        <h3 id="projects" >&nbsp;&nbsp;&nbsp;프로젝트 ⚗️</h3><Spacer y={15} />
+        <h3 id="projects" >&nbsp;&nbsp;&nbsp;프로젝트 <span className="emoji">⚗️</span></h3><Spacer y={15} />
 
         <div className="card-container">
           {projectData.map((project, index) => (
@@ -154,13 +154,13 @@ export default function Home() {
         <div className="card-container">
           <div className="card card-1x1"
             style={{ aspectRatio: 'unset' }}>
-            <b>학력 🏫</b><Spacer y={15} />
+            <b>학력 <span className="emoji">🏫</span></b><Spacer y={15} />
             <h3>성일고등학교&nbsp;<span style={{ fontSize: '13px', fontWeight: '100' }}>일반 인문계</span></h3>
             <h3><span className="tag green">→광운대학교</span>&nbsp;<span style={{ fontSize: '13px', fontWeight: '100' }}>소프트웨어학부</span></h3>
           </div>
 
           <div className="card card-2x1" style={{ aspectRatio: 'unset' }}>
-            <b>자격증 🪪</b><Spacer y={15} />
+            <b>자격증 <span className="emoji">🪪</span></b><Spacer y={15} />
             <Spacer y={5} />
             <h3>
               <span className="tag blue">#정보처리기능사↙</span>&nbsp;<span style={{ fontSize: '13px', fontWeight: '100' }}>2017</span></h3>
