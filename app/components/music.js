@@ -30,9 +30,9 @@ const Music = () => {
             getRandomLyric(data_lyrics);
         };
 
-        //fetchData();
+        fetchData();
 
-        //const interval = setInterval(fetchData, 180000); // Fetch every 3 minutes
+        const interval = setInterval(fetchData, 180000);
 
         return () => {
             clearInterval(interval);
