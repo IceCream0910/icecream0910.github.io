@@ -154,8 +154,23 @@ export default function Home() {
           <div className="card card-1x1"
             style={{ aspectRatio: 'unset' }}>
             <b>학력 <span className="emoji">🏫</span></b><Spacer y={15} />
-            <h3>성일고등학교&nbsp;<span style={{ fontSize: '13px', fontWeight: '100' }}>일반 인문계</span></h3>
-            <h3><span className="tag green">→광운대학교</span>&nbsp;<span style={{ fontSize: '13px', fontWeight: '100' }}>소프트웨어학부</span></h3>
+            <div class="school-info">
+              <div class="school">
+                <span class="dot"></span>
+                <div>
+                  <h3>성일고등학교</h3>
+                  <p>2021~2024 | 일반 인문계</p>
+                </div>
+              </div>
+              <div class="line"></div>
+              <div class="school">
+                <span class="dot active"></span>
+                <div>
+                  <h3><span className="tag green" style={{ cursor: 'pointer' }} onClick={() => window.open('https://www.kw.ac.kr')}>→광운대학교</span></h3>
+                  <p>2024~ | 소프트웨어학부</p>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="card card-2x1" style={{ aspectRatio: 'unset' }}>

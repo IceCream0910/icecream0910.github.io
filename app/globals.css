@@ -6,7 +6,7 @@
   --blur: rgba(255, 255, 255, 0.7);
   --gradient: #c7e4ff;
   --card: #f3f3f3;
-  --green: #286448;
+  --green: #59ffb1;
   --blue: #455c71;
   --pink: #a66baa;
   --yellow: #e38500;
@@ -599,4 +599,48 @@ canvas {
   background-size: calc(100% / 7 * 6) 100%;
   background-repeat: no-repeat;
   pointer-events: none;
+}
+
+.school-info {
+  position: relative;
+}
+
+.school {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.school h3 {
+  font-size: 20px;
+}
+
+.school p {
+  margin: 3px 0;
+  font-size: 14px;
+  opacity: 0.6;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  z-index: 1;
+  background-color: var(--foreground);
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.dot.active {
+  background-color: var(--green);
+  border: 2px solid var(--foreground);
+}
+
+.line {
+  position: absolute;
+  left: 4px;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  background-color: var(--foreground);
+  opacity: .7;
 }

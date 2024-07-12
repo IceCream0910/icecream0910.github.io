@@ -27,7 +27,7 @@ const Contribution = ({ src, image }) => {
 
     return (
         <>
-            <div className="card card-2x1 green" id='only-pc' style={{
+            <div className="card card-2x1" id='only-pc' style={{
                 aspectRatio: 'unset'
             }}>
                 <b>Github에 심은 잔디</b>
@@ -38,7 +38,7 @@ const Contribution = ({ src, image }) => {
                     }} />
             </div>
 
-            <div className="card card-1x1 green" id='only-mobile' style={{
+            <div className="card card-1x1" id='only-mobile' style={{
                 aspectRatio: 'unset'
             }}>
                 <b>Github에 심은 잔디</b>
