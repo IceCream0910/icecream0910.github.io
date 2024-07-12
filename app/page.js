@@ -66,10 +66,9 @@ export default function Home() {
       <section className="right" id="main-section">
         <h3 id="about"></h3>
         <div className="card-container">
-
-          <div className="card card-1x1 purple" onClick={() => setIsOpen(true)}>
-            <Image src="/stickers/star.svg" width={80} height={80} style={{ position: 'absolute', bottom: '20px', left: '20px' }} />
-            <h4>새로움에 끊임없이 <b>도전</b>하는<b><br />개발자</b>입니다.</h4>
+          <div className="card card-1x1 green-gradient" onClick={() => setIsOpen(true)}>
+            <Image className="sticker" src="/stickers/star.svg" width={80} height={80} style={{ position: 'absolute', bottom: '20px', left: '20px', filter: 'invert(56%) sepia(29%) saturate(300%) hue-rotate(100deg) brightness(180%) contrast(90%)' }} />
+            <h4><b>새로움</b>에 끊임없이 <b>도전</b>하는<br />개발자입니다.</h4>
             <div className="content">
               <div className='incard-button'>
                 <IonIcon name="add" />
@@ -96,7 +95,7 @@ export default function Home() {
 
           <Mbti />
 
-          <div className="card card-1x1 yellow">
+          <div className="card card-1x1" style={{ color: 'var(--yellow)' }}>
             <b>My Motto</b>
             <Spacer y={20} />
             <span className="handwriting" style={{ textAlign: 'right' }}>오롯이 너만의 속도를 따라가야,<br></br>

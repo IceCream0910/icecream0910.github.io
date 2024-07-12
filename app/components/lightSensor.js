@@ -14,15 +14,6 @@ const LightSensor = ({ birth }) => {
                 setBrightness(data.components.main.relativeBrightness.brightnessIntensity.value);
             })
             .catch(err => console.error(err));
-
-        setInterval(() => {
-            fetch('/api/iot/lightSensor', { cache: "no-store" })
-                .then(res => res.json())
-                .then(data => {
-                    setBrightness(data.components.main.relativeBrightness.brightnessIntensity.value);
-                })
-                .catch(err => console.error(err));
-        }, 60000);
     }, []);
 
     useEffect(() => {
@@ -55,29 +46,20 @@ const LightSensor = ({ birth }) => {
         }
 
         setLux(randomLux);
-
-        setInterval(() => {
-            const range = luxRanges[brightness - 1];
-            const mid = (range.min + range.max) / 2;
-            let randomLux = Math.floor(Math.random() * 40) + Math.floor(mid) - 10;
-            if (randomLux < 0) {
-                randomLux = 0;
-            }
-
-            setLux(randomLux);
-        }, 60000);
     }, [brightness]);
 
     return (
-        <div className="card card-1x1" style={{ color: "var(--green)" }}>
+        <div className="card card-1x1 pink-gradient" >
 
             <IonIcon name="sunny" style={{ fontSize: '30px' }} />
             <Spacer y={5} />
             지금 내 방의 <b>밝기는</b><br />
             <span style={{ fontSize: '15px', opacity: 0.7 }}>{description}</span>
-            <div className='content' style={{ right: '25px', bottom: "15px" }}>
-                <h1 className="mbti" style={{ fontWeight: 100, fontSize: '3em' }}>{lux}<span style={{ fontWeight: '800', fontSize: '0.4em', marginLeft: '10px' }}>lux</span></h1>
-                <div className="bar" style={{ width: `${brightness * 14.28}%` }}></div>
+            <div className='content' style={{ right: '25px', bottom: "25px", width: 'calc(100% - 50px)' }}>
+                <h1 className="mbti" style={{ fontWeight: 100, fontSize: '3em', marginBottom: '20px' }}>{lux}<span style={{ fontWeight: '800', fontSize: '0.4em', marginLeft: '10px' }}>lux</span></h1>
+                <div className="bar">
+                    <div className='progress' style={{ width: `${brightness * 14.4857}%` }}></div>
+                </div>
             </div>
         </div>
     );

@@ -9,6 +9,7 @@
   --green: #286448;
   --blue: #455c71;
   --pink: #a66baa;
+  --yellow: #e38500;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -20,7 +21,8 @@
     --card: #434343;
     --green: #59ffb1;
     --blue: #9fb1dc;
-    --pink: #d8abdb
+    --pink: #d8abdb;
+    --yellow: #e6c17b;
   }
 }
 
@@ -207,10 +209,12 @@ section.right {
 @keyframes appear {
   from {
     opacity: 0;
+    transform: translateY(50px);
   }
 
   to {
     opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -223,7 +227,7 @@ section.right {
   min-height: 100px;
   animation: appear linear;
   animation-timeline: view();
-  animation-range: 0% 60%;
+  animation-range: 0% 30%;
 }
 
 .card:active {
@@ -280,6 +284,16 @@ h5 {
   color: #871d00;
 }
 
+.card.green-gradient {
+  background-image: linear-gradient(to bottom right, #41d09f 0%, #3e83ee 100%);
+  color: white;
+}
+
+.card.pink-gradient {
+  background-image: linear-gradient(to bottom right, #a889f4 0%, #d54ce9 100%);
+  color: white;
+}
+
 .card.pink {
   background-color: #e5a8df;
   color: #850f7a;
@@ -311,6 +325,20 @@ h5 {
 
 #only-mobile {
   display: none;
+}
+
+@media (min-width: 1500px) {
+  .card {
+    padding: 30px;
+    font-size: 1.7rem;
+  }
+
+  .card .sticker {
+    bottom: 30px !important;
+    left: 30px !important;
+    width: 120px;
+    height: 120px;
+  }
 }
 
 @media (max-width: 1231px) {
@@ -531,4 +559,44 @@ h5 {
 canvas {
   border-radius: 20px !important;
   background: none !important;
+}
+
+.bar {
+  width: 100%;
+  height: 20px;
+  border-radius: 20px;
+  position: absolute;
+  background-color: var(--pink);
+  bottom: 0;
+  left: 0;
+  transition: width 0.5s ease-in-out;
+}
+
+.bar .progress {
+  height: 100%;
+  border-radius: 20px 0 0 20px;
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  transition: width 0.5s ease-in-out;
+}
+
+.bar::before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 50%;
+  background-image: repeating-linear-gradient(to right,
+      transparent,
+      transparent calc((100% / 6) - 1px),
+      rgba(255, 255, 255, 0.5) calc((100% / 6) - 1px),
+      rgba(255, 255, 255, 0.5) calc(100% / 6));
+  background-position: calc((100% / 6) / 2) 0;
+  background-size: calc(100% / 7 * 6) 100%;
+  background-repeat: no-repeat;
+  pointer-events: none;
 }
