@@ -42,7 +42,7 @@ export async function GET(request) {
         const token = token_data.token;
 
         // 6개월 주기로 갱신 필요
-        const mediaUserToken = process.env.NEXT_PUBLIC_APPLE_MUSIC_MEDIA_USER_TOKEN;
+        const mediaUserToken = process.env.NEXT_PUBLIC_APPLE_MUSIC_MEDIA_USER_TOKEN_NOA_KIM;
 
         const options = {
             method: 'GET',
