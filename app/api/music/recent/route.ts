@@ -1,6 +1,27 @@
 import { NextResponse } from "next/server";
 
-export async function GET(req) {
+const allowedOrigins = ['http://localhost', 'http://127.0.0.1', 'https://yuntae.in'];
+
+async function cors(request, response) {
+    const origin = request.headers.get("origin") ?? "";
+
+    if (allowedOrigins.includes(origin)) {
+        response.headers.set("Access-Control-Allow-Origin", origin);
+    }
+
+    response.headers.set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+    response.headers.set("Access-Control-Allow-Headers", "Content-Type, Authorization");
+    response.headers.set("Access-Control-Max-Age", "86400");
+
+    return response;
+}
+
+export async function OPTIONS(request) {
+    const response = new NextResponse(null, { status: 204 });
+    return cors(request, response);
+}
+
+export async function GET(request) {
     try {
         const options_token = {
             method: 'GET',
@@ -38,12 +59,14 @@ export async function GET(req) {
             }
         };
 
-        const response = await fetch('https://api.music.apple.com/v1/me/recent/played/tracks?l=ko&types=songs&limit=1', options);
+        const response = await fetch('https://api.music.apple.com/v1/me/recent/played/tracks?l=ko&types=songs&limit=10', options);
         const data = await response.json();
-        return NextResponse.json(data);
+        const corsResponse = NextResponse.json(data);
+        return cors(request, corsResponse);
     } catch (error) {
         console.error(error);
-        return NextResponse.json({ error: error });
+        const errorResponse = NextResponse.json({ error: error.message }, { status: 500 });
+        return cors(request, errorResponse);
     }
 }
 
