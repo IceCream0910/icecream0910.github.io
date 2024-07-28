@@ -94,7 +94,7 @@ const Music = () => {
     };
 
     return (
-        <div className="card card-1x1">
+        <div className="card card-1x1" data-swapy-item="3">
             <audio ref={audioPlayer} onEnded={handleAudioEnd} onTimeUpdate={handleTimeUpdate} style={{ display: 'none' }} controls>
                 <source key={url} src={url} type="audio/mpeg" />
             </audio>

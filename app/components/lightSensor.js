@@ -27,16 +27,6 @@ const LightSensor = ({ birth }) => {
             { min: 801, max: 3000 },
             { min: 3000, max: Infinity }
         ];
-        const desciprtions = [
-            '불이 꺼져있어요',
-            '어두워요',
-            '어두운 조명',
-            '평상시',
-            '밝은 조명',
-            '밝아요',
-            '아주 밝아요'
-        ];
-        setDescription(desciprtions[brightness - 1]);
 
         const range = luxRanges[brightness - 1];
         const mid = (range.min + range.max) / 2;
@@ -49,12 +39,11 @@ const LightSensor = ({ birth }) => {
     }, [brightness]);
 
     return (
-        <div className="card card-1x1 pink-gradient" >
+        <div className="card card-1x1 pink-gradient" data-swapy-item="9">
 
             <IonIcon name="sunny" style={{ fontSize: '30px' }} />
             <Spacer y={5} />
             지금 내 방의 <b>밝기는</b><br />
-            <span style={{ fontSize: '15px', opacity: 0.7 }}>{description}</span>
             <div className='content' style={{ right: '25px', bottom: "25px", width: 'calc(100% - 50px)' }}>
                 <h1 className="mbti" style={{ fontWeight: 100, fontSize: '3em', marginBottom: '20px' }}>{lux}<span style={{ fontWeight: '800', fontSize: '0.4em', marginLeft: '10px' }}>lux</span></h1>
                 <div className="bar">

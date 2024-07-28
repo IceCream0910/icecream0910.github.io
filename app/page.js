@@ -15,30 +15,19 @@ import Time from "./components/time";
 import Media from "./components/media";
 import projectData from "./project/data";
 import { useRouter } from "next/navigation";
+import { createSwapy } from '../swapy'
 
 export default function Home() {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    window.history.scrollRestoration = 'manual';
-
-    // 페이지 이동 후 저장되어 있던 위치로 스크롤 복원
-    const _scroll = sessionStorage.getItem(`__next_scroll_${window.history.state.idx}`);
-    if (_scroll) {
-      // 스크롤 복원 후 저장된 위치 제거
-      const { x, y } = JSON.parse(_scroll);
-      window.scrollTo(x, y);
-      sessionStorage.removeItem(`__next_scroll_${window.history.state.idx}`);
-    }
-    if (router && router.events) {
-      router.events.on('routeChangeComplete', routeChangeCompleteHandler);
-      return () => {
-        router.events.off('routeChangeComplete', routeChangeCompleteHandler);
-      };
-    } else {
-      console.error('Router or router.events is undefined');
-      return;
+    const container = document.querySelector('.swapy-container');
+    const swapy = createSwapy(container, {
+      animation: 'spring',
+    });
+    if ('ontouchstart' in window) {
+      swapy.enable();
     }
   }, []);
 
@@ -65,52 +54,67 @@ export default function Home() {
 
       <section className="right" id="main-section">
         <h3 id="about"></h3>
-        <div className="card-container">
-          <div className="card card-1x1 green-gradient" onClick={() => setIsOpen(true)}>
-            <Image className="sticker" src="/stickers/star.svg" width={80} height={80} style={{ position: 'absolute', bottom: '20px', left: '20px', filter: 'invert(56%) sepia(29%) saturate(300%) hue-rotate(100deg) brightness(180%) contrast(90%)' }} />
-            <h4><b>새로움</b>에 끊임없이 <b>도전</b>하는<br />개발자입니다.</h4>
-            <div className="content">
-              <div className='incard-button'>
-                <IonIcon name="add" />
+        <div className="card-container swapy-container">
+          <div className="card-1x1" data-swapy-slot="1">
+            <div className="card card-1x1 green-gradient" data-swapy-item="1">
+              <Image className="sticker" src="/stickers/star.svg" width={80} height={80} style={{ position: 'absolute', bottom: '20px', right: '20px', filter: 'invert(56%) sepia(29%) saturate(300%) hue-rotate(100deg) brightness(180%) contrast(90%)' }} />
+              <h4><b>새로움</b>에 끊임없이 <b>도전</b>하는<br />개발자입니다.</h4>
+            </div>
+          </div>
+
+
+          <div className="card-1x1" data-swapy-slot="2" style={{
+            aspectRatio: 'unset'
+          }}>
+            <div className="card card-1x1" data-swapy-item="2"
+            >
+              이런 것들을 <Image src="/heart.png" width={17} height={15} style={{ position: 'relative', top: '2px' }} />해요.
+              <Spacer y={20} />
+              <h1 style={{ wordBreak: 'keep-all' }}><span className="tag blue">{`#코딩/>`}</span> #개발<br />
+                #웹<span className="emoji">🌐</span> <span className="tag green">#UI/UX</span><br />
+                <span className="tag yellow">#음악<span className="emoji">💿</span></span> #집<span className="emoji">🏠</span><br />#계획<span className="emoji">🗒️</span></h1>
+            </div>
+          </div>
+
+          <div className="card-1x1" data-swapy-slot="3">
+            <Music />
+          </div>
+
+          <div className="card-1x1" data-swapy-slot="4">
+            <SkillSet />
+          </div>
+
+          <div className="card-1x1" data-swapy-slot="5">
+            <Age birth={20050910} />
+          </div>
+
+          <div className="card-1x1" data-swapy-slot="6">
+            <Mbti />
+          </div>
+
+          <div className="card-1x1" data-swapy-slot="7">
+            <div className="card card-1x1" style={{ color: 'var(--yellow)' }} data-swapy-item="7">
+              <b>My Motto</b>
+              <Spacer y={20} />
+              <span className="handwriting" style={{ textAlign: 'right' }}>오롯이 너만의 속도를 따라가야,<br></br>
+                어떤 기류에도 흔들리지 않을테니까</span>
+              <div className="content">
+                <span style={{ fontSize: '12px', opacity: 0.5, float: 'right' }}>ㅡ ｢Airplane - IZ*ONE｣  중</span>
               </div>
             </div>
           </div>
 
-          <div className="card card-1x1"
-            style={{
-              aspectRatio: 'unset'
-            }}>
-            이런 것들을 <Image src="/heart.png" width={17} height={15} style={{ position: 'relative', top: '2px' }} />해요.
-            <Spacer y={20} />
-            <h1 style={{ wordBreak: 'keep-all' }}><span className="tag blue">{`#코딩/>`}</span> #개발<br />
-              #웹<span className="emoji">🌐</span> <span className="tag green">#UI/UX</span><br />
-              <span className="tag yellow">#음악<span className="emoji">💿</span></span> #집<span className="emoji">🏠</span><br />#계획<span className="emoji">🗒️</span></h1>
+          <div className="card-1x1" data-swapy-slot="8">
+            <Time />
           </div>
 
-          <Music />
-
-          <SkillSet />
-
-          <Age birth={20050910} />
-
-          <Mbti />
-
-          <div className="card card-1x1" style={{ color: 'var(--yellow)' }}>
-            <b>My Motto</b>
-            <Spacer y={20} />
-            <span className="handwriting" style={{ textAlign: 'right' }}>오롯이 너만의 속도를 따라가야,<br></br>
-              어떤 기류에도 흔들리지 않을테니까</span>
-            <div className="content">
-              <span style={{ fontSize: '12px', opacity: 0.5, float: 'right' }}>ㅡ ｢Airplane - IZ*ONE｣  중</span>
-            </div>
+          <div className="card-1x1" data-swapy-slot="9">
+            <LightSensor />
           </div>
 
-
-          <Time />
-
-          <LightSensor />
-
-          <Media />
+          <div className="card-1x1" data-swapy-slot="10">
+            <Media />
+          </div>
 
         </div >
 
@@ -185,43 +189,9 @@ export default function Home() {
           </div>
 
         </div>
-        <div id="only-pc">
-          <Spacer y={400} />
-        </div>
+
+        <Spacer y={80} />
       </section >
-
-      {isOpen && <div className='modal-container'>
-        <div className='modal-backdrop' onClick={() => setIsOpen(false)}></div>
-        <div className='modal' >
-          <div className='modal-content'>
-            <div className='incard-button modal-close' onClick={() => setIsOpen(false)}><IonIcon name='close' /></div>
-            <h1>새로움에 끊임없이 <b>도전</b>하는<b><br />개발자</b>입니다.</h1>
-            <Spacer y={10} />
-
-            <p style={{ fontSize: '15px', lineHeight: '1.5', wordBreak: 'keep-all' }}>사소한 아이디어일지라도 무언가를 기획하고 개발해 다른 사람이 편리하게 사용할 수 있는 <span className="underlined">서비스를 만드는 일에 설렘</span>을 느낍니다.
-              <br /><br />새로운 기술이나 지식에 끊임없이 도전하고 배우며 팀원들과 <span className="underlined">함께 성장하는 개발자</span>가 되고 싶습니다.
-            </p>
-            <Spacer y={20} />
-            <div className="card-container inmodal">
-
-              <div className="card card-1x1 blue" style={{ animation: 'unset' }}>
-                <h4>일단 <b>도전</b>합니다.</h4>
-                <p style={{ fontSize: '15px' }}>실패를 두려워하면 변화는 없기에, 생각을 행동으로 뚝딱뚝딱 만들어봅니다.</p>
-                <svg style={{ position: 'absolute', bottom: '30px', right: '30px' }} width="30%" height="30%" viewBox="0 0 200 200" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M99.9647 96.4182C152.547 96.4182 195.676 57.5059 199.904 7.9969C200.279 3.59465 196.662 -7.42775e-07 192.244 0L7.68592 3.10268e-05C3.26764 3.17695e-05 -0.350008 3.59468 0.0259045 7.99694C4.25352 57.5059 47.383 96.4182 99.9647 96.4182ZM100.035 103.582C47.4535 103.582 4.32412 142.494 0.0965162 192.003C-0.279395 196.405 3.33825 200 7.75653 200L192.314 200C196.732 200 200.35 196.405 199.974 192.003C195.747 142.494 152.617 103.582 100.035 103.582Z"></path></svg>
-              </div>
-
-              <div className="card card-1x1 red" style={{ animation: 'unset' }}>
-                <h4><b>같이</b>의 가치를 이해합니다.</h4>
-                <p style={{ fontSize: '15px' }}>나와 다른 의견을 가진 사람을 이해하려고 노력합니다. <br />문제 상황을 대화를 통해 함께 해결해나가고자 합니다.</p>
-                <svg style={{ position: 'absolute', bottom: '30px', right: '30px' }} width="30%" height="30%" viewBox="0 0 200 200" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M102.699 1.06732C101.166 -0.352109 98.7983 -0.352111 97.2649 1.06732L13.1058 78.9701C11.3954 80.5534 11.3954 83.2578 13.1058 84.841L25.4799 96.2952C27.1903 97.8785 27.1903 100.583 25.4799 102.166L12.2747 114.39C10.5643 115.973 10.5643 118.677 12.2747 120.261L97.2649 198.933C98.7983 200.352 101.166 200.352 102.699 198.933L187.69 120.261C189.4 118.677 189.4 115.973 187.69 114.39L174.484 102.166C172.774 100.583 172.774 97.8785 174.484 96.2952L186.858 84.841C188.569 83.2578 188.569 80.5534 186.858 78.9701L102.699 1.06732Z"></path></svg>
-              </div>
-
-            </div>
-
-            <Spacer y={50} />
-          </div>
-        </div>
-      </div>}
     </>
   )
 }

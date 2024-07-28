@@ -7,7 +7,7 @@ const Mbti = () => {
     const [mbtiDesc, setMbtiDesc] = useState('이런 성격이에요');
 
     return (
-        <div className="card card-1x1 mint">
+        <div className="card card-1x1 mint" data-swapy-item="6">
             저는 <b>{mbtiDesc}</b><br />
             <del style={{ fontSize: '11px', opacity: 0.5 }}>MBTI 4자에 모든걸 담을 수 없으니 재미로</del>
 

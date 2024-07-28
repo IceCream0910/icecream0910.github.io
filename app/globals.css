@@ -55,7 +55,7 @@ html,
 body {
   width: 100dvw;
   height: 100dvh;
-  overflow: hidden;
+  scroll-behavior: smooth;
   color: var(--foreground);
   background: var(--background);
   margin: 0;
@@ -65,8 +65,6 @@ body {
 * {
   font-family: 'Pretendard-Regular', sans-serif;
   box-sizing: border-box;
-  transition: transform 0.5s ease;
-  -o-transition: transform 0.5s ease;
   -ms-user-select: none;
   -moz-user-select: -moz-none;
   -webkit-user-select: none;
@@ -76,6 +74,14 @@ body {
 
 *:focus {
   outline: none;
+}
+
+img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
 }
 
 h1 {
@@ -181,6 +187,9 @@ section {
 }
 
 section.left {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 25%;
   height: 100%;
   float: left;
@@ -190,7 +199,6 @@ section.left {
 section.right {
   width: 75%;
   height: 100%;
-  overflow-y: scroll;
   scroll-behavior: smooth;
   float: right;
 }
@@ -218,6 +226,7 @@ section.right {
   }
 }
 
+
 .card {
   position: relative;
   background-color: var(--card);
@@ -225,15 +234,21 @@ section.right {
   padding: 20px;
   font-size: 1.2rem;
   min-height: 100px;
+  transition: transform 0.5s ease;
+  -o-transition: transform 0.5s ease;
   animation: appear linear;
   animation-timeline: view();
   animation-range: 0% 30%;
 }
 
+.swapy-container .card {
+  transition: none;
+  -o-transition: none;
+}
+
 .card:active {
   transform: scale(0.98);
   -o-transform: scale(0.98);
-
 }
 
 .card h1,
@@ -353,6 +368,7 @@ h5 {
   }
 
   section.left {
+    position: unset;
     width: 100%;
     height: fit-content;
     float: none;
@@ -366,6 +382,11 @@ h5 {
     overflow: hidden;
     display: flex;
     flex-direction: column;
+  }
+
+  .swapy-container .card {
+    transition: transform 0.5s ease;
+    -o-transition: transform 0.5s ease;
   }
 
   #only-pc {
@@ -423,23 +444,19 @@ h5 {
 .tooltip {
   position: relative;
   display: block;
-  transform: scale(0.7);
+  transform: scale(0.7) !important;
   transition: transform 0.5s ease;
 }
 
-.tooltip:hover {
-  transform: scale(0.8);
-  -o-transform: scale(0.8);
-}
 
 .tooltip .tooltiptext {
   visibility: hidden;
   width: 120px;
-  background-color: #494949;
+  background-color: #2c2c2c;
   color: #fff;
   text-align: center;
   border-radius: 10px;
-  padding: 5px 0;
+  padding: 10px 0;
   font-size: 15px;
   position: absolute;
   z-index: 1;
@@ -458,13 +475,13 @@ h5 {
 
 .tooltip .tooltip-top {
   top: -20px;
-  right: -15px;
+  right: -30px;
 }
 
 .tooltip .tooltip-top::after {
   bottom: -10px;
   /* 사각형 영역이 중앙에 오도록 위치 */
-  left: 45%;
+  left: 48%;
   /* 왼쪽에서 100% 위치에 오도록 위치 */
   margin-top: -5px;
   /* 사각형의 테두리에서 왼쪽만 노출 */

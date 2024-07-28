@@ -110,37 +110,10 @@ const Media = () => {
 
         ]);
 
-        /*
-        var stack = Composites.stack(5, 5, 2, 3, 0, 0, function (x, y) {
-            var sides = Math.round(Common.random(1, 8));
-
-            // round the edges of some bodies
-            var chamfer = null;
-            if (sides > 2 && Common.random() > 0.7) {
-                chamfer = {
-                    radius: 10
-                };
-            }
-
-            switch (Math.round(Common.random(0, 1))) {
-                case 0:
-                    if (Common.random() < 0.8) {
-                        return Bodies.rectangle(x, y, Common.random(25, 50), Common.random(25, 50), { chamfer: chamfer });
-                    } else {
-                        return Bodies.rectangle(x, y, Common.random(80, 120), Common.random(25, 30), { chamfer: chamfer });
-                    }
-                case 1:
-                    return Bodies.polygon(x, y, sides, Common.random(25, 50), { chamfer: chamfer });
-            }
-        });
-
-        Composite.add(world, stack);
-        */
-
         Composite.add(world, [
             // walls
             Bodies.rectangle(400, 0, 800, 50, { isStatic: true, render: { visible: false } }),
-            Bodies.rectangle(400, 700, 800, 50, { isStatic: true, render: { visible: false } }), // y 좌표를 700으로 변경
+            Bodies.rectangle(400, 700, 800, 50, { isStatic: true, render: { visible: false } }),
             Bodies.rectangle(800, 300, 50, 700, { isStatic: true, render: { visible: false } }),
             Bodies.rectangle(0, 300, 50, 700, { isStatic: true, render: { visible: false } })
         ]);
@@ -159,7 +132,6 @@ const Media = () => {
 
         Composite.add(world, mouseConstraint);
 
-        // keep the mouse in sync with rendering
         render.mouse = mouse;
 
 
@@ -171,7 +143,6 @@ const Media = () => {
             catch (e) { setCurrentTitle(''); }
         });
 
-        // fit the render viewport to the scene
         Render.lookAt(render, {
             min: { x: 0, y: 0 },
             max: { x: 800, y: 600 }
@@ -196,8 +167,8 @@ const Media = () => {
     }
 
     return (
-        <div className="card card-1x1" style={{ color: "var(--blue)" }}>
-            <div style={{ position: 'absolute', top: '0', left: '0', zIndex: '99', width: '100%', padding: '20px', borderRadius: '20px 20px 0 0', background: `linear-gradient(to top, transparent, var(--gradient))` }}>
+        <div className="card card-1x1 noswapy" style={{ color: "var(--blue)" }} data-swapy-item="10">
+            <div data-swapy-handle style={{ position: 'absolute', top: '0', left: '0', zIndex: '99', width: '100%', padding: '20px', borderRadius: '20px 20px 0 0', background: `linear-gradient(to top, transparent, var(--gradient))` }}>
                 <h4><b>{currentTitle || '최근 감상한 것.'}</b></h4>
 
                 <a onClick={() => initCanvas()} style={{ position: 'absolute', right: '20px', top: '20px' }}><IonIcon name="refresh" /></a>
