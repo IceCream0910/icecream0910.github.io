@@ -5,8 +5,36 @@ import Matter from "matter-js";
 const Media = () => {
     const sceneRef = useRef(null);
     const [currentTitle, setCurrentTitle] = useState('');
+    const [mediaList, setMediaList] = useState([]);
+    const desiredWidth = 210;
+    const desiredHeight = 310;
 
-    function renderScene() {
+    useEffect(() => {
+        const fetchData = async () => {
+            const response = await fetch('/api/ott');
+            const data = await response.json();
+            setMediaList(data);
+        };
+
+        fetchData();
+    }, []);
+
+    useEffect(() => {
+        if (mediaList.length === 0 || !mediaList) return;
+        renderScene(mediaList);
+    }, [mediaList]);
+
+    function loadImageDimensions(url) {
+        return new Promise((resolve, reject) => {
+            const img = new Image();
+            img.onload = () => resolve({ width: img.width, height: img.height });
+            img.onerror = reject;
+            img.src = url;
+        });
+    }
+
+    function renderScene(data) {
+        console.log(data);
         var Engine = Matter.Engine,
             Render = Matter.Render,
             Runner = Matter.Runner,
@@ -44,71 +72,31 @@ const Media = () => {
         var runner = Runner.create();
         Runner.run(runner, engine);
 
+        Promise.all(mediaList.map(media => loadImageDimensions(media.posterImage.pathUrl)))
+            .then(dimensions => {
+                const mediaBodies = mediaList.map((media, index) => {
+                    const { width, height } = dimensions[index];
+                    const xScale = desiredWidth / width;
+                    const yScale = desiredHeight / height;
+                    const x = (index % 3) * 280 + 50;
+                    const y = Math.floor(index / 3) * 350 + 50;
+                    return Bodies.rectangle(x, y, desiredWidth, desiredHeight, {
+                        title: media.titleKr,
+                        render: {
+                            sprite: {
+                                texture: media.posterImage.pathUrl,
+                                xScale: xScale,
+                                yScale: yScale
+                            }
+                        }
+                    });
+                });
 
-        Composite.add(world, [
-            Bodies.rectangle(50, 50, 210, 310, {
-                title: "반짝이는 워터멜론",
-                render: {
-                    sprite: {
-                        texture: 'https://i.namu.wiki/i/oU6jb8E02jZarXQwQJ-Sv_RAtEKeGh4xKb9k3cgJGOTPIZg3DNNStLM7BcCVyckCAwNfp_0g8WMCYmpMw7SeuA.webp',
-                        xScale: 0.22,
-                        yScale: 0.22
-                    }
-                }
-            }),
-            Bodies.rectangle(400, 50, 210, 310, {
-                title: "프로젝트 헤일메리",
-                render: {
-                    sprite: {
-                        texture: 'https://i.namu.wiki/i/Z5LFy706523dOfooJhy2B_CtzKzZe6hGjoHwiyTfqi9-b_eBrRTDH6C8hnk8AGgDI8TTj2aBJ5E9OvMWHb3zCg.webp',
-                        xScale: 0.26,
-                        yScale: 0.26
-                    }
-                }
-            }),
-            Bodies.rectangle(630, 50, 210, 310, {
-                title: "삼체",
-                render: {
-                    sprite: {
-                        texture: 'https://i.namu.wiki/i/F6lC2Z5Ok0NGNEatdHXzzkPlWrsGq_DgDq-ZdvCo0JOuNNLS84cUdUqUgA79msOdP6gMj-X4rMFihJnEZD2OpA.webp',
-                        xScale: 0.22,
-                        yScale: 0.22
-                    }
-                }
-            }),
-            Bodies.rectangle(50, 350, 210, 310, {
-                title: "우리가 빛의 속도로 갈 수 없다면",
-                render: {
-                    sprite: {
-                        texture: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1566297225l/52214051.jpg',
-                        xScale: 0.7,
-                        yScale: 0.7
-                    }
-                }
-            }),
-            Bodies.rectangle(400, 350, 210, 310, {
-                title: "천 개의 파랑",
-                render: {
-                    sprite: {
-                        texture: 'https://contents.kyobobook.co.kr/sih/fit-in/400x0/pdt/9791190090544.jpg',
-                        xScale: 0.5,
-                        yScale: 0.5
-                    }
-                }
-            }),
-            Bodies.rectangle(630, 350, 210, 310, {
-                title: "미스터리 수사단",
-                render: {
-                    sprite: {
-                        texture: 'https://occ-0-4960-988.1.nflxso.net/dnm/api/v6/WNk1mr9x_Cd_2itp6pUM7-lXMJg/AAAABepCcFbIdtKLvXVmHyHfuIZ9_0Nu7Rci70ZQiRsFXSr-xCtYMuHi9tD-NNRM3s1nPgfj0ikLD1WOOFg99kN0ksGRCdBRq6YL1gtumekJl4p6bIqmYgbPPlcki9SbLtLDVt-zACUbf5qDGMaVQqBu22Tq-bT_-V_gjjXwmKgtRviqT38A6_jd0SvD00bzJ6okrZLKrP2TQ6T1t0heMwW8otxkwxzXTGB6_w44vmPoEqA_kLUIJ3Wjtpewx17rfAPuG7sscLbAYGoxKcxiVC0L7O5cChyn-PYvXbC-bv3_9ooPMHRnMXxekBIx.jpg?r=ae7',
-                        xScale: 0.75,
-                        yScale: 0.75
-                    }
-                }
-            }),
-
-
-        ]);
+                Composite.add(world, mediaBodies);
+            })
+            .catch(error => {
+                console.error('Error loading image dimensions:', error);
+            });
 
         Composite.add(world, [
             // walls
@@ -154,10 +142,6 @@ const Media = () => {
         };
     }
 
-    useEffect(() => {
-        renderScene()
-    }, []);
-
     const initCanvas = () => {
         const scene = sceneRef.current;
         while (scene.firstChild) {
@@ -169,7 +153,7 @@ const Media = () => {
     return (
         <div className="card card-1x1 noswapy" style={{ color: "var(--blue)" }} data-swapy-item="10">
             <div data-swapy-handle style={{ position: 'absolute', top: '0', left: '0', zIndex: '99', width: '100%', padding: '20px', borderRadius: '20px 20px 0 0', background: `linear-gradient(to top, transparent, var(--gradient))` }}>
-                <h4><b>{currentTitle || '최근 감상한 것.'}</b></h4>
+                <h4><b>{currentTitle || '최근 감상한 콘텐츠'}</b></h4>
 
                 <a onClick={() => initCanvas()} style={{ position: 'absolute', right: '20px', top: '20px' }}><IonIcon name="refresh" /></a>
             </div>
