@@ -22,12 +22,8 @@ export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    const container = document.querySelector('.swapy-container');
-    const swapy = createSwapy(container, {
-      animation: 'spring',
-    });
-    if ('ontouchstart' in window) {
-      swapy.enable();
+    if (!window.matchMedia('(max-width: 768px)').matches) {
+      const swapy = createSwapy(document.querySelector('.swapy-container'));
     }
   }, []);
 
