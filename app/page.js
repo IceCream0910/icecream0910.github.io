@@ -19,16 +19,51 @@ import { createSwapy } from '../swapy'
 
 export default function Home() {
   const router = useRouter();
-  const [isOpen, setIsOpen] = useState(false);
+  const [showHeader, setShowHeader] = useState(false);
 
   useEffect(() => {
-    if (!window.matchMedia('(max-width: 768px)').matches) {
-      const swapy = createSwapy(document.querySelector('.swapy-container'));
+    if (!window.matchMedia('(max-width: 1231px)').matches) {
+      createSwapy(document.querySelector('.swapy-container'), {
+        animation: 'spring'
+      });
     }
+
+    window.addEventListener('scroll', handleScroll);
+    console.clear();
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
+
+  const handleScroll = () => {
+    if (window.scrollY > 300) {
+      setShowHeader(true);
+    } else {
+      setShowHeader(false);
+    }
+  };
 
   return (
     <>
+      {showHeader &&
+        <header>
+          <h3>윤태인</h3>
+          <div style={{ display: 'flex', gap: '10px' }}>
+            <a href="https://blog.yuntae.in" target="_blank">
+              <IonIcon name="reader-outline" />
+            </a>
+            <a href="mailto:hey@yuntae.in">
+              <IonIcon name="mail-outline" />
+            </a>
+
+            <a href="https://github.com/icecream0910" target="_blank">
+              <IonIcon name="logo-github" />
+            </a>
+          </div>
+        </header>
+      }
+
       <section className="left">
         <Image src="/profile.png" width={100} height={100} style={{ marginLeft: '-10px' }} />
         <Spacer y={20} />
@@ -154,17 +189,17 @@ export default function Home() {
           <div className="card card-1x1"
             style={{ aspectRatio: 'unset' }}>
             <b>학력 <span className="emoji">🏫</span></b><Spacer y={15} />
-            <div class="school-info">
-              <div class="school">
-                <span class="dot"></span>
+            <div className="school-info">
+              <div className="school">
+                <span className="dot"></span>
                 <div>
                   <h3>성일고등학교</h3>
                   <p>2021~2024 | 일반 인문계</p>
                 </div>
               </div>
-              <div class="line"></div>
-              <div class="school">
-                <span class="dot active"></span>
+              <div className="line"></div>
+              <div className="school">
+                <span className="dot active"></span>
                 <div>
                   <h3><span className="tag green" style={{ cursor: 'pointer' }} onClick={() => window.open('https://www.kw.ac.kr')}>→광운대학교</span></h3>
                   <p>2024~ | 소프트웨어학부</p>

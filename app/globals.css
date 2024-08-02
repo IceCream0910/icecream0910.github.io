@@ -53,8 +53,6 @@
 
 html,
 body {
-  width: 100dvw;
-  height: 100dvh;
   scroll-behavior: smooth;
   color: var(--foreground);
   background: var(--background);
@@ -74,6 +72,29 @@ body {
 
 *:focus {
   outline: none;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px 20px;
+  background-color: var(--blur);
+  backdrop-filter: blur(10px);
+  z-index: 999;
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header a {
+  position: relative;
+  color: var(--foreground);
+  text-decoration: none;
+  font-size: 20px;
+  top: 3px;
+  opacity: .8;
 }
 
 img {
@@ -199,7 +220,6 @@ section.left {
 section.right {
   width: 75%;
   height: 100%;
-  scroll-behavior: smooth;
   float: right;
 }
 
@@ -361,6 +381,10 @@ h5 {
   html,
   body {
     overflow: auto;
+  }
+
+  header {
+    display: flex;
   }
 
   section {

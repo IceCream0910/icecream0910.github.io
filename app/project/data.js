@@ -46,7 +46,7 @@ export default [
     {
         "title": "쏙",
         "summary": "성일고등학교의 급식, 시간표, 학사일정 등 정보를 한 눈에 볼 수 있는 서비스.",
-        "desc": "당시 재학 중이던 고등학교의 학생들을 위해 다양한 정보를 제공하는 서비스입니다. 급식과 시간표, 학사일정을 나이스 오픈 API를 통해 받아와 표시해주고, 학교 홈페이지 크롤링을 통해 공지사항 및 가정통신문 정보를 제공하였습니다.<br/><br/>당일의 급식 메뉴에 좋아요와 싫어요로 리액션을 표시할 수 있도록 구현하였습니다.<br/>또, 등록해둔 알레르기 정보에 따라 급식 메뉴를 빨간색으로 표시해주거나 맛있는 메뉴에는 형광펜 효과를 적용하는 등 재미있는 시각화 경험을 제공하기 위해 노력했습니다.<br/><br/>학교 커뮤니티 기능을 개발했습니다. OAuth를 통해 교내 구글 계정으로 로그인할 수 있도록 했고, 게시물은 물론 투표를 만들고 참여할 수 있도록 했습니다. 커뮤니티 규칙에 위반되는 게시물이나 댓글을 신고할 수 있는 시스템을 구현했습니다.<br/><br/><a class='link' href='https://blog.yuntae.in/slack으로-신고-기능-빠르게-구현하기' target='_blank'>Slack으로 신고 기능 빠르게 구현하기</a><br/><br/><br/>안드로이드 하이브리드 앱을 개발하여 위젯 기능과 매일 아침 급식 푸시 알림 기능을 구현하였습니다.<br/>추가로, PWA 웹앱을 지원하여 iOS와 데스크톱에서도 앱 형태로 설치해 서비스에 접근할 수 있도록 하였습니다.<br/><br/><a class='link' href='https://blog.yuntae.in/웹인-듯-웹-아닌-앱-같은-너--pwa' target='_blank'>웹인 듯 웹 아닌 앱 같은 너 - PWA</a><br/><br/><br/>급식 피드백, 반 별 TODO리스트, 커뮤니티 등 실시간성이 필요한 기능을 구현하는 데에는 Firebase Cloud Firestore를 사용하였습니다.<br/><br/><a class='link' href='https://blog.yuntae.in/firebase-데이터베이스-보안-설정하기' target='_blank'>Firebase 데이터베이스 보안 설정하기</a><br/><br/><br/>2023년 나이스 개편 당시, 장기간 나이스 서비스에 장애가 발생하여 이에 대응하기 위해 Redis의 캐시 기능을 이용해 정보를 정상적으로 제공하였습니다.<br/><br/><a class='link' href='https://blog.yuntae.in/학교-앱에서-4달-동안-급식-api가-멈춘다면' target='_blank'>학교 앱에서 4달 동안 급식 API가 멈춘다면</a>",
+        "desc": "당시 재학 중이던 고등학교의 학생들을 위해 다양한 정보를 제공하는 서비스입니다. 급식과 시간표, 학사일정을 나이스 오픈 API를 통해 받아와 표시해주고, 학교 홈페이지 크롤링을 통해 공지사항 및 가정통신문 정보를 제공하였습니다.<br/><br/>당일의 급식 메뉴에 좋아요와 싫어요로 리액션을 표시할 수 있도록 구현하였습니다.<br/>또, 등록해둔 알레르기 정보에 따라 급식 메뉴를 빨간색으로 표시해주거나 맛있는 메뉴에는 형광펜 효과를 적용하는 등 재미있는 시각화 경험을 제공하기 위해 노력했습니다.<br/><br/>학교 커뮤니티 기능을 개발했습니다. OAuth를 통해 교내 구글 계정으로 로그인할 수 있도록 했고, 게시물은 물론 투표를 만들고 참여할 수 있도록 했습니다. 커뮤니티 규칙에 위반되는 게시물이나 댓글을 신고할 수 있는 시스템을 구현했습니다.<br/><br/><a className='link' href='https://blog.yuntae.in/slack으로-신고-기능-빠르게-구현하기' target='_blank'>Slack으로 신고 기능 빠르게 구현하기</a><br/><br/><br/>안드로이드 하이브리드 앱을 개발하여 위젯 기능과 매일 아침 급식 푸시 알림 기능을 구현하였습니다.<br/>추가로, PWA 웹앱을 지원하여 iOS와 데스크톱에서도 앱 형태로 설치해 서비스에 접근할 수 있도록 하였습니다.<br/><br/><a className='link' href='https://blog.yuntae.in/웹인-듯-웹-아닌-앱-같은-너--pwa' target='_blank'>웹인 듯 웹 아닌 앱 같은 너 - PWA</a><br/><br/><br/>급식 피드백, 반 별 TODO리스트, 커뮤니티 등 실시간성이 필요한 기능을 구현하는 데에는 Firebase Cloud Firestore를 사용하였습니다.<br/><br/><a className='link' href='https://blog.yuntae.in/firebase-데이터베이스-보안-설정하기' target='_blank'>Firebase 데이터베이스 보안 설정하기</a><br/><br/><br/>2023년 나이스 개편 당시, 장기간 나이스 서비스에 장애가 발생하여 이에 대응하기 위해 Redis의 캐시 기능을 이용해 정보를 정상적으로 제공하였습니다.<br/><br/><a className='link' href='https://blog.yuntae.in/학교-앱에서-4달-동안-급식-api가-멈춘다면' target='_blank'>학교 앱에서 4달 동안 급식 API가 멈춘다면</a>",
         "links": [
             {
                 "name": "Github",
@@ -94,7 +94,7 @@ export default [
     {
         "title": "브라우저 확장앱",
         "summary": "네이버 웨일 브라우저 확장앱. 누적 다운로드 수 합산 약 50만 회.",
-        "desc": "<a class='link' href='https://blog.yuntae.in/브라우저-확장앱-개발하기aka-회고록' target='_blank'>브라우저 확장앱 개발하기(aka. 회고록)</a>",
+        "desc": "<a className='link' href='https://blog.yuntae.in/브라우저-확장앱-개발하기aka-회고록' target='_blank'>브라우저 확장앱 개발하기(aka. 회고록)</a>",
         "date": "20.05 ~ 21.05",
         "status": "서비스 중",
         "participants": "개인",

@@ -34,7 +34,6 @@ const Media = () => {
     }
 
     function renderScene(data) {
-        console.log(data);
         var Engine = Matter.Engine,
             Render = Matter.Render,
             Runner = Matter.Runner,
