@@ -22,7 +22,7 @@ export default function Home() {
   const [showHeader, setShowHeader] = useState(false);
 
   useEffect(() => {
-    if (!window.matchMedia('(max-width: 1231px)').matches) {
+    if (!window.matchMedia('(max-width: 1231px)').matches && !navigator.userAgent.includes("Firefox")) {
       createSwapy(document.querySelector('.swapy-container'), {
         animation: 'spring'
       });

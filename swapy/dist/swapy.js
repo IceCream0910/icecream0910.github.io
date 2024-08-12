@@ -500,6 +500,7 @@ function _(n, t) {
   return Math.abs(e) <= 0.01;
 }
 function y(n) {
+  if (!n) return;
   let t = n.match(/^([\d.]+)([a-zA-Z%]*)$/);
   t || (t = "0px".match(/^([\d.]+)([a-zA-Z%]*)$/));
   const e = parseFloat(t[1]), i = t[2];
@@ -620,6 +621,7 @@ class ie {
   }
 }
 function se(n, t) {
+  if (!n) return;
   const [e, i] = n.split(" "), s = y(e), r = y(i);
   return new ie(
     s.value / t.width,
@@ -1587,6 +1589,7 @@ class xe extends N {
 }
 class Ae {
   constructor(t) {
+    if (!t.elementReader.origin) return;
     a(this, "_props", /* @__PURE__ */ new Map()), this._props.set(
       "position",
       new be(new D(), new l(0, 0), t)
