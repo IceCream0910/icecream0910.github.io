@@ -139,10 +139,6 @@ export default function Home() {
             <Time />
           </div>
 
-          <div className="card-1x1" data-swapy-slot="9">
-            <LightSensor />
-          </div>
-
           <div className="card-1x1" data-swapy-slot="10">
             <Media />
           </div>

@@ -152,7 +152,11 @@ const Media = () => {
     return (
         <div className="card card-1x1 noswapy" style={{ color: "var(--blue)" }} data-swapy-item="10">
             <div data-swapy-handle style={{ position: 'absolute', top: '0', left: '0', zIndex: '99', width: '100%', padding: '20px', borderRadius: '20px 20px 0 0', background: `linear-gradient(to top, transparent, var(--gradient))` }}>
-                <h4><b>{currentTitle || '최근 감상한 콘텐츠'}</b></h4>
+                <h4 style={{ cursor: 'pointer' }}
+                    onClick={() => window.open("https://blog.yuntae.in/watchings-5931780837234126a4163e8aa940f2d5", "_blank")}
+                >
+                    <b>{currentTitle || '최근 감상한 콘텐츠'}</b>
+                </h4>
 
                 <a onClick={() => initCanvas()} style={{ position: 'absolute', right: '20px', top: '20px' }}><IonIcon name="refresh" /></a>
             </div>
