@@ -111,7 +111,7 @@ const Music = () => {
                 borderRadius: '20px',
                 zIndex: '0'
             }} />
-            <b style={{ position: 'absolute', zIndex: '1' }}>지금 듣고 있는 노래</b>
+            <b style={{ position: 'absolute', zIndex: '1', cursor: 'pointer' }} onClick={() => window.open("https://music.yuntae.in", "_blank")}>최근에 들은 노래 <IonIcon style={{ position: 'relative', top: '3px' }} name='chevron-forward' /></b>
             <Spacer y={30} />
 
             <div
