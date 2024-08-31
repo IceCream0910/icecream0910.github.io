@@ -6,12 +6,7 @@ import { prominent } from 'color.js'
 import IonIcon from '@reacticons/ionicons';
 
 const Music = () => {
-
-    const audioPlayer = useRef(null);
-    const [isPlaying, setIsPlaying] = useState(false);
-    const [audioProgress, setAudioProgress] = useState(0);
     const [data, setData] = useState([]);
-    const [lyrics, setLyrics] = useState('');
     const [color, setColor] = useState('rgb(255, 205, 41)');
     const [color2, setColor2] = useState('rgb(255, 205, 41)');
     const [image, setImage] = useState('')
@@ -25,29 +20,20 @@ const Music = () => {
             const response = await fetch('/api/music/recent');
             const data = await response.json();
             setData(data.data[0].attributes);
-            const response_lyrics = await fetch('/api/music/lyrics/' + data.data[0].id);
-            const data_lyrics = await response_lyrics.json();
-            getRandomLyric(data_lyrics);
         };
 
         fetchData();
-
-        const interval = setInterval(fetchData, 180000);
-
-        return () => {
-            clearInterval(interval);
-        };
     }, []);
 
 
     useEffect(() => {
         if (data.length === 0) return;
-        setImage(data.artwork.url.replace('{w}x{h}', '1000x1000'))
+        setImage(data.artwork.url.replace('{w}x{h}', '500x500'))
         setArtist(data.artistName)
         setTitle(data.name)
         setUrl(data.previews[0].url)
 
-        prominent(data.artwork.url.replace('{w}x{h}', '1000x1000'), { amount: 2 }).then(colors => {
+        prominent(data.artwork.url.replace('{w}x{h}', '500x500'), { amount: 2 }).then(colors => {
             const cssColor1 = `rgb(${colors[0].join(', ')})`;
             const rgbValues = cssColor1.match(/\d+/g).map(Number);
             const cssColor2 = `rgb(${rgbValues.map(value => 255 - value).join(', ')})`;
@@ -57,98 +43,22 @@ const Music = () => {
         })
     }, [data]);
 
-    function getRandomLyric(jsonResponse) {
-        const data = typeof jsonResponse === 'string' ? JSON.parse(jsonResponse) : jsonResponse;
-        const ttml = data.data[0].attributes.ttml;
-        const parser = new DOMParser();
-        const xmlDoc = parser.parseFromString(ttml, "text/xml");
-        const lyrics = xmlDoc.getElementsByTagName("p");
-        const randomIndex = Math.floor(Math.random() * lyrics.length);
-        const randomLyric = lyrics[randomIndex].textContent;
-
-        setLyrics(randomLyric);
-    }
-
-    const handlePlayPause = () => {
-        const audio = audioPlayer.current;
-        if (audio.paused) {
-            audio.play();
-            setIsPlaying(true);
-        } else {
-            audio.pause();
-            setIsPlaying(false);
-        }
-    };
-
-    const handleAudioEnd = () => {
-        const audio = audioPlayer.current;
-        audio.currentTime = 0;
-        setIsPlaying(false);
-        setAudioProgress(0);
-    };
-
-    const handleTimeUpdate = () => {
-        const audio = audioPlayer.current;
-        const progress = (audio.currentTime / audio.duration) * 100;
-        setAudioProgress(progress);
-    };
-
     return (
-        <div className="card card-1x1" data-swapy-item="3">
-            <audio ref={audioPlayer} onEnded={handleAudioEnd} onTimeUpdate={handleTimeUpdate} style={{ display: 'none' }} controls>
-                <source key={url} src={url} type="audio/mpeg" />
-            </audio>
-            <div style={{
-                position: 'absolute',
-                top: '0',
-                left: '0',
-                width: '100%',
-                height: '100%',
-                backgroundImage: `url(${image})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                opacity: '0.3',
-                borderRadius: '20px',
-                zIndex: '0'
-            }} />
-            <b style={{ position: 'absolute', zIndex: '1', cursor: 'pointer' }} onClick={() => window.open("https://music.yuntae.in", "_blank")}>최근에 들은 노래 <IonIcon style={{ position: 'relative', top: '3px' }} name='chevron-forward' /></b>
-            <Spacer y={30} />
+        <div className="card card-1x1" data-swapy-item="3" style={{ backgroundImage: `url('${image}')`, backgroundSize: 'cover' }}>
+            <h4><b>최근에 들은 노래</b><span className='emoji'> 💿</span></h4>
+            <div style={{ position: 'absolute', bottom: '0px', width: '100%', left: 0, padding: '10px' }}>
 
-            <div
-                className="progress-bar"
-                style={{
-                    width: `calc(${audioProgress}% - 90px)`,
-                    height: '5px',
-                    backgroundColor: `${color2}`,
-                    borderRadius: '20px',
-                    position: 'absolute',
-                    bottom: '37px',
-                    left: '70px',
-                    filter: 'brightness(1.4)',
-                }}
-            />
+                <div style={{ padding: '20px 15px', borderRadius: '15px', width: '100%', backgroundColor: 'var(--blur)', backdropFilter: 'blur(5px)' }} data-swapy-handle>
+                    <h3>{title}</h3>
+                    <span style={{ opacity: 0.7, fontSize: '15px' }}>
+                        {artist}
+                    </span>
+                </div>
 
-            <span style={{
-                position: 'absolute',
-                bottom: '70px',
-                left: '20px', zIndex: '1'
-            }}>
-                <b>{title}</b><br></br>
-                <span style={{ opacity: 0.8, fontSize: '15px' }}>{artist}</span><br />
-                {lyrics && <b style={{ fontSize: '15px', opacity: '.5' }}>"{lyrics}"</b>}
-            </span>
 
-            <div className='incard-button'
-                style={{
-                    position: 'absolute',
-                    backgroundColor: `${color}`,
-                    color: `${color2}`,
-                    fontSize: '18px',
-                    bottom: '20px',
-                    left: '20px'
-                }}
-                onClick={handlePlayPause}>
-                {isPlaying ? <IonIcon name="pause" /> : <IonIcon name="play" />}
+                <div className="content" style={{ bottom: '25px', right: '25px', cursor: 'pointer' }} onClick={() => window.open("https://music.yuntae.in", "_blank")}>
+                    <IonIcon name="add" />
+                </div>
             </div>
         </div >
     );

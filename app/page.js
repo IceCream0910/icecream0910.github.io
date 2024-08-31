@@ -89,7 +89,7 @@ export default function Home() {
           <div className="card-1x1" data-swapy-slot="1">
             <div className="card card-1x1 green-gradient" data-swapy-item="1">
               <Image className="sticker" src="/stickers/star.svg" width={80} height={80} style={{ position: 'absolute', bottom: '20px', right: '20px', filter: 'invert(56%) sepia(29%) saturate(300%) hue-rotate(100deg) brightness(180%) contrast(90%)' }} />
-              <h4><b>새로움</b>에 끊임없이 <b>도전</b>하는<br />개발자입니다.</h4>
+              <h4>안녕하세요 <span className="emoji">👋</span><br /><b> 새로움</b>에 끊임없이 <b>도전</b>하는<br />개발자입니다.</h4>
             </div>
           </div>
 
