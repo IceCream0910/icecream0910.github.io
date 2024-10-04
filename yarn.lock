@@ -91,10 +91,30 @@
   resolved "https://registry.yarnpkg.com/@next/swc-win32-x64-msvc/-/swc-win32-x64-msvc-14.0.1.tgz#be3dd8b3729ec51c99ff04b51e2b235756d02b6e"
   integrity sha512-FFp3nOJ/5qSpeWT0BZQ+YE1pSMk4IMpkME/1DwKBwhg4mJLB9L+6EXuJi4JEwaJdl5iN+UUlmUD3IsR1kx5fAg==
 
+"@radix-ui/react-compose-refs@1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-compose-refs/-/react-compose-refs-1.1.0.tgz#656432461fc8283d7b591dcf0d79152fae9ecc74"
+  integrity sha512-b4inOtiaOnYf9KWyO3jAeeCG6FeyfY6ldiEPanbUjWd+xIk5wZeHa8yVwmrJ2vderhu/BQvzCrJI0lHd+wIiqw==
+
+"@radix-ui/react-slot@^1.0.2":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-slot/-/react-slot-1.1.0.tgz#7c5e48c36ef5496d97b08f1357bb26ed7c714b84"
+  integrity sha512-FUCf5XMfmW4dtYl69pdS4DbxKy8nj4M7SafBgPllysxmdachynNflAdp/gCsnYWNDnge6tI9onzMp5ARYc1KNw==
+  dependencies:
+    "@radix-ui/react-compose-refs" "1.1.0"
+
 "@reacticons/ionicons@^7.1.0":
   version "7.1.0"
   resolved "https://registry.yarnpkg.com/@reacticons/ionicons/-/ionicons-7.1.0.tgz#b8d9ebfe68c77d8feb0d484f19f07438a4b36606"
   integrity sha512-hun4aeMnEyQ2qwmCB8TwNoseHLS1uj3EYuxJhEWkKaxBnyFtQ8HPqqS+HmNYiVBZu6/IeIFESScccdFcb34iqQ==
+
+"@squircle-js/react@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@squircle-js/react/-/react-1.2.0.tgz#92dc4eb83b26cb5b7c803dcca60c6cfe7f61ee6c"
+  integrity sha512-Nmayv8/5CrDCa2a6jAozwHzZ005BNvI0oM9Om+zrLZzQqPtxMW/GEMMQvxKsSJh2PQaOHe4zfpCKtCzkKg0HDw==
+  dependencies:
+    "@radix-ui/react-slot" "^1.0.2"
+    figma-squircle "^0.3.0"
 
 "@swc/helpers@0.5.2":
   version "0.5.2"
@@ -215,6 +235,11 @@ date-fns@^2.30.0:
   integrity sha512-fnULvOpxnC5/Vg3NCiWelDsLiUc9bRwAPs/+LfTLNvetFCtCTN+yQz15C/fs4AwX1R9K5GLtLfn8QW+dWisaAw==
   dependencies:
     "@babel/runtime" "^7.21.0"
+
+figma-squircle@^0.3.0:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/figma-squircle/-/figma-squircle-0.3.1.tgz#ff38020c31e9085bce8a9d68b1e0be9628c2fab9"
+  integrity sha512-cyb7fbNaJgM3XrMXRq/B4NPUILfbrSRHjqt+0/3OGBOejJKNLnFKTXSMSAjdqbw2bSo2Y2eCnYXvaRgshBnWQw==
 
 glob-to-regexp@^0.4.1:
   version "0.4.1"

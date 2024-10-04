@@ -2,12 +2,15 @@
 import React from 'react';
 import Spacer from "../components/spacer";
 import { useState } from 'react';
+import { Squircle } from "@squircle-js/react";
 
 const Mbti = () => {
     const [mbtiDesc, setMbtiDesc] = useState('이런 성격이에요');
 
     return (
-        <div className="card card-1x1 mint" data-swapy-item="6">
+        <Squircle
+            cornerRadius={20}
+            cornerSmoothing={1} className="card card-1x1 mint" data-swapy-item="6">
             저는 <b>{mbtiDesc}</b><br />
             <del style={{ fontSize: '11px', opacity: 0.5 }}>MBTI 4자에 모든걸 담을 수 없으니 재미로</del>
 
@@ -19,7 +22,7 @@ const Mbti = () => {
                     <h1 className="mbti" style={{ fontWeight: 100, fontSize: '3em' }} onMouseEnter={() => setMbtiDesc('계획적이고 체계적이에요')}>J</h1>
                 </div>
             </div>
-        </div>
+        </Squircle>
     );
 };
 

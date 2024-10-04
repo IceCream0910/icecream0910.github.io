@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import { Squircle } from "@squircle-js/react";
 import Image from "next/image";
 import Spacer from "./components/spacer";
 import IonIcon from '@reacticons/ionicons';
@@ -87,24 +88,28 @@ export default function Home() {
         <h3 id="about"></h3>
         <div className="card-container swapy-container">
           <div className="card-1x1" data-swapy-slot="1">
-            <div className="card card-1x1 green-gradient" data-swapy-item="1">
+            <Squircle
+              cornerRadius={20}
+              cornerSmoothing={1} className="card card-1x1 green-gradient" data-swapy-item="1">
               <Image className="sticker" src="/stickers/star.svg" width={80} height={80} style={{ position: 'absolute', bottom: '20px', right: '20px', filter: 'invert(56%) sepia(29%) saturate(300%) hue-rotate(100deg) brightness(180%) contrast(90%)' }} />
               <h4>안녕하세요 <span className="emoji">👋</span><br /><b> 새로움</b>에 끊임없이 <b>도전</b>하는<br />개발자입니다.</h4>
-            </div>
+            </Squircle>
           </div>
 
 
           <div className="card-1x1" data-swapy-slot="2" style={{
             aspectRatio: 'unset'
           }}>
-            <div className="card card-1x1" data-swapy-item="2"
+            <Squircle
+              cornerRadius={20}
+              cornerSmoothing={1} className="card card-1x1" data-swapy-item="2"
             >
               이런 것들을 <Image src="/heart.png" width={17} height={15} style={{ position: 'relative', top: '2px' }} />해요.
               <Spacer y={20} />
               <h1 style={{ wordBreak: 'keep-all' }}><span className="tag blue">{`#코딩/>`}</span> #개발<br />
                 #웹<span className="emoji">🌐</span> <span className="tag green">#UI/UX</span><br />
                 <span className="tag yellow">#음악<span className="emoji">💿</span></span> #집<span className="emoji">🏠</span><br />#계획<span className="emoji">🗒️</span></h1>
-            </div>
+            </Squircle>
           </div>
 
           <div className="card-1x1" data-swapy-slot="3">
@@ -124,7 +129,9 @@ export default function Home() {
           </div>
 
           <div className="card-1x1" data-swapy-slot="7">
-            <div className="card card-1x1" style={{ color: 'var(--yellow)' }} data-swapy-item="7">
+            <Squircle
+              cornerRadius={20}
+              cornerSmoothing={1} className="card card-1x1" style={{ color: 'var(--yellow)' }} data-swapy-item="7">
               <b>My Motto</b>
               <Spacer y={20} />
               <span className="handwriting" style={{ textAlign: 'right' }}>오롯이 너만의 속도를 따라가야,<br></br>
@@ -132,7 +139,7 @@ export default function Home() {
               <div className="content">
                 <span style={{ fontSize: '12px', opacity: 0.5, float: 'right' }}>ㅡ ｢Airplane - IZ*ONE｣  중</span>
               </div>
-            </div>
+            </Squircle>
           </div>
 
           <div className="card-1x1" data-swapy-slot="8">
@@ -182,7 +189,9 @@ export default function Home() {
         <Spacer y={80} />
 
         <div className="card-container">
-          <div className="card card-1x1"
+          <Squircle
+            cornerRadius={20}
+            cornerSmoothing={1} className="card card-1x1"
             style={{ aspectRatio: 'unset' }}>
             <b>학력 <span className="emoji">🏫</span></b><Spacer y={15} />
             <div className="school-info">
@@ -202,9 +211,11 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </div>
+          </Squircle>
 
-          <div className="card card-2x1" style={{ aspectRatio: 'unset' }}>
+          <Squircle
+            cornerRadius={20}
+            cornerSmoothing={1} className="card card-2x1" style={{ aspectRatio: 'unset' }}>
             <b>자격증 <span className="emoji">🪪</span></b><Spacer y={15} />
             <Spacer y={5} />
             <h3>
@@ -213,7 +224,7 @@ export default function Home() {
             <h3><span className="tag pink">#컴퓨터활용능력_2급</span>&nbsp;<span style={{ fontSize: '13px', fontWeight: '100' }}>2016</span></h3>
             <Spacer y={5} />
             <h3><span className="tag yellow">#GTQ_그래픽기술자격_1급</span>&nbsp;<span style={{ fontSize: '13px', fontWeight: '100' }}>2017</span></h3>
-          </div>
+          </Squircle>
 
         </div>
 

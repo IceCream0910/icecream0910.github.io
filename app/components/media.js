@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import IonIcon from '@reacticons/ionicons';
 import Matter from "matter-js";
+import { Squircle } from "@squircle-js/react";
 
 const Media = () => {
     const sceneRef = useRef(null);
@@ -45,7 +46,6 @@ const Media = () => {
             Event = Matter.Event,
             Bodies = Matter.Bodies;
 
-        // create engine
         var engine = Engine.create({
             gravity: {
                 scale: 0.003
@@ -53,7 +53,6 @@ const Media = () => {
         }),
             world = engine.world;
 
-        // create renderer
         var render = Render.create({
             element: sceneRef.current,
             engine: engine,
@@ -67,7 +66,6 @@ const Media = () => {
 
         Render.run(render);
 
-        // create runner
         var runner = Runner.create();
         Runner.run(runner, engine);
 
@@ -98,14 +96,12 @@ const Media = () => {
             });
 
         Composite.add(world, [
-            // walls
             Bodies.rectangle(400, 0, 800, 50, { isStatic: true, render: { visible: false } }),
             Bodies.rectangle(400, 700, 800, 50, { isStatic: true, render: { visible: false } }),
             Bodies.rectangle(800, 300, 50, 700, { isStatic: true, render: { visible: false } }),
             Bodies.rectangle(0, 300, 50, 700, { isStatic: true, render: { visible: false } })
         ]);
 
-        // add mouse control
         var mouse = Mouse.create(render.canvas),
             mouseConstraint = MouseConstraint.create(engine, {
                 mouse: mouse,
@@ -150,7 +146,9 @@ const Media = () => {
     }
 
     return (
-        <div className="card card-1x1 noswapy" style={{ color: "var(--blue)" }} data-swapy-item="10">
+        <Squircle
+            cornerRadius={20}
+            cornerSmoothing={1} className="card card-1x1 noswapy" style={{ color: "var(--blue)" }} data-swapy-item="10">
             <div data-swapy-handle style={{ position: 'absolute', top: '0', left: '0', zIndex: '99', width: '100%', padding: '20px', borderRadius: '20px 20px 0 0', background: `linear-gradient(to top, transparent, var(--gradient))` }}>
                 <h4 style={{ cursor: 'pointer' }}
                     onClick={() => window.open("https://blog.yuntae.in/watchings-5931780837234126a4163e8aa940f2d5", "_blank")}
@@ -161,7 +159,7 @@ const Media = () => {
                 <a onClick={() => initCanvas()} style={{ position: 'absolute', right: '20px', top: '20px' }}><IonIcon name="refresh" /></a>
             </div>
             <div style={{ width: '100%', height: '100%', position: 'absolute', top: 0, left: 0 }} ref={sceneRef}></div>
-        </div>
+        </Squircle>
     );
 };
 

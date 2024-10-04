@@ -250,7 +250,6 @@ section.right {
 .card {
   position: relative;
   background-color: var(--card);
-  border-radius: 20px;
   padding: 20px;
   font-size: 1.2rem;
   min-height: 100px;

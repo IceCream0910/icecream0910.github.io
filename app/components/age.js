@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { Squircle } from "@squircle-js/react";
 
 const Age = ({ birth }) => {
     const [age, setAge] = useState(0);
@@ -23,13 +24,15 @@ const Age = ({ birth }) => {
     }, [birth]);
 
     return (
-        <div className="card card-1x1 purple" data-swapy-item="5">
+        <Squircle
+            cornerRadius={20}
+            cornerSmoothing={1} className="card card-1x1 purple" data-swapy-item="5">
             <b>{birth.toString().slice(0, 4)}년에 태어났고,<br /></b>제 나이는<br />
             <span style={{ fontSize: '12px', opacity: 0.5 }}>(만 나이 기준)</span>
             <div className='content' style={{ right: '25px', bottom: "15px" }}>
                 <h1 className="mbti" style={{ fontWeight: 100, fontSize: '3em' }}>{age}세</h1>
             </div>
-        </div>
+        </Squircle>
     );
 };
 

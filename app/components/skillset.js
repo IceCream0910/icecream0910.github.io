@@ -1,12 +1,15 @@
 
 import React from 'react';
 import Spacer from "../components/spacer";
+import { Squircle } from "@squircle-js/react";
 
 const SkillSet = () => {
 
     return (
         <>
-            <div className="card card-1x1 " data-swapy-item="4">
+            <Squircle
+                cornerRadius={20}
+                cornerSmoothing={1} className="card card-1x1 " data-swapy-item="4">
                 <b>이런 걸 다룰 수 있어요 <span className="emoji">🛠️</span></b><Spacer y={20} />
 
                 <div className="image-grid" style={{ display: 'grid' }}>
@@ -118,7 +121,7 @@ const SkillSet = () => {
                 </div>
 
 
-            </div>
+            </Squircle>
             <style jsx>{`
             .image-grid {
                 grid-template-columns: repeat(5, 1fr)

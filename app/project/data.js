@@ -5,12 +5,16 @@ export default [
         "desc": "⚠️ 주의 : 개인 사용 용도로 제작된 앱으로 학교의 공식 앱이 아닙니다. 불법적인 목적으로 사용 시 발생하는 불이익에 대해서 개발자는 어떠한 책임도 지지 않음을 밝힙니다.<br/><br/><h3>주요 기능</h3><br/>- 미수강 강의 및 미수강 과제 확인<br/>- 강의 홈에서 강의계획서 바로 조회<br/>- 모바일 학생증(중앙도서관 이용증) 위젯<br/>- KLAS 메뉴 목록 개선 및 검색 기능<br/>- 개선된 성적 페이지(학기 별 성적 표시, 성적 추이 그래프 표시 등)<br/>- 온라인 강의 백그라운드 재생/PIP 지원<br/>- QR 출석체크 진입 과정 간소화<br/>- KLAS 내 정보를 바탕으로 답변하는 KLAS GPT(Beta)<br/><br/><h3>참고</h3><br/>KLAS Helper 크롬 익스텐션 : <a href='https://github.com/kw-service/klas-helper-extension' target='_blank'>kw-service/klas-helper-extension</a><br/>중앙도서관 이용증 PoC : <a href='https://github.com/mirusu400/KWU-library-QR-PoC' target='_blank'>mirusu400/KWU-library-QR-PoC<a/>",
         "links": [
             {
+                "name": "Play Store",
+                "url": "https://play.google.com/store/apps/details?id=com.icecream.kwklasplus"
+            },
+            {
                 "name": "Github",
                 "url": "https://github.com/IceCream0910/kw-klas-plus"
-            },
+            }
         ],
         "date": "24.05 ~",
-        "status": "개발 중",
+        "status": "운영 중",
         "participants": "개인",
         "icon": "https://github.com/IceCream0910/kw-klas-plus/blob/main/app/src/main/res/drawable/app_icon.png?raw=true",
         "image": ["https://i.imgur.com/mKwd1Ae.png", "https://i.imgur.com/wLz4Bri.png", "https://i.imgur.com/fF9M5sn.png", "https://i.imgur.com/X4kMSua.png"],

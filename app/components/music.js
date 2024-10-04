@@ -1,5 +1,6 @@
 
 import React, { useEffect } from 'react';
+import { Squircle } from "@squircle-js/react";
 import Spacer from "../components/spacer";
 import { useState, useRef } from "react";
 import { prominent } from 'color.js'
@@ -44,7 +45,9 @@ const Music = () => {
     }, [data]);
 
     return (
-        <div className="card card-1x1" data-swapy-item="3" style={{ backgroundImage: `url('${image}')`, backgroundSize: 'cover' }}>
+        <Squircle
+            cornerRadius={20}
+            cornerSmoothing={1} className="card card-1x1" data-swapy-item="3" style={{ backgroundImage: `url('${image}')`, backgroundSize: 'cover' }}>
             <h4><b>최근에 들은 노래</b><span className='emoji'> 💿</span></h4>
             <div style={{ position: 'absolute', bottom: '0px', width: '100%', left: 0, padding: '10px' }}>
 
@@ -60,7 +63,7 @@ const Music = () => {
                     <IonIcon name="add" />
                 </div>
             </div>
-        </div >
+        </Squircle >
     );
 };
 

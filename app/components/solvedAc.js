@@ -1,6 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import Spacer from "../components/spacer";
+import { Squircle } from "@squircle-js/react";
 
 const SolvedAc = () => {
     const [tier, setTier] = useState('');
@@ -48,7 +49,9 @@ const SolvedAc = () => {
 
 
     return (
-        <div className="card card-1x1">
+        <Squircle
+            cornerRadius={20}
+            cornerSmoothing={1} className="card card-1x1">
             <a href="https://solved.ac/profile/taein2370" target='_blank' style={{ textDecoration: 'none' }}><b>solved.ac</b></a>
             <Spacer y={20} />
             <div style={{ display: 'flex', flexDirection: 'row', gap: '20px', alignItems: 'center' }}>
@@ -81,7 +84,7 @@ const SolvedAc = () => {
                 </div>
                 <Spacer y={10} />
             </div>
-        </div >
+        </Squircle >
     );
 };
 
