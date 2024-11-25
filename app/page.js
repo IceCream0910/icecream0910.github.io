@@ -167,13 +167,7 @@ export default function Home() {
 
         <div className="card-container">
           {projectData.map((project, index) => (
-            <Project onClick={() => sessionStorage.setItem(
-              `__next_scroll_${window.history.state.idx}`,
-              JSON.stringify({
-                x: window.pageXOffset,
-                y: window.pageYOffset,
-              })
-            )} key={index} {...project} />
+            <Project key={index} {...project} />
           ))}
 
           <div className="card card-2x1" style={{ background: 'none', aspectRatio: 'unset' }}>
@@ -207,7 +201,7 @@ export default function Home() {
                 <span className="dot active"></span>
                 <div>
                   <h3><span className="tag green" style={{ cursor: 'pointer' }} onClick={() => window.open('https://www.kw.ac.kr')}>→광운대학교</span></h3>
-                  <p>2024~ | 소프트웨어학부</p>
+                  <p>2024~ | <span style={{ cursor: 'pointer' }} onClick={() => window.open('https://cs.kw.ac.kr')}>소프트웨어학부</span></p>
                 </div>
               </div>
             </div>

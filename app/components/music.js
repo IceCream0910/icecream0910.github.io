@@ -48,10 +48,15 @@ const Music = () => {
         <Squircle
             cornerRadius={20}
             cornerSmoothing={1} className="card card-1x1" data-swapy-item="3" style={{ backgroundImage: `url('${image}')`, backgroundSize: 'cover' }}>
-            <h4><b>최근에 들은 노래</b><span className='emoji'> 💿</span></h4>
             <div style={{ position: 'absolute', bottom: '0px', width: '100%', left: 0, padding: '10px' }}>
 
-                <div style={{ padding: '20px 15px', borderRadius: '15px', width: '100%', backgroundColor: 'var(--blur)', backdropFilter: 'blur(5px)' }} data-swapy-handle>
+                <div style={{ padding: '10px 15px 20px 15px', borderRadius: '15px', width: '100%', backgroundColor: 'var(--blur)', backdropFilter: 'blur(5px)' }} data-swapy-handle>
+                    <span style={{ opacity: 0.7, fontSize: '15px' }}>
+                        최근에 들은 노래 💿
+                    </span>
+                    <Spacer y={5} />
+                    <div style={{ width: '30px', border: '0.5px solid #a9a9a940' }} />
+                    <Spacer y={10} />
                     <h3>{title}</h3>
                     <span style={{ opacity: 0.7, fontSize: '15px' }}>
                         {artist}
