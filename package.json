@@ -13,6 +13,7 @@
     "@squircle-js/react": "^1.2.0",
     "body-scroll-lock": "^4.0.0-beta.0",
     "color.js": "^1.2.0",
+    "framer-motion": "^11.11.17",
     "matter-js": "^0.19.0",
     "next": "14.0.1",
     "react": "^18",
