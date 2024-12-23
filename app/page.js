@@ -11,7 +11,7 @@ import Age from "./components/age";
 import SolvedAc from "./components/solvedAc";
 import SkillSet from "./components/skillset";
 import Project from "./components/project";
-import LightSensor from "./components/lightSensor";
+import Routine from "./components/routine.js";
 import Time from "./components/time";
 import Media from "./components/media";
 import projectData from "./project/data";
@@ -154,10 +154,17 @@ export default function Home() {
 
         <Spacer y={50} />
         <h3 id="github">&nbsp;&nbsp;&nbsp;통계 <span className="emoji">📂</span></h3><Spacer y={15} />
-        <div className="card-container">
 
-          <Contribution />
-          <SolvedAc />
+        <div className="card-container">
+          <div className="card-1x1">
+            <Contribution />
+          </div>
+          <div className="card-1x1">
+            <SolvedAc />
+          </div>
+          <div className="card-1x1">
+            <Routine />
+          </div>
 
         </div>
 

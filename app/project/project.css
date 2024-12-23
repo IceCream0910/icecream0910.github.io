@@ -1,3 +1,8 @@
+* {
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
 body {
     overflow-y: scroll;
     scroll-behavior: smooth;
@@ -69,15 +74,29 @@ section.content .scroll-to-visible {
     border-radius: 15px;
 }
 
+.guage-container {
+    transform: scale(1);
+}
+
 @media (min-width: 1200px) {
     .screenshot {
         width: 30%;
+    }
+
+    .guage-container {
+        margin-top: -30px;
+        transform: scale(0.7);
     }
 }
 
 @media (min-width: 1500px) {
     .screenshot {
         width: 20%;
+    }
+
+    .guage-container {
+        margin-top: 30px;
+        transform: scale(1.2);
     }
 }
 
