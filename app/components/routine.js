@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Squircle } from "@squircle-js/react";
 
 const Routine = () => {
@@ -17,25 +17,65 @@ const Routine = () => {
 
     const fetchCommitData = async () => {
         try {
-            const response = await fetch('https://gist.githubusercontent.com/IceCream0910/07bf65d3a9488bcabb2e9de9e6a6264a/raw/6afa7db086e71497a71d10f17910edf6c7f7f478/I%27m%2520a%2520night%2520%25F0%259F%25A6%2589');
+            const response = await fetch('/api/github/routine');
             const data = await response.text();
-
-            const morning = parseFloat(data.match(/Morning.*?(\d+\.?\d*)%/)[1]);
-            const daytime = parseFloat(data.match(/Daytime.*?(\d+\.?\d*)%/)[1]);
-            const evening = parseFloat(data.match(/Evening.*?(\d+\.?\d*)%/)[1]);
-            const night = parseFloat(data.match(/Night.*?(\d+\.?\d*)%/)[1]);
+            const { morning, daytime, evening, night } = parseCommitTimes(data);
 
             setCommitStats({ morning, daytime, evening, night });
             const max = Math.max(morning, daytime, evening, night);
             setMaxText(max === morning ? '아침' : max === daytime ? '오후' : max === evening ? '저녁' : '밤과 새벽');
+
         } catch (error) {
             console.error('Error fetching commit data:', error);
+            setCommitStats({ morning: 0, daytime: 0, evening: 0, night: 0 });
+            setMaxText('...');
         }
     };
 
+    function parseCommitTimes(text) {
+        const patterns = {
+            morning: /🌞 Morning.*?(\d+\.?\d*)%/,
+            daytime: /🌆 Daytime.*?(\d+\.?\d*)%/,
+            evening: /🌃 Evening.*?(\d+\.?\d*)%/,
+            night: /🌙 Night.*?(\d+\.?\d*)%/
+        };
+    
+        const result = {};
+    
+        for (const [timeOfDay, pattern] of Object.entries(patterns)) {
+            const match = text.match(pattern);
+            if (match) {
+                result[timeOfDay] = parseFloat(match[1]);
+            } else {
+                result[timeOfDay] = 0;
+            }
+        }
+    
+        return result;
+    }
+
     const SpeedometerGauge = () => {
-        const radius = 120;
-        const strokeWidth = 25;
+        const containerRef = useRef(null);
+        const [radius, setRadius] = useState(120);
+
+        useEffect(() => {
+            const updateSize = () => {
+                if (containerRef.current) {
+                    const container = containerRef.current.parentElement;
+                    const maxSize = Math.min(
+                        container.offsetWidth,
+                        container.offsetHeight - 80 
+                    );
+                    setRadius(Math.max(Math.min(maxSize / 2, 120), 80));
+                }
+            };
+
+            updateSize();
+            window.addEventListener('resize', updateSize);
+            return () => window.removeEventListener('resize', updateSize);
+        }, []);
+
+        const strokeWidth = radius * 0.2;
         const normalizedRadius = radius - strokeWidth / 2;
         const circumference = normalizedRadius * 2 * Math.PI;
 
@@ -66,7 +106,6 @@ const Routine = () => {
                     style={{
                         transform: `rotate(${rotation}deg)`,
                         transformOrigin: '50% 50%',
-                        transition: 'all 0.3s ease-in-out',
                         cursor: 'pointer',
                         filter: hoveredStat === timeOfDay ? 'brightness(1.2)' : 'brightness(1)'
                     }}
@@ -77,7 +116,14 @@ const Routine = () => {
         let currentPercentage = 0;
 
         return (
-            <div className='guage-container' style={{ position: 'relative' }}>
+            <div ref={containerRef} className='guage-container' style={{ 
+                position: 'relative',
+                width: '100%',
+                height: '100%',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center'
+            }}>
                 <svg
                     height={radius * 2}
                     width={radius * 2}
@@ -115,7 +161,7 @@ const Routine = () => {
                     transition: 'all 0.3s ease'
                 }}>
                     <span style={{
-                        fontSize: '32px',
+                        fontSize: `${radius * 0.25}px`,
                         fontWeight: '600',
                         display: 'block',
                         marginBottom: '4px'
@@ -126,7 +172,7 @@ const Routine = () => {
                         }
                     </span>
                     <span style={{
-                        fontSize: '14px',
+                        fontSize: `${radius * 0.12}px`,
                         opacity: 0.8,
                         fontWeight: '500'
                     }}>
@@ -149,21 +195,24 @@ const Routine = () => {
             cornerRadius={20}
             cornerSmoothing={1}
             style={{
-                position: 'relative'
+                position: 'relative',
+                padding: '20px',
+                display: 'flex',
+                flexDirection: 'column',
+                height: '100%'
             }}
         >
-            <div style={{
-                marginBottom: '20px'
-            }}>
+            <div>
                 주로 코딩하는 시간은<br />
                 <b>{maxText}이에요.</b>
             </div>
             <div style={{
+                flex: 1,
                 position: 'relative',
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                marginTop: '10px'
+                minHeight: 0
             }}>
                 <SpeedometerGauge />
             </div>

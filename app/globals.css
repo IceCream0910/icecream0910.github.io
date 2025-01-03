@@ -419,15 +419,7 @@ h5 {
   #only-mobile {
     display: block;
   }
-
-  .card-container {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  }
-
-  .card-container.inmodal {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  }
-
+  
   .card {
     padding-bottom: 10%;
     animation: unset;
@@ -440,6 +432,13 @@ h5 {
     grid-column-end: span 1;
     aspect-ratio: 2 / 1;
   }
+}
+
+@media screen and (max-width: 800px) {
+  .card-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  
 }
 
 .incard-button {
