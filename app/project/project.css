@@ -67,9 +67,9 @@ section.content .scroll-to-visible {
     overflow-x: auto;
 }
 
-.screenshot {
+.screenshot-wrap {
     flex: 0 0 auto;
-    width: 30%;
+    width: 40%;
     margin-right: 20px;
     border-radius: 10px;
 }
@@ -79,7 +79,7 @@ section.content .scroll-to-visible {
 }
 
 @media (min-width: 1200px) {
-    .screenshot {
+    .screenshot-wrap {
         width: 30%;
     }
 
@@ -90,7 +90,7 @@ section.content .scroll-to-visible {
 }
 
 @media (min-width: 1500px) {
-    .screenshot {
+    .screenshot-wrap {
         width: 20%;
     }
 

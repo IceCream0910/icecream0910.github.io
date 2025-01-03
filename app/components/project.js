@@ -8,12 +8,13 @@ import { Squircle } from "@squircle-js/react";
 import { useRouter } from "next/navigation";
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
-export default function Project({ title, icon, summary, ...props }) {
+export default function Project({ title, icon, summary, directLink, ...props }) {
     const data = projectData.find((project) => project.title === decodeURIComponent(title));
     const [isSelected, setIsSelected] = useState(false);
     const [showControls, setShowControls] = useState(false);
     const screenshotsRef = useRef(null);
     const controlsTimerRef = useRef(null);
+    const [isReady, setIsReady] = useState(false);
 
     const variants = {
         initial: { opacity: 0, y: -20 },
@@ -70,11 +71,23 @@ export default function Project({ title, icon, summary, ...props }) {
         };
     }, [isSelected]);
 
+    useEffect(() => {
+        setIsReady(true);
+        return () => setIsReady(false);
+    }, []);
+
+    if (!isReady) return null;
+
     return (
         <>
             <motion.div
                 layoutId={`card-${title}`}
-                onClick={() => setIsSelected(true)}
+                onClick={() => {
+                    if(directLink) window.open(directLink, '_blank');
+                    else setIsSelected(true);
+                }}
+                initial={false}
+                layout
             >
                 <Squircle
               cornerRadius={15}
@@ -83,18 +96,19 @@ export default function Project({ title, icon, summary, ...props }) {
                         aspectRatio: 'unset',
                         cursor: 'pointer',
                         background: 'rgba(255, 255, 255, 0.05)',
-                        paddingBottom: '10px'
+                        padding: '15px 20px 20px 20px'
                     }}>
-                    <motion.b layoutId={`title-${title}`} className="card-title" style={{ fontSize: '16px' }}>
+                    <motion.b layoutId={`title-${title}`} className="card-title" style={{ fontSize: '16px', margin: 0 }}>
                         {title}
+                        {directLink && <IonIcon name='arrow-forward-outline' style={{ marginLeft: '5px', fontSize: '16px', opacity: .6, position: 'relative', top: '3px', transform: 'rotate(-45deg)' }} />}
                     </motion.b>
-                    <motion.p layoutId={`summary-${title}`} style={{ opacity: 0.6, fontSize: '15px', marginTop: '5px' }}>
+                    <motion.p layoutId={`summary-${title}`} style={{ opacity: 0.6, fontSize: '15px', margin: 0,  marginTop: '5px' }}>
                         {summary}
                     </motion.p>
                 </Squircle>
             </motion.div>
 
-            <AnimatePresence>
+            <AnimatePresence mode="wait">
                 {isSelected && (
                     <>
                         <motion.div
@@ -119,7 +133,7 @@ export default function Project({ title, icon, summary, ...props }) {
                                     >
                                         <div className='content'>
                                             <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-                                                <motion.img layoutId={`icon-${title}`} src={icon} />
+                                                {icon && <motion.img layoutId={`icon-${title}`} src={icon} />}
                                                 <motion.h2 layoutId={`title-${title}`} className='title'>{title}</motion.h2>
                                             </div>
                                             <Spacer y={15} />
@@ -149,18 +163,12 @@ export default function Project({ title, icon, summary, ...props }) {
                                     <Spacer y={30} />
 
                                     <div style={{ display: 'flex', flexDirection: 'row', width: '100%', justifyContent: 'space-around' }}>
-                                        <div style={{ textAlign: 'center', width: '100%'}}>
-                                            <span style={{ opacity: .8, fontSize: '12px' }}>기간</span>
-                                            <h3>{data.date}</h3>
-                                        </div>
-                                        <div style={{ textAlign: 'center', width: '100%' }}>
-                                            <span style={{ opacity: .8, fontSize: '12px' }}>상태</span>
-                                            <h3>{data.status}</h3>
-                                        </div>
-                                        <div style={{ textAlign: 'center', width: '100%'}}>
-                                            <span style={{ opacity: .8, fontSize: '12px' }}>참여 인원</span>
-                                            <h3>{data.participants}</h3>
-                                        </div>
+                                        {data.info && data.info.map((info, i) => (
+                                            <div key={i} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                                                <span style={{ fontSize: '14px', opacity: 0.6 }}>{info.name}</span>
+                                                <span style={{ fontSize: '16px', fontWeight: 'bold' }}>{info.value}</span>
+                                            </div>
+                                        ))}
                                     </div>
 
                                     <Spacer y={50} />
@@ -197,10 +205,9 @@ export default function Project({ title, icon, summary, ...props }) {
                                                 </>
                                             )}
                                             {data.image && data.image.map((img, i) => (
-                                                <div key={i} style={{ 
+                                                <div key={i} className="screenshot-wrap" style={{ 
                                                     position: 'relative', 
                                                     flexShrink: 0,
-                                                    width: '30%',
                                                     marginRight: '20px'
                                                 }}>
                                                     <img 
@@ -209,7 +216,8 @@ export default function Project({ title, icon, summary, ...props }) {
                                                         style={{
                                                             width: '100%',
                                                             height: '100%',
-                                                            objectFit: 'cover'
+                                                            objectFit: 'cover',
+                                                            borderRadius: '15px',
                                                         }}
                                                     />
                                                 </div>

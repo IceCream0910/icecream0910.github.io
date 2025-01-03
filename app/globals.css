@@ -363,7 +363,6 @@ h5 {
 
 @media (min-width: 1500px) {
   .card {
-    padding: 30px;
     font-size: 1.7rem;
   }
 
@@ -421,7 +420,6 @@ h5 {
   }
   
   .card {
-    padding-bottom: 10%;
     animation: unset;
     animation-timeline: unset;
     animation-range: unset;

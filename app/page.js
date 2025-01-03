@@ -14,9 +14,9 @@ import Project from "./components/project";
 import Routine from "./components/routine.js";
 import Time from "./components/time";
 import Media from "./components/media";
-import projectData from "./project/data";
 import { useRouter } from "next/navigation";
 import { createSwapy } from '../swapy'
+import ProjectsWrapper from "./components/projectsWrapper";
 
 export default function Home() {
   const router = useRouter();
@@ -172,18 +172,7 @@ export default function Home() {
         <Spacer y={80} />
         <h3 id="projects" >&nbsp;&nbsp;&nbsp;프로젝트 <span className="emoji">⚗️</span></h3><Spacer y={15} />
 
-        <div className="card-container">
-          {projectData.map((project, index) => (
-            <Project key={index} {...project} />
-          ))}
-
-          <div className="card card-2x1" style={{ background: 'none', aspectRatio: 'unset' }}>
-            더 많은 <span className="tag green">프로젝트+</span>
-            <Spacer y={5} />
-            <span className="tag yellow">뚝딱뚝딱</span> 예정
-          </div>
-
-        </div>
+        <ProjectsWrapper/>
 
 
 
