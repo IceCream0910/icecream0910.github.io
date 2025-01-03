@@ -4,7 +4,7 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: '태인 @icecream',
+  title: 'Yun Taein | 윤태인',
   description: '새로움에 끊임없이 도전하는 개발자입니다',
 }
 

@@ -69,9 +69,9 @@ section.content .scroll-to-visible {
 
 .screenshot {
     flex: 0 0 auto;
-    width: 50%;
+    width: 30%;
     margin-right: 20px;
-    border-radius: 15px;
+    border-radius: 10px;
 }
 
 .guage-container {
@@ -116,8 +116,10 @@ section.content .scroll-to-visible {
     top: 50%;
     z-index: 999;
     transform: translateY(-50%);
-    background-color: var(--foreground);
-    border: 1px solid var(--background);
+    border:none;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(3px);
     outline: none;
     color: var(--background);
     border-radius: 50%;

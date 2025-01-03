@@ -68,7 +68,7 @@ export default function Home() {
       <section className="left">
         <Image src="/profile.png" width={100} height={100} style={{ marginLeft: '-10px' }} />
         <Spacer y={20} />
-        <h1>윤태인&nbsp;<span style={{ fontSize: '15px', fontWeight: '100' }}>@icecream</span></h1>
+        <h1>윤태인&nbsp;<span style={{ fontSize: '15px', fontWeight: '100' }}>Yun Taein</span></h1>
         <Spacer y={20} />
 
         <a href="https://github.com/icecream0910" target="_blank">Github</a>

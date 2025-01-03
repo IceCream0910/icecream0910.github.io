@@ -16,7 +16,7 @@ export default [
         "date": "24.05 ~",
         "status": "운영 중",
         "participants": "개인",
-        "icon": "https://github.com/IceCream0910/kw-klas-plus/blob/main/app/src/main/res/drawable/app_icon.png?raw=true",
+        "icon": "https://play-lh.googleusercontent.com/D3VIroKtbnjKShdEXLZ0JtPC6if-ewnTK2JNkO3Lh6EbJRwZMj-fmbYNz4zFljSIkw=w480-h960-rw",
         "image": ["https://i.imgur.com/mKwd1Ae.png", "https://i.imgur.com/wLz4Bri.png", "https://i.imgur.com/fF9M5sn.png", "https://i.imgur.com/X4kMSua.png"],
     },
     {

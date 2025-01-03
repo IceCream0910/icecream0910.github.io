@@ -66,7 +66,7 @@ const Routine = () => {
                         container.offsetWidth,
                         container.offsetHeight - 80 
                     );
-                    setRadius(Math.max(Math.min(maxSize / 2, 120), 80));
+                    setRadius(Math.max(Math.min(maxSize / 2, 120), 100));
                 }
             };
 
