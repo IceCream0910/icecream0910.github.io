@@ -40,6 +40,23 @@ main {
     backdrop-filter: blur(10px);
 }
 
+.overlay-content {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+.overlay-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.overlay-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.overlay-content::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+}
 
 .fixed-header img {
     width: 50px;
@@ -65,6 +82,12 @@ section.content .scroll-to-visible {
 .screenshots {
     display: flex;
     overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.screenshots::-webkit-scrollbar {
+    display: none;
 }
 
 .screenshot-wrap {

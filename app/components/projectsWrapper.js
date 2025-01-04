@@ -10,13 +10,13 @@ export default function ProjectsWrapper() {
     const [showLeftScroll, setShowLeftScroll] = useState(false);
     const [showRightScroll, setShowRightScroll] = useState(false);
 
-    const categories = ['All', ...new Set(projectData.flatMap(project => 
+    const categories = ['All', ...new Set(projectData.flatMap(project =>
         Array.isArray(project.category) ? project.category : [project.category]
     ).filter(Boolean))];
 
     const filteredProjects = projectData.filter(project => {
         if (selectedCategory === 'All') return true;
-        return Array.isArray(project.category) 
+        return Array.isArray(project.category)
             ? project.category.includes(selectedCategory)
             : project.category === selectedCategory;
     });
@@ -24,7 +24,7 @@ export default function ProjectsWrapper() {
     const scrollTabs = (direction) => {
         const container = tabsRef.current;
         if (!container) return;
-        
+
         const scrollAmount = direction === 'left' ? -200 : 200;
         container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     };
@@ -127,7 +127,7 @@ export default function ProjectsWrapper() {
                         </button>
                     </>
                 )}
-                <div 
+                <div
                     ref={tabsRef}
                     style={{
                         display: 'flex',
@@ -147,11 +147,11 @@ export default function ProjectsWrapper() {
                                 padding: '8px 16px',
                                 borderRadius: '20px',
                                 border: 'none',
-                                background: selectedCategory === category 
-                                    ? 'var(--card)' 
+                                background: selectedCategory === category
+                                    ? 'var(--card)'
                                     : 'var(--background)',
-                                color: selectedCategory === category 
-                                    ? 'var(--text)' 
+                                color: selectedCategory === category
+                                    ? 'var(--text)'
                                     : 'var(--text)',
                                 cursor: 'pointer',
                                 whiteSpace: 'nowrap',

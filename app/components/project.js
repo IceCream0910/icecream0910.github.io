@@ -5,8 +5,6 @@ import { useEffect, useState, useRef } from "react";
 import Spacer from '../components/spacer';
 import IonIcon from '@reacticons/ionicons';
 import { Squircle } from "@squircle-js/react";
-import { useRouter } from "next/navigation";
-import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
 export default function Project({ title, icon, summary, directLink, ...props }) {
     const data = projectData.find((project) => project.title === decodeURIComponent(title));
@@ -15,6 +13,7 @@ export default function Project({ title, icon, summary, directLink, ...props }) 
     const screenshotsRef = useRef(null);
     const controlsTimerRef = useRef(null);
     const [isReady, setIsReady] = useState(false);
+    const modalRef = useRef(null);
 
     const variants = {
         initial: { opacity: 0, y: -20 },
@@ -37,7 +36,7 @@ export default function Project({ title, icon, summary, directLink, ...props }) 
                 clearTimeout(controlsTimerRef.current);
             }
         } else {
-                setShowControls(false);
+            setShowControls(false);
         }
     };
 
@@ -51,24 +50,12 @@ export default function Project({ title, icon, summary, directLink, ...props }) 
 
     useEffect(() => {
         if (isSelected) {
-            disableBodyScroll(document.body);
-            window.history.pushState({ overlay: true }, '');
-
-            const handlePopState = () => {
-                setIsSelected(false);
-            };
-            window.addEventListener('popstate', handlePopState);
-
-            return () => {
-                window.removeEventListener('popstate', handlePopState);
-            };
+            document.body.style.overflow = 'hidden';
+            document.getElementById('main-section').style.overflow = 'hidden';
         } else {
-            enableBodyScroll(document.body);
+            document.body.style.overflow = 'auto';
+            document.getElementById('main-section').style.overflow = 'auto';
         }
-
-        return () => {
-            enableBodyScroll(document.body);
-        };
     }, [isSelected]);
 
     useEffect(() => {
@@ -83,26 +70,26 @@ export default function Project({ title, icon, summary, directLink, ...props }) 
             <motion.div
                 layoutId={`card-${title}`}
                 onClick={() => {
-                    if(directLink) window.open(directLink, '_blank');
+                    if (directLink) window.open(directLink, '_blank');
                     else setIsSelected(true);
                 }}
                 initial={false}
                 layout
             >
                 <Squircle
-              cornerRadius={15}
-              cornerSmoothing={1} className="card card-1x1"
+                    cornerRadius={15}
+                    cornerSmoothing={1} className="card card-1x1"
                     style={{
                         aspectRatio: 'unset',
                         cursor: 'pointer',
-                        background: 'rgba(255, 255, 255, 0.05)',
+                        background: 'var(--card-tonal)',
                         padding: '15px 20px 20px 20px'
                     }}>
                     <motion.b layoutId={`title-${title}`} className="card-title" style={{ fontSize: '16px', margin: 0 }}>
                         {title}
                         {directLink && <IonIcon name='arrow-forward-outline' style={{ marginLeft: '5px', fontSize: '16px', opacity: .6, position: 'relative', top: '3px', transform: 'rotate(-45deg)' }} />}
                     </motion.b>
-                    <motion.p layoutId={`summary-${title}`} style={{ opacity: 0.6, fontSize: '15px', margin: 0,  marginTop: '5px' }}>
+                    <motion.p layoutId={`summary-${title}`} style={{ opacity: 0.6, fontSize: '15px', margin: 0, marginTop: '5px' }}>
                         {summary}
                     </motion.p>
                 </Squircle>
@@ -122,8 +109,13 @@ export default function Project({ title, icon, summary, directLink, ...props }) 
 
 
                             <motion.div
+                                ref={modalRef}
                                 layoutId={`card-${title}`}
                                 className="overlay-content"
+                                style={{
+                                    maxHeight: '100vh',
+                                    overflowY: 'auto'
+                                }}
                             >
                                 <section className='content' style={{ padding: '20px' }}>
 
@@ -171,19 +163,19 @@ export default function Project({ title, icon, summary, directLink, ...props }) 
                                         ))}
                                     </div>
 
-                                    <Spacer y={50} />
+                                    <Spacer y={30} />
                                     <div className='screenshots-container'>
-                                        <div 
-                                            className='screenshots' 
-                                            ref={screenshotsRef} 
+                                        <div
+                                            className='screenshots'
+                                            ref={screenshotsRef}
                                             style={{ overflowX: 'auto', display: 'flex', overflowY: 'hidden' }}
                                             onMouseEnter={() => handleScreenshotsHover(true)}
                                             onMouseLeave={() => handleScreenshotsHover(false)}
                                         >
                                             {showControls && (
                                                 <>
-                                                    <button 
-                                                        className='scroll-btn-left' 
+                                                    <button
+                                                        className='scroll-btn-left'
                                                         onClick={() => scrollScreenshots('left')}
                                                         style={{
                                                             opacity: showControls ? 1 : 0,
@@ -192,8 +184,8 @@ export default function Project({ title, icon, summary, directLink, ...props }) 
                                                     >
                                                         <IonIcon name='chevron-back' />
                                                     </button>
-                                                    <button 
-                                                        className='scroll-btn-right' 
+                                                    <button
+                                                        className='scroll-btn-right'
                                                         onClick={() => scrollScreenshots('right')}
                                                         style={{
                                                             opacity: showControls ? 1 : 0,
@@ -205,13 +197,13 @@ export default function Project({ title, icon, summary, directLink, ...props }) 
                                                 </>
                                             )}
                                             {data.image && data.image.map((img, i) => (
-                                                <div key={i} className="screenshot-wrap" style={{ 
-                                                    position: 'relative', 
+                                                <div key={i} className="screenshot-wrap" style={{
+                                                    position: 'relative',
                                                     flexShrink: 0,
                                                     marginRight: '20px'
                                                 }}>
-                                                    <img 
-                                                        className='screenshot' 
+                                                    <img
+                                                        className='screenshot'
                                                         src={img}
                                                         style={{
                                                             width: '100%',
@@ -225,7 +217,7 @@ export default function Project({ title, icon, summary, directLink, ...props }) 
                                         </div>
                                     </div>
                                     <Spacer y={10} />
-                                    <p className='scroll-to-visible' dangerouslySetInnerHTML={{ __html: data.desc }}></p>
+                                    <p dangerouslySetInnerHTML={{ __html: data.desc }}></p>
                                     <Spacer y={50} />
                                 </section>
                             </motion.div>

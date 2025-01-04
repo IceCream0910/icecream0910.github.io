@@ -172,7 +172,7 @@ export default function Home() {
         <Spacer y={80} />
         <h3 id="projects" >&nbsp;&nbsp;&nbsp;프로젝트 <span className="emoji">⚗️</span></h3><Spacer y={15} />
 
-        <ProjectsWrapper/>
+        <ProjectsWrapper />
 
 
 
