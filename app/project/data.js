@@ -198,7 +198,7 @@ export default [
         "title": "아재 말투 변환기",
         "category": "Web",
         "pin": false,
-        
+
         "directLink": "https://aze.yuntae.in/",
         "summary": "텍스트를, 입력하면..~ 아재.말투로.. 변환해줍니다..^^",
         "desc": ``,
@@ -355,7 +355,7 @@ export default [
         "category": ["Web"],
         "directLink": "https://gulzeol.vercel.app/",
         "pin": false,
-        "summary": "고등학교 때 물리학 과목의 셍기부를 쓰려고 만든 굴절 시뮬레이터",
+        "summary": "고등학교 때 물리학 과목의 생기부를 쓰려고 만든 굴절 시뮬레이터",
         "desc": "",
         "links": [
         ],

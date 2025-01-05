@@ -52,6 +52,15 @@ export default function Project({ title, icon, summary, directLink, ...props }) 
         if (isSelected) {
             document.body.style.overflow = 'hidden';
             document.getElementById('main-section').style.overflow = 'hidden';
+            window.history.pushState({ overlay: true }, '');
+            const handlePopState = () => {
+                setIsSelected(false);
+            };
+            window.addEventListener('popstate', handlePopState);
+
+            return () => {
+                window.removeEventListener('popstate', handlePopState);
+            };
         } else {
             document.body.style.overflow = 'auto';
             document.getElementById('main-section').style.overflow = 'auto';
