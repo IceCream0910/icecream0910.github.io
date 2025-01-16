@@ -23,21 +23,7 @@ export async function OPTIONS(request) {
 
 export async function GET(request) {
     try {
-        const options_token = {
-            method: 'GET',
-            headers: {
-                authority: 'api.cider.sh',
-                accept: '*/*',
-                'accept-language': 'ko-KR,ko;q=0.9',
-                referer: 'http://localhost:10768/',
-                'sec-fetch-dest': 'empty',
-                'sec-fetch-mode': 'cors',
-                'sec-fetch-site': 'cross-site',
-                'user-agent': 'Cider-2 (WebView;?client=sabiiro&env=production&platform=windows&arch=x86_64&clientVersion=7)'
-            }
-        };
-
-        const response_token = await fetch('https://api.cider.sh/v1/', options_token);
+        const response_token = await fetch('https://services-mk.cider.sh/musickit/token');
         const token_data = await response_token.json();
         const token = token_data.token;
 
@@ -50,7 +36,7 @@ export async function GET(request) {
                 authority: 'amp-api.music.apple.com',
                 'User-Agent': 'Cider-2 (WebView;?client=sabiiro&env=production&platform=windows&arch=x86_64)',
                 'media-user-token': mediaUserToken,
-                origin: 'https://music.apple.com',
+                origin: 'https://beta.music.apple.com',
                 referer: 'https://music.apple.com/',
                 'sec-fetch-dest': 'empty',
                 'sec-fetch-mode': 'cors',
