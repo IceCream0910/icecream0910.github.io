@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-const allowedOrigins = ['http://localhost', 'http://127.0.0.1', 'https://noa.kim', 'https://music.noa.kim'];
+const allowedOrigins = ['http://localhost', 'http://127.0.0.1', 'https://yuntae.in'];
 
 async function cors(request, response) {
     const origin = request.headers.get("origin") ?? "";
@@ -23,26 +23,12 @@ export async function OPTIONS(request) {
 
 export async function GET(request) {
     try {
-        const options_token = {
-            method: 'GET',
-            headers: {
-                authority: 'api.cider.sh',
-                accept: '*/*',
-                'accept-language': 'ko-KR,ko;q=0.9',
-                referer: 'http://localhost:10768/',
-                'sec-fetch-dest': 'empty',
-                'sec-fetch-mode': 'cors',
-                'sec-fetch-site': 'cross-site',
-                'user-agent': 'Cider-2 (WebView;?client=sabiiro&env=production&platform=windows&arch=x86_64&clientVersion=7)'
-            }
-        };
-
-        const response_token = await fetch('https://api.cider.sh/v1/', options_token);
+        const response_token = await fetch('https://services-mk.cider.sh/musickit/token');
         const token_data = await response_token.json();
         const token = token_data.token;
 
         // 6개월 주기로 갱신 필요
-        const mediaUserToken = process.env.NEXT_PUBLIC_APPLE_MUSIC_MEDIA_USER_TOKEN_NOA_KIM;
+        const mediaUserToken = process.env.NEXT_PUBLIC_APPLE_MUSIC_MEDIA_USER_TOKEN;
 
         const options = {
             method: 'GET',
@@ -50,7 +36,7 @@ export async function GET(request) {
                 authority: 'amp-api.music.apple.com',
                 'User-Agent': 'Cider-2 (WebView;?client=sabiiro&env=production&platform=windows&arch=x86_64)',
                 'media-user-token': mediaUserToken,
-                origin: 'https://music.apple.com',
+                origin: 'https://beta.music.apple.com',
                 referer: 'https://music.apple.com/',
                 'sec-fetch-dest': 'empty',
                 'sec-fetch-mode': 'cors',

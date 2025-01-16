@@ -45,7 +45,7 @@ export async function GET(request) {
             }
         };
 
-        const response = await fetch('https://api.music.apple.com/v1/me/recent/played/tracks?l=ko&types=songs&limit=10', options);
+        const response = await fetch('https://api.music.apple.com/v1/me/recent/played/tracks?l=ko&types=songs', options);
         const data = await response.json();
         const corsResponse = NextResponse.json(data);
         return cors(request, corsResponse);
