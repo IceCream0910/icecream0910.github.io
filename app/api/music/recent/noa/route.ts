@@ -23,7 +23,7 @@ export async function OPTIONS(request) {
 
 export async function GET(request) {
     try {
-        const response_token = await fetch('https://services-mk.cider.sh/musickit/token');
+        const response_token = await fetch(process.env.NEXT_PUBLIC_MUSICKIT_TOKEN_URL);
         const token_data = await response_token.json();
         const token = token_data.token;
 
