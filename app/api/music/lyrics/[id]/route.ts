@@ -7,7 +7,7 @@ export async function GET(req, { params }) {
     try {
         const response_token = await fetch(process.env.NEXT_PUBLIC_MUSICKIT_TOKEN_URL);
         const token_data = await response_token.json();
-        const token = token_data.token;
+        const token = token_data.token_string;
 
         // 6개월 주기로 갱신 필요
         const mediaUserToken = process.env.NEXT_PUBLIC_APPLE_MUSIC_MEDIA_USER_TOKEN;
